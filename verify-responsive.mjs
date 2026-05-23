@@ -1,6 +1,6 @@
 import { chromium } from 'playwright';
 
-const URL = process.env.URL || 'https://udvash-ds.vercel.app';
+const URL = process.env.URL || 'https://udvash-unmesh-student-portal.vercel.app';
 const VIEWS = [
   { name: 'mobile',  w: 376, h: 812 },
   { name: 'tab',     w: 768, h: 1024 },

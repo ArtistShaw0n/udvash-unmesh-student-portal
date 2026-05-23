@@ -6,9 +6,9 @@ Built from the Figma V2 source file. 99 design tokens, 77 React components,
 
 | | |
 |---|---|
-| Live demo | https://udvash-ds.vercel.app |
-| Storybook | https://udvash-ds-storybook.vercel.app |
-| Repo | https://github.com/ArtistShaw0n/udvash-ds |
+| Live demo | https://udvash-unmesh-student-portal.vercel.app |
+| Storybook | https://udvash-unmesh-student-portal-storybook.vercel.app |
+| Repo | https://github.com/ArtistShaw0n/udvash-unmesh-student-portal |
 | Figma source | https://www.figma.com/design/EM0QU7aqBCCK95WvV8Qwt5 |
 
 ## Stack

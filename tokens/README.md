@@ -29,7 +29,7 @@ Two themes defined:
 2. **Connect to this repo**:
    - Tokens Studio → Settings → Sync providers → Add new
    - Choose **GitHub**
-   - Repo: `ArtistShaw0n/udvash-ds`
+   - Repo: `ArtistShaw0n/udvash-unmesh-student-portal`
    - Branch: `main`
    - File path: `tokens/tokens.json`
    - Token: create a fine-grained PAT with `Contents: Read and write` on this repo

@@ -9,8 +9,8 @@
 | React components | 77 |
 | Figma Code Connect mappings | 11 |
 | Storybook story files | 17 |
-| Live app | https://udvash-ds.vercel.app |
-| Storybook | https://udvash-ds-storybook.vercel.app |
+| Live app | https://udvash-unmesh-student-portal.vercel.app |
+| Storybook | https://udvash-unmesh-student-portal-storybook.vercel.app |
 
 ## Components by category
 

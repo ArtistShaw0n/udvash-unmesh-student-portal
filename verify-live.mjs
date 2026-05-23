@@ -1,6 +1,6 @@
 import { chromium } from 'playwright';
 
-const URL = process.env.URL || 'https://udvash-ds.vercel.app';
+const URL = process.env.URL || 'https://udvash-unmesh-student-portal.vercel.app';
 const browser = await chromium.launch();
 const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 } });
 const page = await ctx.newPage();

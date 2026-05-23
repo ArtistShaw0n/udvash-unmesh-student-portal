@@ -387,7 +387,7 @@ export default function Home() {
 
         <p className="text-sm text-muted">
           77 React components shipped covering 142 audit specs · see <code className="bg-surface-subtle px-1.5 py-0.5 rounded-xs">COVERAGE.md</code> for the map · explore everything in{" "}
-          <a href="https://udvash-ds-storybook.vercel.app" className="text-link underline">Storybook</a>.
+          <a href="https://udvash-unmesh-student-portal-storybook.vercel.app" className="text-link underline">Storybook</a>.
         </p>
       </main>
 
