@@ -15,3 +15,6 @@ export type { ToastProps, ToastVariant } from "./Toast";
 
 export { Tooltip } from "./Tooltip";
 export type { TooltipProps, TooltipPlacement } from "./Tooltip";
+
+export { ThemeToggle } from "./ThemeToggle";
+export type { ThemeToggleProps } from "./ThemeToggle";

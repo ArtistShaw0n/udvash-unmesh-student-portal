@@ -23,6 +23,7 @@ import {
   Alert,
   Toast,
   Tooltip,
+  ThemeToggle,
   Header,
   FooterMenu,
   Modal,
@@ -53,6 +54,9 @@ export default function Home() {
 
   return (
     <main className="mx-auto max-w-3xl px-6 py-16">
+      <div className="fixed right-4 top-4 z-40">
+        <ThemeToggle />
+      </div>
       <header className="mb-12">
         <Text size="xs" weight="medium" color="muted" className="uppercase tracking-widest">
           Udvash–Unmesh
@@ -61,8 +65,8 @@ export default function Home() {
           Design System — V2
         </Text>
         <Text color="muted" className="mt-3">
-          24 components live — 12 atoms + 6 molecules + 6 organisms. Templates
-          and screen-level pages next.
+          25 components live — 12 atoms + 7 molecules + 6 organisms. Toggle the
+          theme via the moon/sun button (top-right) to verify light/dark tokens.
         </Text>
       </header>
 
