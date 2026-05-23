@@ -3,7 +3,7 @@
 import { forwardRef } from "react";
 import { cn } from "@/lib/cn";
 
-export type InputSize = "sm" | "md" | "lg";
+export type InputSize = "sm" | "md" | "lg" | "auto";
 
 export type InputProps = Omit<React.InputHTMLAttributes<HTMLInputElement>, "size"> & {
   size?: InputSize;
@@ -13,18 +13,45 @@ export type InputProps = Omit<React.InputHTMLAttributes<HTMLInputElement>, "size
 };
 
 const sizeClass: Record<InputSize, string> = {
+  // auto = sm @ mobile, md @ tablet (768+), lg @ desktop (1440+)
+  auto: "h-9 text-sm px-2.5 rounded-sm md:h-10 md:text-md lg:h-12 lg:px-3 lg:rounded-md",
   sm: "h-8 text-sm px-2.5 rounded-sm",
   md: "h-10 text-md px-2.5 rounded-sm",
   lg: "h-12 text-md px-3 rounded-md",
 };
 
+const padLeftClass: Record<InputSize, string> = {
+  auto: "pl-9 md:pl-9 lg:pl-11",
+  sm: "pl-8",
+  md: "pl-9",
+  lg: "pl-11",
+};
+
+const padRightClass: Record<InputSize, string> = {
+  auto: "pr-9 md:pr-9 lg:pr-11",
+  sm: "pr-8",
+  md: "pr-9",
+  lg: "pr-11",
+};
+
+const iconLeftPosClass: Record<InputSize, string> = {
+  auto: "left-2.5 md:left-2.5 lg:left-3",
+  sm: "left-2",
+  md: "left-2.5",
+  lg: "left-3",
+};
+
+const iconRightPosClass: Record<InputSize, string> = {
+  auto: "right-2.5 md:right-2.5 lg:right-3",
+  sm: "right-2",
+  md: "right-2.5",
+  lg: "right-3",
+};
+
 export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
-  { size = "md", invalid, iconLeft, iconRight, className, disabled, ...rest },
+  { size = "auto", invalid, iconLeft, iconRight, className, disabled, ...rest },
   ref,
 ) {
-  const wrapperPad = size === "sm" ? "pl-8" : size === "lg" ? "pl-11" : "pl-9";
-  const wrapperPadRight = size === "sm" ? "pr-8" : size === "lg" ? "pr-11" : "pr-9";
-
   if (iconLeft || iconRight) {
     return (
       <div className="relative inline-flex w-full">
@@ -32,7 +59,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
           <span
             className={cn(
               "pointer-events-none absolute inset-y-0 flex items-center text-muted",
-              size === "sm" ? "left-2" : size === "lg" ? "left-3" : "left-2.5",
+              iconLeftPosClass[size],
             )}
             aria-hidden="true"
           >
@@ -50,8 +77,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
             "disabled:bg-surface-subtle disabled:cursor-not-allowed",
             "aria-[invalid=true]:border-error",
             sizeClass[size],
-            iconLeft ? wrapperPad : undefined,
-            iconRight ? wrapperPadRight : undefined,
+            iconLeft ? padLeftClass[size] : undefined,
+            iconRight ? padRightClass[size] : undefined,
             className,
           )}
           {...rest}
@@ -60,7 +87,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
           <span
             className={cn(
               "pointer-events-none absolute inset-y-0 flex items-center text-muted",
-              size === "sm" ? "right-2" : size === "lg" ? "right-3" : "right-2.5",
+              iconRightPosClass[size],
             )}
             aria-hidden="true"
           >

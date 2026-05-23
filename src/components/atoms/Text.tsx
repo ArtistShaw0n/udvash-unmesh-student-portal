@@ -25,6 +25,8 @@ export type TextProps = Omit<React.HTMLAttributes<HTMLElement>, "color"> & {
   align?: "left" | "center" | "right";
   bangla?: boolean;
   truncate?: boolean;
+  /** When true, the size scales down on smaller viewports (mobile/tablet) */
+  responsive?: boolean;
 };
 
 const sizeClass: Record<TextSize, string> = {
@@ -35,6 +37,18 @@ const sizeClass: Record<TextSize, string> = {
   xl: "text-xl",
   "2xl": "text-2xl",
   "3xl": "text-3xl",
+};
+
+// Responsive: text scales DOWN on smaller viewports — the size= prop sets the
+// desktop maximum, mobile uses 1-2 steps smaller, tablet uses the mid step.
+const responsiveSizeClass: Record<TextSize, string> = {
+  xs: "text-xs",
+  sm: "text-xs md:text-sm",
+  md: "text-sm md:text-md",
+  lg: "text-md md:text-lg",
+  xl: "text-lg md:text-xl",
+  "2xl": "text-xl md:text-2xl",
+  "3xl": "text-2xl md:text-2xl lg:text-3xl",
 };
 
 const weightClass: Record<TextWeight, string> = {
@@ -72,6 +86,7 @@ export function Text({
   align,
   bangla = false,
   truncate = false,
+  responsive = false,
   className,
   children,
   ...rest
@@ -79,7 +94,7 @@ export function Text({
   return (
     <Tag
       className={cn(
-        sizeClass[size],
+        responsive ? responsiveSizeClass[size] : sizeClass[size],
         weightClass[weight],
         colorClass[color],
         align && alignClass[align],

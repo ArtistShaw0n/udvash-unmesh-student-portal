@@ -5,7 +5,7 @@ import { cn } from "@/lib/cn";
 import { Spinner } from "./Spinner";
 
 export type ButtonVariant = "primary" | "secondary" | "ghost" | "destructive" | "link";
-export type ButtonSize = "sm" | "md" | "lg" | "xl";
+export type ButtonSize = "sm" | "md" | "lg" | "xl" | "auto";
 
 export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: ButtonVariant;
@@ -30,6 +30,8 @@ const variantClass: Record<ButtonVariant, string> = {
 };
 
 const sizeClass: Record<ButtonSize, string> = {
+  // auto = sm @ mobile, md @ tablet (768+), lg @ desktop (1440+)
+  auto: "h-8 px-3 text-sm rounded-sm gap-1.5 md:h-9 md:px-[30px] md:text-md md:gap-2 lg:h-11 lg:px-6 lg:rounded-md",
   sm: "h-8 px-3 text-sm rounded-sm gap-1.5",
   md: "h-9 px-[30px] text-md rounded-sm gap-2",
   lg: "h-11 px-6 text-md rounded-md gap-2",
@@ -39,7 +41,7 @@ const sizeClass: Record<ButtonSize, string> = {
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
   {
     variant = "primary",
-    size = "md",
+    size = "auto",
     fullWidth = false,
     iconLeft,
     iconRight,

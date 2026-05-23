@@ -5,7 +5,6 @@ import {
   Text,
   Button,
   Input,
-  Icon,
   Avatar,
   Badge,
   Tag,
@@ -69,6 +68,38 @@ export default function Home() {
           theme via the moon/sun button (top-right) to verify light/dark tokens.
         </Text>
       </header>
+
+      <Section title="Responsive — resize the browser">
+        <Text size="sm" color="muted" className="mb-4">
+          Button/Input/Text default to size="auto" — they auto-scale by viewport.
+          Mobile (&lt;768px) renders sm, tablet (768+) renders md, desktop (1440+)
+          renders lg. Try resizing this window or use Chrome DevTools to switch
+          between mobile/tablet/desktop preset widths.
+        </Text>
+        <div className="rounded-md border border-line-subtle bg-surface-subtle p-4">
+          <Text size="xs" color="muted" className="mb-2 uppercase tracking-widest">
+            Auto-scaling Button + Input
+          </Text>
+          <div className="flex flex-wrap items-center gap-3">
+            <Button>Auto Button</Button>
+            <Button variant="secondary">Auto Secondary</Button>
+            <Input className="max-w-xs" placeholder="Auto Input" />
+          </div>
+          <Text size="xs" color="muted" className="mt-4 mb-2 uppercase tracking-widest">
+            Responsive heading (size="3xl" responsive)
+          </Text>
+          <Text size="3xl" weight="semibold" responsive>
+            Heading scales with viewport
+          </Text>
+          <Text size="xs" color="muted" className="mt-4 mb-2 uppercase tracking-widest">
+            Fixed sizes (size="md", size="lg") — same on all viewports
+          </Text>
+          <div className="flex flex-wrap items-center gap-3">
+            <Button size="md">Fixed md</Button>
+            <Button size="lg">Fixed lg</Button>
+          </div>
+        </div>
+      </Section>
 
       <Section title="Atoms — Text">
         <div className="space-y-2">
