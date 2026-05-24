@@ -26,6 +26,10 @@ import {
   SearchBar,
   FormField,
   Alert,
+  Modal,
+  Sheet,
+  Toast,
+  Tooltip,
 } from "@/components";
 
 /* ============================================================================
@@ -257,6 +261,9 @@ const sizes = [
 
 export default function Page() {
   const [copied, setCopied] = useState<string | null>(null);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [sheetOpen, setSheetOpen] = useState(false);
+  const [showToast, setShowToast] = useState(false);
   function copy(value: string) {
     navigator.clipboard?.writeText(value);
     setCopied(value);
@@ -271,7 +278,7 @@ export default function Page() {
 
       <header className="mb-12">
         <p className="text-xs font-medium uppercase tracking-widest text-muted">
-          Udvash–Unmesh · Phase 1 + 2a + 2b + 2c + 2d-1
+          Udvash–Unmesh · Phase 1 + 2a–2d-2
         </p>
         <h1 className="mt-2 text-display font-semibold leading-loose">
           Design System
@@ -285,6 +292,68 @@ export default function Page() {
           Click any swatch to copy its hex.
         </p>
       </header>
+
+      {/* PHASE 2d-2 — Feedback / overlay */}
+      <Section title="Phase 2d-2 · Modal / Sheet / Toast / Tooltip">
+        <SubSection title="Modal — Figma node 1:32594 (rounded-2xl · backdrop-blur · 328px panel)">
+          <Button onClick={() => setModalOpen(true)}>Open modal</Button>
+          <Modal
+            open={modalOpen}
+            onClose={() => setModalOpen(false)}
+            title="Revision Settings"
+            description="Pick a starting mode and which question statuses to include."
+          >
+            <p className="text-sm">
+              Modal body content. Esc closes; click outside dismisses too.
+            </p>
+            <div className="mt-4 flex justify-end gap-2">
+              <Button variant="ghost" onClick={() => setModalOpen(false)}>Cancel</Button>
+              <Button onClick={() => setModalOpen(false)}>Start Revision</Button>
+            </div>
+          </Modal>
+        </SubSection>
+        <SubSection title="Sheet — bottom sheet (slides up, rounded-top)">
+          <Button variant="secondary" onClick={() => setSheetOpen(true)}>Open bottom sheet</Button>
+          <Sheet open={sheetOpen} onClose={() => setSheetOpen(false)} title="Filter">
+            <div className="space-y-2">
+              <Checkbox label="Mathematics" />
+              <Checkbox label="Physics" defaultChecked />
+              <Checkbox label="Chemistry" />
+              <Checkbox label="Biology" />
+              <div className="mt-4 flex justify-end gap-2">
+                <Button variant="ghost" size="sm" onClick={() => setSheetOpen(false)}>Clear</Button>
+                <Button size="sm" onClick={() => setSheetOpen(false)}>Apply</Button>
+              </div>
+            </div>
+          </Sheet>
+        </SubSection>
+        <SubSection title="Toast — transient notification (auto-dismiss)">
+          <Button variant="secondary" onClick={() => setShowToast(true)}>Trigger toast</Button>
+          {showToast && (
+            <div className="fixed bottom-4 right-4 z-50">
+              <Toast
+                variant="success"
+                title="Saved"
+                duration={3000}
+                onClose={() => setShowToast(false)}
+              >
+                Profile photo updated successfully.
+              </Toast>
+            </div>
+          )}
+          <div className="mt-4 max-w-md space-y-2">
+            <Toast variant="info" title="Heads up" duration={0}>Your next live class starts at 6 PM.</Toast>
+            <Toast variant="danger" title="Failed" duration={0} onClose={() => {}}>Registration number not found.</Toast>
+          </div>
+        </SubSection>
+        <SubSection title="Tooltip">
+          <div className="flex flex-wrap gap-6">
+            <Tooltip content="Save your answer"><Button size="sm">Hover top</Button></Tooltip>
+            <Tooltip content="From the bottom" placement="bottom"><Button size="sm" variant="secondary">Bottom</Button></Tooltip>
+            <Tooltip content="On the right" placement="right"><Button size="sm" variant="ghost">Right</Button></Tooltip>
+          </div>
+        </SubSection>
+      </Section>
 
       {/* PHASE 2d-1 — Composition essentials */}
       <Section title="Phase 2d-1 · Card / SearchBar / FormField / Alert">
