@@ -30,6 +30,11 @@ import {
   Sheet,
   Toast,
   Tooltip,
+  Header,
+  FooterMenu,
+  Tabs,
+  SegmentedControl,
+  type FooterTab,
 } from "@/components";
 
 /* ============================================================================
@@ -259,11 +264,21 @@ const sizes = [
    Page
    ---------------------------------------------------------------------------- */
 
+const footerTabs: FooterTab[] = [
+  { id: "home", label: "Home", icon: "House" },
+  { id: "downloads", label: "Downloads", icon: "Download" },
+  { id: "qa", label: "Q&A", icon: "MessageCircleQuestionMark" },
+  { id: "community", label: "Community", icon: "Users" },
+];
+
 export default function Page() {
   const [copied, setCopied] = useState<string | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
   const [sheetOpen, setSheetOpen] = useState(false);
   const [showToast, setShowToast] = useState(false);
+  const [footerActive, setFooterActive] = useState("home");
+  const [tabActive, setTabActive] = useState("live");
+  const [segActive, setSegActive] = useState("live");
   function copy(value: string) {
     navigator.clipboard?.writeText(value);
     setCopied(value);
@@ -278,7 +293,7 @@ export default function Page() {
 
       <header className="mb-12">
         <p className="text-xs font-medium uppercase tracking-widest text-muted">
-          Udvash–Unmesh · Phase 1 + 2a–2d-2
+          Udvash–Unmesh · Phase 1 + 2a–2d-3
         </p>
         <h1 className="mt-2 text-display font-semibold leading-loose">
           Design System
@@ -292,6 +307,73 @@ export default function Page() {
           Click any swatch to copy its hex.
         </p>
       </header>
+
+      {/* PHASE 2d-3 — Navigation */}
+      <Section title="Phase 2d-3 · Header / FooterMenu / Tabs / SegmentedControl">
+        <SubSection title="Header — Figma node 1:12014 (376×50 · shadow-header)">
+          <div className="rounded-md border border-border p-3">
+            <Header
+              logo={<span className="text-base font-semibold">উদ্ভাস–উন্মেষ</span>}
+              actions={[{ icon: "Bell", label: "Notifications", badge: 3 }]}
+              avatar={<Avatar name="Asif Mahmood" size="sm" />}
+            />
+          </div>
+        </SubSection>
+        <SubSection title="FooterMenu — Figma node 1:4435 (376×66 · shadow-footer · brand-selected pill)">
+          <div className="rounded-md border border-border p-3">
+            <FooterMenu tabs={footerTabs} activeId={footerActive} onChange={setFooterActive} />
+          </div>
+        </SubSection>
+        <SubSection title="Tabs — underline + pill variants">
+          <div className="space-y-4">
+            <div className="w-80">
+              <Tabs
+                items={[
+                  { id: "live", label: "Live" },
+                  { id: "past", label: "Past" },
+                  { id: "upcoming", label: "Upcoming" },
+                ]}
+                activeId={tabActive}
+                onChange={setTabActive}
+                variant="underline"
+              />
+            </div>
+            <Tabs
+              items={[
+                { id: "live", label: "Live" },
+                { id: "past", label: "Past" },
+                { id: "upcoming", label: "Upcoming" },
+              ]}
+              activeId={tabActive}
+              onChange={setTabActive}
+              variant="pill"
+            />
+          </div>
+        </SubSection>
+        <SubSection title="SegmentedControl">
+          <SegmentedControl
+            options={[
+              { value: "live", label: "Live" },
+              { value: "past", label: "Past" },
+              { value: "upcoming", label: "Upcoming" },
+            ]}
+            value={segActive}
+            onChange={setSegActive}
+          />
+          <div className="mt-3 w-80">
+            <SegmentedControl
+              fullWidth
+              options={[
+                { value: "all", label: "All" },
+                { value: "mine", label: "Mine" },
+                { value: "saved", label: "Saved" },
+              ]}
+              value={segActive === "live" ? "all" : segActive}
+              onChange={setSegActive}
+            />
+          </div>
+        </SubSection>
+      </Section>
 
       {/* PHASE 2d-2 — Feedback / overlay */}
       <Section title="Phase 2d-2 · Modal / Sheet / Toast / Tooltip">

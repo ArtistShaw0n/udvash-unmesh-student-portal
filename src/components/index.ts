@@ -3,3 +3,4 @@
 // Previous (v1) component set preserved on branch `backup/v1-design-system`.
 export * from "./atoms";
 export * from "./molecules";
+export * from "./organisms";
