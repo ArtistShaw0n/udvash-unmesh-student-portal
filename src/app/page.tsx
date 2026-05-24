@@ -212,7 +212,7 @@ export default function Home() {
 
       <Section title="Responsive — resize the browser">
         <Text size="sm" color="muted" className="mb-4">
-          Button/Input/Text default to size="auto" — they auto-scale by viewport.
+          Button/Input/Text default to size=&quot;auto&quot; — they auto-scale by viewport.
           Mobile (&lt;768px) renders sm, tablet (768+) renders md, desktop (1440+)
           renders lg. Try resizing this window or use Chrome DevTools to switch
           between mobile/tablet/desktop preset widths.
@@ -227,13 +227,13 @@ export default function Home() {
             <Input className="max-w-xs" placeholder="Auto Input" />
           </div>
           <Text size="xs" color="muted" className="mt-4 mb-2 uppercase tracking-widest">
-            Responsive heading (size="3xl" responsive)
+            Responsive heading (size=&quot;3xl&quot; responsive)
           </Text>
           <Text size="3xl" weight="semibold" responsive>
             Heading scales with viewport
           </Text>
           <Text size="xs" color="muted" className="mt-4 mb-2 uppercase tracking-widest">
-            Fixed sizes (size="md", size="lg") — same on all viewports
+            Fixed sizes (size=&quot;md&quot;, size=&quot;lg&quot;) — same on all viewports
           </Text>
           <div className="flex flex-wrap items-center gap-3">
             <Button size="md">Fixed md</Button>
