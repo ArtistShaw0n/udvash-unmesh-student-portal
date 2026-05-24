@@ -57,6 +57,10 @@ import {
   PracticeExamCard,
   ProgramListCard,
   SolveSheetCard,
+  ProfileCard,
+  HomeGridCard,
+  SubjectWiseSummaryCard,
+  ServiceBlockedCard,
   type FooterTab,
 } from "@/components";
 
@@ -95,10 +99,53 @@ export default function Home() {
           Design System — V2
         </Text>
         <Text color="muted" className="mt-3">
-          52 components live — 23 atoms + 13 molecules + 7 organisms + 9 master cards.
+          56 components live — 23 atoms + 13 molecules + 7 organisms + 13 master cards.
           Toggle the theme via the moon/sun button (top-right) to verify light/dark tokens.
         </Text>
       </header>
+
+      <Section title="Master Cards — Phase 4 (Profile / HomeGrid / SubjectWise / ServiceBlocked)">
+        <div className="space-y-4">
+          <div className="grid grid-cols-2 gap-2">
+            <HomeGridCard icon="GraduationCap" title="Live Class" meta="1 Live, 2 Upcoming" tone="brand" onClick={() => {}} />
+            <HomeGridCard icon="PencilLine" title="Live Exam" meta="3 Upcoming" tone="warning" onClick={() => {}} />
+            <HomeGridCard icon="Video" title="Past Class" meta="124 saved" tone="info" onClick={() => {}} />
+            <HomeGridCard icon="Newspaper" title="Announcements" notification tone="error" onClick={() => {}} />
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2">
+            <ProfileCard
+              name="Asif Mahmood Ripon"
+              registrationNo={1819361}
+              personalInfo={[
+                { label: "Nick Name", value: "Asif" },
+                { label: "Gender", value: "Male" },
+                { label: "Religion", value: "Islam" },
+                { label: "Group", value: "Science" },
+              ]}
+              contactInfo={[
+                { label: "Mobile", value: "8801713787805" },
+                { label: "Email", value: "asif@example.com" },
+              ]}
+              onEdit={() => {}}
+            />
+            <div className="space-y-4">
+              <SubjectWiseSummaryCard
+                subjects={[
+                  { subject: "Physics", attempted: 50, total: 50, correct: 44 },
+                  { subject: "Chemistry", attempted: 50, total: 50, correct: 33 },
+                  { subject: "Math", attempted: 50, total: 50, correct: 27 },
+                  { subject: "Biology", attempted: 50, total: 50, correct: 18 },
+                ]}
+              />
+              <ServiceBlockedCard
+                reason="payment"
+                primaryAction={{ label: "Renew now", onClick: () => {} }}
+                secondaryAction={{ label: "Contact support", onClick: () => {} }}
+              />
+            </div>
+          </div>
+        </div>
+      </Section>
 
       <Section title="Master Cards — Phase 3 (CourseContent / Performance / PracticeExam / ProgramList / SolveSheet)">
         <div className="space-y-4">
