@@ -54,3 +54,6 @@ export type { CommunityRowCardProps } from "./CommunityRowCard";
 
 export { DownloadItemCard } from "./DownloadItemCard";
 export type { DownloadItemCardProps, DownloadStatus } from "./DownloadItemCard";
+
+export { AddRollCard } from "./AddRollCard";
+export type { AddRollCardProps } from "./AddRollCard";

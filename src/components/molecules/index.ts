@@ -56,3 +56,15 @@ export type { ImageUploadProps } from "./ImageUpload";
 
 export { MeritRankings } from "./MeritRankings";
 export type { MeritRankingsProps, MeritRow } from "./MeritRankings";
+
+export { ConfirmDialog } from "./ConfirmDialog";
+export type { ConfirmDialogProps, ConfirmTone } from "./ConfirmDialog";
+
+export { PhotoPicker } from "./PhotoPicker";
+export type { PhotoPickerProps, PhotoPickerSource } from "./PhotoPicker";
+
+export { FilterPanel } from "./FilterPanel";
+export type { FilterPanelProps, FilterGroup, FilterOption } from "./FilterPanel";
+
+export { VideoControls } from "./VideoControls";
+export type { VideoControlsProps } from "./VideoControls";

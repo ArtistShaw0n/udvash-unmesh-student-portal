@@ -79,6 +79,11 @@ import {
   TotalRow,
   PositionLabel,
   MeritRankings,
+  ConfirmDialog,
+  PhotoPicker,
+  FilterPanel,
+  VideoControls,
+  AddRollCard,
   type FooterTab,
 } from "@/components";
 
@@ -103,6 +108,10 @@ export default function Home() {
   const [tabActive, setTabActive] = useState("live");
   const [segValue, setSegValue] = useState("live");
   const [page, setPage] = useState(3);
+  const [confirmOpen, setConfirmOpen] = useState(false);
+  const [photoOpen, setPhotoOpen] = useState(false);
+  const [videoPlaying, setVideoPlaying] = useState(false);
+  const [videoTime, setVideoTime] = useState(38 * 60 + 12);
 
   return (
     <main className="mx-auto max-w-3xl px-6 py-16">
@@ -117,10 +126,75 @@ export default function Home() {
           Design System — V2
         </Text>
         <Text color="muted" className="mt-3">
-          74 components live — 30 atoms + 18 molecules + 7 organisms + 19 master cards.
-          Toggle the theme via the moon/sun button (top-right) to verify light/dark tokens.
+          79 components live — 30 atoms + 22 molecules + 7 organisms + 20 cards.
+          README target reached. Toggle the theme via the moon/sun button (top-right)
+          to verify light/dark tokens.
         </Text>
       </header>
+
+      <Section title="Final batch — Phase 6c (ConfirmDialog / PhotoPicker / FilterPanel / AddRollCard / VideoControls)">
+        <div className="space-y-6">
+          <div className="flex flex-wrap items-center gap-3">
+            <Button onClick={() => setConfirmOpen(true)}>Open ConfirmDialog</Button>
+            <Button variant="secondary" onClick={() => setPhotoOpen(true)}>Open PhotoPicker</Button>
+            <FilterPanel
+              groups={[
+                {
+                  id: "subject",
+                  label: "Subject",
+                  options: [
+                    { value: "physics", label: "Physics" },
+                    { value: "chemistry", label: "Chemistry" },
+                    { value: "math", label: "Math" },
+                    { value: "biology", label: "Biology" },
+                  ],
+                },
+                {
+                  id: "type",
+                  label: "Type",
+                  options: [
+                    { value: "live", label: "Live class" },
+                    { value: "past", label: "Past class" },
+                    { value: "exam", label: "Exam" },
+                  ],
+                },
+              ]}
+              defaultValue={{ subject: ["physics"], type: ["live"] }}
+            />
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2">
+            <AddRollCard onSubmit={() => {}} />
+            <div className="rounded-md bg-gray-900 p-3">
+              <VideoControls
+                playing={videoPlaying}
+                currentTime={videoTime}
+                duration={4680}
+                volume={0.7}
+                onPlayPause={() => setVideoPlaying((p) => !p)}
+                onSeek={setVideoTime}
+                onToggleMute={() => {}}
+                onPlaybackRateChange={() => {}}
+                onToggleFullscreen={() => {}}
+              />
+            </div>
+          </div>
+        </div>
+        <ConfirmDialog
+          open={confirmOpen}
+          onClose={() => setConfirmOpen(false)}
+          onConfirm={() => setConfirmOpen(false)}
+          tone="destructive"
+          title="Delete saved notes?"
+          description="This will permanently remove the saved notes from your device."
+          confirmLabel="Delete"
+        />
+        <PhotoPicker
+          open={photoOpen}
+          onClose={() => setPhotoOpen(false)}
+          onPick={() => setPhotoOpen(false)}
+          allowRemove
+        />
+      </Section>
 
       <Section title="Result Indicators — Phase 6b (ScoreLetter / ScoreGauge / StarRating / MCQRow / TotalRow / PositionLabel / MeritRankings)">
         <div className="space-y-6">
