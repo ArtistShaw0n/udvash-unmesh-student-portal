@@ -52,6 +52,11 @@ import {
   LiveExamCard,
   PastClassCard,
   MasterClassCard,
+  CourseContentCard,
+  PerformanceCard,
+  PracticeExamCard,
+  ProgramListCard,
+  SolveSheetCard,
   type FooterTab,
 } from "@/components";
 
@@ -90,10 +95,62 @@ export default function Home() {
           Design System — V2
         </Text>
         <Text color="muted" className="mt-3">
-          47 components live — 23 atoms + 13 molecules + 7 organisms + 4 master cards.
+          52 components live — 23 atoms + 13 molecules + 7 organisms + 9 master cards.
           Toggle the theme via the moon/sun button (top-right) to verify light/dark tokens.
         </Text>
       </header>
+
+      <Section title="Master Cards — Phase 3 (CourseContent / Performance / PracticeExam / ProgramList / SolveSheet)">
+        <div className="space-y-4">
+          {/* CourseContent list */}
+          <div className="flex flex-col gap-2">
+            <CourseContentCard index={1} title="Motion in one dimension" meta="12 lessons" status="completed" />
+            <CourseContentCard index={2} title="Vectors and scalars" meta="8 lessons" status="in-progress" progress={45} />
+            <CourseContentCard index={3} title="Newton's first law" meta="6 lessons" status="available" onClick={() => {}} />
+            <CourseContentCard index={4} title="Work, energy & power" meta="Locked — finish Ch. 3" status="locked" />
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2">
+            <PerformanceCard
+              title="Mock Test #4 — Physics"
+              score={85}
+              maxScore={100}
+              rank={{ value: 12, total: 240 }}
+              stats={[
+                { label: "Correct", value: 38, tone: "success" },
+                { label: "Wrong", value: 7, tone: "error" },
+                { label: "Skipped", value: 5 },
+              ]}
+              trend="up"
+            />
+            <PracticeExamCard
+              subject="Biology"
+              title="Practice MCQ — Cell Division"
+              totalQuestions={40}
+              attemptedQuestions={15}
+              durationMin={30}
+              passingMarks={25}
+            />
+            <ProgramListCard
+              programName="HSC 2026 Final Preparation"
+              level="HSC 2026"
+              branch="Udvash"
+              durationMonths={6}
+              subjects={["Physics", "Chemistry", "Math", "Biology", "Bangla", "English"]}
+              priceTaka={14500}
+              startsAt="Jun 1"
+              onDetails={() => {}}
+            />
+            <SolveSheetCard
+              subject="Physics"
+              title="HSC Mock Exam #3 — full solve sheet with explanations"
+              totalQuestions={75}
+              pages={24}
+              fileSizeKB={1820}
+              uploadedAt="May 22, 2026"
+            />
+          </div>
+        </div>
+      </Section>
 
       <Section title="Master Cards — Phase 2 (LiveClass / LiveExam / PastClass / MasterClass)">
         <div className="grid gap-4 sm:grid-cols-2">
