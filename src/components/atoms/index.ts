@@ -63,3 +63,15 @@ export type { BackLinkProps } from "./BackLink";
 
 export { ProgressBar } from "./ProgressBar";
 export type { ProgressBarProps, ProgressVariant, ProgressSize } from "./ProgressBar";
+
+export { Skeleton } from "./Skeleton";
+export type { SkeletonProps, SkeletonVariant } from "./Skeleton";
+
+export { Chip } from "./Chip";
+export type { ChipProps, ChipVariant, ChipSize } from "./Chip";
+
+export { Stat } from "./Stat";
+export type { StatProps, StatTone, StatSize } from "./Stat";
+
+export { Stepper } from "./Stepper";
+export type { StepperProps, StepperSize } from "./Stepper";

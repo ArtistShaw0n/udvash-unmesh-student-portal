@@ -44,6 +44,10 @@ import {
   Pagination,
   EmptyState,
   Icon,
+  Skeleton,
+  Chip,
+  Stat,
+  Stepper,
   type FooterTab,
 } from "@/components";
 
@@ -82,10 +86,64 @@ export default function Home() {
           Design System — V2
         </Text>
         <Text color="muted" className="mt-3">
-          39 components live — 19 atoms + 13 molecules + 7 organisms. Toggle the
+          43 components live — 23 atoms + 13 molecules + 7 organisms. Toggle the
           theme via the moon/sun button (top-right) to verify light/dark tokens.
         </Text>
       </header>
+
+      <Section title="Atoms — Skeleton / Chip / Stat / Stepper (Phase 1)">
+        <div className="space-y-6">
+          <div>
+            <Text size="xs" color="muted" className="mb-2 uppercase tracking-widest">
+              Skeleton — loading placeholders
+            </Text>
+            <div className="flex items-start gap-4">
+              <Skeleton variant="circle" width={48} height={48} />
+              <div className="flex-1 max-w-md space-y-2">
+                <Skeleton width="60%" height={14} />
+                <Skeleton lines={3} />
+              </div>
+              <Skeleton variant="rect" width={120} height={80} />
+            </div>
+          </div>
+          <div>
+            <Text size="xs" color="muted" className="mb-2 uppercase tracking-widest">
+              Chip — selectable pills (Filter / Tab / Language)
+            </Text>
+            <div className="flex flex-wrap gap-2">
+              <Chip variant="filter" selected>Mathematics</Chip>
+              <Chip variant="filter">Physics</Chip>
+              <Chip variant="filter">Chemistry</Chip>
+              <Chip variant="tab">Live</Chip>
+              <Chip variant="tab" selected>Past</Chip>
+              <Chip variant="language" iconRight="ChevronDown">EN</Chip>
+              <Chip iconLeft="Funnel">Filters</Chip>
+            </div>
+          </div>
+          <div>
+            <Text size="xs" color="muted" className="mb-2 uppercase tracking-widest">
+              Stat — labeled metrics
+            </Text>
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+              <Stat icon="CircleCheck" label="Correct" value={9} tone="success" />
+              <Stat icon="CircleX" label="Wrong" value={3} tone="error" />
+              <Stat icon="Clock" label="Duration" value="45 min" tone="brand" />
+              <Stat icon="Trophy" label="Rank" value="#12" tone="warning" hint="of 240" />
+            </div>
+          </div>
+          <div>
+            <Text size="xs" color="muted" className="mb-2 uppercase tracking-widest">
+              Stepper — numeric +/- input
+            </Text>
+            <div className="flex items-center gap-4">
+              <Stepper defaultValue={1} size="sm" />
+              <Stepper defaultValue={2} size="md" />
+              <Stepper defaultValue={3} size="lg" />
+              <Stepper defaultValue={5} disabled />
+            </div>
+          </div>
+        </div>
+      </Section>
 
       <Section title="Brand — Logo">
         <Stack direction="row" gap={6} align="center">
