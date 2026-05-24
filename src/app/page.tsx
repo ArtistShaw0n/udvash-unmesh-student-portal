@@ -19,6 +19,13 @@ import {
   ProgressBar,
   Spinner,
   Skeleton,
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  SearchBar,
+  FormField,
+  Alert,
 } from "@/components";
 
 /* ============================================================================
@@ -264,7 +271,7 @@ export default function Page() {
 
       <header className="mb-12">
         <p className="text-xs font-medium uppercase tracking-widest text-muted">
-          Udvash–Unmesh · Phase 1 + 2a + 2b + 2c
+          Udvash–Unmesh · Phase 1 + 2a + 2b + 2c + 2d-1
         </p>
         <h1 className="mt-2 text-display font-semibold leading-loose">
           Design System
@@ -278,6 +285,70 @@ export default function Page() {
           Click any swatch to copy its hex.
         </p>
       </header>
+
+      {/* PHASE 2d-1 — Composition essentials */}
+      <Section title="Phase 2d-1 · Card / SearchBar / FormField / Alert">
+        <SubSection title="Card — Figma node 1:9722 (bg-surface · rounded-lg · shadow-card)">
+          <div className="grid grid-cols-3 gap-3">
+            <Card variant="elevated">
+              <p className="text-sm font-medium">Elevated</p>
+              <p className="text-xs text-muted">Figma default</p>
+            </Card>
+            <Card variant="outlined">
+              <p className="text-sm font-medium">Outlined</p>
+              <p className="text-xs text-muted">Bordered</p>
+            </Card>
+            <Card variant="filled">
+              <p className="text-sm font-medium">Filled</p>
+              <p className="text-xs text-muted">Subtle bg</p>
+            </Card>
+          </div>
+          <div className="mt-3">
+            <Card className="w-[328px]">
+              <CardHeader>
+                <p className="text-sm font-semibold">Mock Exam #4 — Physics</p>
+                <Tag variant="success">Live</Tag>
+              </CardHeader>
+              <CardBody>
+                <p className="text-xs text-muted">Starts in 12 minutes · 60 min · 50 marks</p>
+              </CardBody>
+              <CardFooter>
+                <Button size="sm" variant="ghost">Skip</Button>
+                <Button size="sm">Join</Button>
+              </CardFooter>
+            </Card>
+          </div>
+        </SubSection>
+
+        <SubSection title="SearchBar">
+          <div className="max-w-sm">
+            <SearchBar placeholder="Search subjects" />
+          </div>
+        </SubSection>
+
+        <SubSection title="FormField (label + input + required + hint + error)">
+          <div className="max-w-sm space-y-3">
+            <FormField label="Admission Roll" required>
+              <Input placeholder="Enter Admission Roll" />
+            </FormField>
+            <FormField label="Password" required hint="Must be 8+ characters">
+              <Input type="password" />
+            </FormField>
+            <FormField label="Phone" error="Number is not registered">
+              <Input defaultValue="01717000000" />
+            </FormField>
+          </div>
+        </SubSection>
+
+        <SubSection title="Alert">
+          <div className="max-w-md space-y-3">
+            <Alert variant="info" title="Heads up">Your next live class starts at 6 PM.</Alert>
+            <Alert variant="success" title="Saved">Profile photo updated successfully.</Alert>
+            <Alert variant="warning" title="Almost full">Only 4 seats left in the Master Class.</Alert>
+            <Alert variant="danger" title="Login failed" onClose={() => {}}>Registration number not found.</Alert>
+          </div>
+        </SubSection>
+      </Section>
 
       {/* PHASE 2c — Form atoms */}
       <Section title="Phase 2c · Form atoms (Checkbox / Switch / Radio / ProgressBar / Spinner / Skeleton)">
