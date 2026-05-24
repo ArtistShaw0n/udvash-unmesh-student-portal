@@ -20,7 +20,7 @@ export { ThemeToggle } from "./ThemeToggle";
 export type { ThemeToggleProps } from "./ThemeToggle";
 
 export { Popover } from "./Popover";
-export type { PopoverProps, PopoverPlacement } from "./Popover";
+export type { PopoverProps, PopoverPlacement, PopoverTriggerProps } from "./Popover";
 
 export { Dropdown } from "./Dropdown";
 export type { DropdownProps, DropdownOption, DropdownSize } from "./Dropdown";

@@ -457,7 +457,13 @@ export default function Home() {
 
       <Section title="Molecules — Popover / Dropdown / SegmentedControl">
         <Stack direction="row" gap={3} wrap align="start">
-          <Popover trigger={<Button variant="secondary">Open Popover</Button>}>
+          <Popover
+            trigger={(triggerProps) => (
+              <Button variant="secondary" {...triggerProps}>
+                Open Popover
+              </Button>
+            )}
+          >
             <Stack gap={1} className="p-2 min-w-[200px]">
               <Text weight="medium" size="sm">Popover menu</Text>
               <Text size="xs" color="muted">Click outside or Esc to close</Text>
