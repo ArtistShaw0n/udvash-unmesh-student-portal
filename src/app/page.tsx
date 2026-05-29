@@ -205,7 +205,8 @@ export default function Page() {
       <Section title="Profile / Home / Misc — nodes 1:9714 / 1:11095 / 1:6664 / 1:4642 / 1:12549">
         <div className="flex flex-wrap items-start gap-6">
           <div className="grid w-[368px] grid-cols-2 gap-3">
-            <HomeGridCard title="Live Class" meta="1 Live, 2 Upcoming" onClick={() => {}} />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <HomeGridCard title="Live Class" meta="1 Live, 2 Upcoming" icon={<img src="/components/icons/home-liveclass.svg" alt="" className="size-[20px]" />} onClick={() => {}} />
           </div>
           <ProfileCard
             name="Asif Mahmood Ripon"
