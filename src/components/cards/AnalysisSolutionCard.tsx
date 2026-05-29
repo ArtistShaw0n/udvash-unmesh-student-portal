@@ -1,7 +1,7 @@
 /*
  * 1:1 from Figma V2 — node 1:4811 (Analysis per-question solution)
  * Raw values, no semantic tokens:
- *   card:    bg #ffffff · rounded-[5px] · shadow 0 0 4px rgba(255,255,255,0.25) · w-[360px]
+ *   card:    bg #ffffff · rounded-[5px] · shadow 0 0 5px rgba(0,0,0,0.1) + 0 0 4px rgba(255,255,255,0.25) · w-[360px]
  *   chip:    "Question N" bg #f6f6f6 rounded-[5px] px-[6px] py-[2px] · 12px #616161
  *   verdict: "Correct" 12px #00ba00, right
  *   choices: 20px radio circle + letter + text · answer circle + check (Figma SVGs)
@@ -36,7 +36,7 @@ export function AnalysisSolutionCard({
 }: AnalysisSolutionCardProps) {
   return (
     <div
-      className={`w-[360px] overflow-hidden rounded-[5px] bg-white shadow-[0px_0px_4px_0px_rgba(255,255,255,0.25)] ${className ?? ""}`}
+      className={`w-[360px] overflow-hidden rounded-[5px] bg-white shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1),0px_0px_4px_0px_rgba(255,255,255,0.25)] ${className ?? ""}`}
     >
       <div className="p-[16px]">
         <div className="mb-[8px] flex items-center justify-between">
@@ -58,7 +58,7 @@ export function AnalysisSolutionCard({
               ? "/components/icons/solution-circle-answer.svg"
               : "/components/icons/solution-circle.svg";
             return (
-              <div key={c.key} className="flex items-center gap-[8px] border-t border-[#e5e7eb] pt-[10px]">
+              <div key={c.key} className="flex items-center gap-[8px] border-t border-[#cacaca] pt-[10px]">
                 <span className="relative inline-flex size-[20px] shrink-0 items-center justify-center">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={circle} alt="" aria-hidden="true" className="absolute inset-0 size-full" />

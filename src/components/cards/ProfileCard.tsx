@@ -1,7 +1,7 @@
 /*
  * 1:1 from Figma V2 — node 1:9714 ("view-profile")
  * Raw values, no semantic tokens:
- *   card:   bg #ffffff · rounded-[10px] · shadow 0 0 4px rgba(255,255,255,0.25)
+ *   card:   bg #ffffff · rounded-[10px] · shadow 0 0 5px rgba(0,0,0,0.1) + 0 0 4px rgba(255,255,255,0.25)
  *   avatar: 96px circle, centered
  *   name:   Inter SemiBold 16px #616161, centered
  *   reg:    Inter Regular 14px #616161, centered
@@ -30,7 +30,7 @@ export function ProfileCard({
 }: ProfileCardProps) {
   return (
     <article
-      className={`w-[360px] rounded-[10px] bg-white p-[16px] shadow-[0px_0px_4px_0px_rgba(255,255,255,0.25)] ${className ?? ""}`}
+      className={`w-[360px] rounded-[10px] bg-white p-[16px] shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1),0px_0px_4px_0px_rgba(255,255,255,0.25)] ${className ?? ""}`}
     >
       <div className="flex flex-col items-center">
         {/* avatar image is a Figma asset — skipped in Phase 1 */}
@@ -46,7 +46,7 @@ export function ProfileCard({
         </p>
       </div>
 
-      <div className="my-[16px] h-px w-full bg-[#e5e7eb]" />
+      <div className="my-[16px] h-px w-full bg-[#cacaca]" />
 
       {personalInfo.length > 0 && (
         <div className="mb-[16px]">

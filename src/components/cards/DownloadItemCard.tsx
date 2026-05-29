@@ -6,7 +6,7 @@ import { cn } from "@/lib/cn";
  * 1:1 from Figma V2 — node 1:17305 (Video/Download header) + screenshot
  * Raw values, no semantic tokens:
  *   band:  bg #e4eaf4 · rounded-tl-[10px] rounded-tr-[10px]
- *   toggle: 2-segment language pill — active #4fa621 white · inactive #999999
+ *   toggle: #b7bfcd pill · active segment #4fa621 · text white 14px · rounded-[17px] (node 1:34035)
  *   title: Inter SemiBold 16px #616161
  *   meta:  Inter Regular 12px #999999
  */
@@ -36,14 +36,17 @@ export function DownloadItemCard({
       )}
     >
       <div className="mb-[12px] flex justify-end">
-        <div className="inline-flex overflow-hidden rounded-[18px] bg-white">
+        <div className="inline-flex h-[26px] items-center rounded-[17px] bg-[#b7bfcd]">
           {languages.map((lang, i) => (
             <button
               key={lang}
               type="button"
               aria-pressed={i === activeLanguage}
               onClick={() => onLanguageChange?.(i as 0 | 1)}
-              className="px-[14px] py-[4px] font-['Inter',sans-serif] text-[12px]"
+              className={cn(
+                "flex h-[26px] items-center rounded-[17px] px-[12px] font-['Inter',sans-serif] text-[14px] text-white",
+                i === activeLanguage && "bg-[#4fa621]",
+              )}
             >
               {lang}
             </button>

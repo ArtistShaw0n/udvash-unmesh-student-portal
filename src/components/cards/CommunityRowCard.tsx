@@ -10,7 +10,7 @@ import { cn } from "@/lib/cn";
  *   last:   Inter Regular 12px rgba(97,97,97,0.8) leading-[20px], truncated
  *   badge:  bg #00a511 · rounded-[18px] · Inter Medium 12px #ffffff
  *   time:   Inter Regular 10px rgba(97,97,97,0.5)
- *   bottom divider #e5e7eb
+ *   bottom divider #cacaca (Path 198196)
  */
 
 export type CommunityRowCardProps = {
@@ -38,7 +38,7 @@ export function CommunityRowCard({
       type={onClick ? "button" : undefined}
       onClick={onClick}
       className={cn(
-        "flex w-[352px] items-center gap-[12px] border-b border-[#e5e7eb] py-[12px] text-left",
+        "flex w-[352px] items-center gap-[12px] border-b border-[#cacaca] py-[12px] text-left",
         className,
       )}
     >

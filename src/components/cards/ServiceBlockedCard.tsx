@@ -3,7 +3,7 @@ import { cn } from "@/lib/cn";
 /*
  * 1:1 from Figma V2 — node 1:4642 ("Rejection Message Container")
  * Raw values, no semantic tokens:
- *   card: bg #f7d7da · rounded-[10px] · w-[328px] · shadow 0 0 4px rgba(255,255,255,0.25)
+ *   card: bg #f7d7da · rounded-[10px] · w-[328px] · shadow 0 0 5px rgba(0,0,0,0.1) + 0 0 4px rgba(255,255,255,0.25)
  *   text: Inter/Noto Regular 14px #723036 · leading-[22px]
  */
 
@@ -17,7 +17,7 @@ export function ServiceBlockedCard({ children, className }: ServiceBlockedCardPr
     <div
       role="alert"
       className={cn(
-        "w-[328px] rounded-[10px] bg-[#f7d7da] p-[20px] shadow-[0px_0px_4px_0px_rgba(255,255,255,0.25)]",
+        "w-[328px] rounded-[10px] bg-[#f7d7da] p-[20px] shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1),0px_0px_4px_0px_rgba(255,255,255,0.25)]",
         className,
       )}
     >
