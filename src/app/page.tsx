@@ -201,7 +201,7 @@ export default function Page() {
             courseLines={["Varsity 'KA' Online Exam Service", "Varsity 'KA' Admission Program 2025"]}
             statusNote="Exam not started yet"
           />
-          <PerformanceCard title="Employee Training Program 2021 (Online)" />
+          <PerformanceCard title="Employee Training Program 2021 (Online)" heroSrc="/components/images/performance-hero.png" />
           <ProgramListCard title="Engineering Admission Program (Online) 2025" />
         </div>
       </Section>
@@ -214,6 +214,7 @@ export default function Page() {
           </div>
           <ProfileCard
             name="Asif Mahmood Ripon"
+            avatarSrc="/components/images/profile-avatar.png"
             registrationNo={1819361}
             personalInfo={[
               { label: "Nick Name", value: "Asif" },
