@@ -18,6 +18,11 @@ import {
   LiveExamCard,
   PastClassCard,
   MasterClassCard,
+  CourseContentCard,
+  SolveSheetCard,
+  PracticeExamCard,
+  PerformanceCard,
+  ProgramListCard,
   type FooterTab,
 } from "@/components";
 
@@ -44,8 +49,27 @@ export default function Page() {
         <h1 className="mt-2 text-[26px] font-semibold text-[#616161]">
           1:1 from Figma V2 — raw values
         </h1>
-        <p className="mt-2 text-[14px] text-[#999999]">Batch R1 (atoms) + R2 (structural) + R3 (class cards)</p>
+        <p className="mt-2 text-[14px] text-[#999999]">Batch R1 (atoms) + R2 (structural) + R3 (class) + R4 (course/perf)</p>
       </header>
+
+      <Section title="Course / Performance cards — R4 (nodes 1:8406 / 1:7466 / 1:7599 / 1:6586 / 1:7406)">
+        <div className="flex flex-wrap gap-6">
+          <CourseContentCard title="অধ্যায়-১ : ভৌতজগৎ ও পরিমাপ" onClick={() => {}} />
+          <SolveSheetCard
+            title="VAP Daily MCQ and Written Live Exam Bio-03 Part-01 and 02"
+            courseLines={["Varsity 'KA' Online Exam Service", "Varsity 'KA' Admission Program 2025"]}
+          />
+          <PracticeExamCard
+            title="Engineering Daily MCQ Practice Exam"
+            dateTime="20 Sep, 2025 11:00 PM to 21 Sep, 2025 11:00 PM"
+            duration="30 min"
+            courseLines={["Varsity 'KA' Online Exam Service", "Varsity 'KA' Admission Program 2025"]}
+            statusNote="Exam not started yet"
+          />
+          <PerformanceCard title="Employee Training Program 2021 (Online)" />
+          <ProgramListCard title="Engineering Admission Program (Online) 2025" />
+        </div>
+      </Section>
 
       <Section title="Class cards — R3 (nodes 1:9602 / 1:8574 / 1:7819 / 1:8518)">
         <div className="flex flex-wrap gap-6">

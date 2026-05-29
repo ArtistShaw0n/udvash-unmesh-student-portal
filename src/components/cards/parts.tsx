@@ -33,10 +33,20 @@ export function LiveChip() {
   );
 }
 
-// Bordered status chip (e.g. "Online"): border 1px #ff0000 · Inter Medium 12px #ff0000
-export function OutlineChip({ children }: { children: React.ReactNode }) {
+// Bordered status chip: border 1px + Inter Medium 12px, colour configurable.
+// Figma: "Online"/"Live" use red #ff0000, "Practice" uses green #24c182.
+export function OutlineChip({
+  children,
+  color = "#ff0000",
+}: {
+  children: React.ReactNode;
+  color?: string;
+}) {
   return (
-    <span className="inline-flex h-[20px] items-center rounded-[10px] border border-[#ff0000] px-[10px] font-['Inter',sans-serif] text-[12px] font-medium text-[#ff0000]">
+    <span
+      className="inline-flex h-[20px] items-center rounded-[10px] border px-[10px] font-['Inter',sans-serif] text-[12px] font-medium"
+      style={{ borderColor: color, color }}
+    >
       {children}
     </span>
   );
@@ -64,22 +74,27 @@ export function FieldValue({ children }: { children: React.ReactNode }) {
 }
 
 // Card button: bg #55347b · h-[36px] · rounded-[5px] · Inter 14px #ffffff
+// disabled → bg #c6c6c6 (Figma disabled grey)
 export function CardButton({
   children,
   onClick,
+  disabled = false,
   className,
 }: {
   children: React.ReactNode;
   onClick?: () => void;
+  disabled?: boolean;
   className?: string;
 }) {
   return (
     <button
       type="button"
       onClick={onClick}
+      disabled={disabled}
       className={cn(
-        "flex h-[36px] items-center justify-center whitespace-nowrap rounded-[5px] bg-[#55347b] px-[20px]",
+        "flex h-[36px] items-center justify-center whitespace-nowrap rounded-[5px] px-[20px]",
         "font-['Inter',sans-serif] text-[14px] leading-[12px] text-white",
+        disabled ? "bg-[#c6c6c6]" : "bg-[#55347b]",
         className,
       )}
     >
