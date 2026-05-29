@@ -1,0 +1,49 @@
+import { AuthHeader } from "@/components/screens/AuthHeader";
+
+/*
+ * Figma V2 — Already Registered (message screen).
+ *   light node 1:14811 · dark pair (exact raw values, light + dark via .dark)
+ *   frame 376×812 · card 360 rounded-[20px] (y150–427) · header 50
+ *   Login button uses brand #55347b (enabled). Text "Your are already registered."
+ *   is reproduced verbatim from Figma (incl. its typo).
+ */
+export default function AlreadyRegisteredPage() {
+  return (
+    <main className="relative mx-auto min-h-[812px] w-[376px] bg-white dark:bg-[#111111]">
+      <div
+        className="pointer-events-none absolute inset-x-0 bottom-0 top-[50px] opacity-40 dark:hidden"
+        style={{ backgroundImage: "linear-gradient(64.6975deg, #e2eefd 13.822%, #e6f3f1 52.905%, #e9dfee 93.259%)" }}
+      />
+
+      <AuthHeader />
+
+      <div className="relative mx-auto mt-[100px] w-[360px] rounded-[20px] bg-white px-[20px] pb-[40px] pt-[40px] shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1)] dark:bg-[#1a1a1a] dark:shadow-[0px_0px_20px_0px_#000000]">
+        <p className="text-center font-['Inter',sans-serif] text-[26px] font-medium text-[#616161] dark:text-[#e8e8e8]">
+          Already Registered!
+        </p>
+
+        <div className="mt-[20px] text-center font-['Inter',sans-serif]">
+          <p className="text-[14px] leading-[20px] text-[#616161] dark:text-[#e8e8e8]">
+            Dear <span className="font-bold">Asif,</span>
+          </p>
+          <p className="text-[14px] leading-[10px]">&nbsp;</p>
+          <p className="text-[14px] leading-[20px] text-[#616161] dark:text-[#e8e8e8]">Your are already registered.</p>
+          <p className="text-[14px] leading-[20px] text-[#616161] dark:text-[#e8e8e8]">
+            Your registration number is{" "}
+            <span className="text-[16px] font-bold text-[#55347b] dark:text-[#9061c8]">1819361</span>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/components/icons/copy.svg" alt="" aria-hidden="true" className="ml-[4px] inline-block h-[15.5px] w-[15.5px] align-middle dark:hidden" />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/components/icons/copy-dark.svg" alt="" aria-hidden="true" className="ml-[4px] hidden h-[15.5px] w-[15.5px] align-middle dark:inline-block" />
+          </p>
+        </div>
+
+        <div className="mt-[40px] flex justify-center">
+          <div className="flex h-[36px] w-[150px] items-center justify-center rounded-[5px] bg-[#55347b] px-[30px] py-[8px] dark:bg-[#9061c8]">
+            <span className="font-['Inter',sans-serif] text-[14px] text-white">Login</span>
+          </div>
+        </div>
+      </div>
+    </main>
+  );
+}
