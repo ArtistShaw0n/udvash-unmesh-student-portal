@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { House, Download, MessageCircleQuestionMark, Users, Bell, GraduationCap, PencilLine, Video, Newspaper } from "lucide-react";
+import { House, Download, MessageCircleQuestionMark, Users, Bell, GraduationCap, PencilLine, Video, Newspaper, CircleCheck, CircleDashed, CircleX, CircleMinus } from "lucide-react";
 import {
   Button,
   Input,
@@ -28,6 +28,12 @@ import {
   ProfileCard,
   AddRollCard,
   SubjectWiseSummaryCard,
+  AnalysisBlockCard,
+  AnalysisSolutionCard,
+  QnACard,
+  AddCourseCard,
+  CommunityRowCard,
+  DownloadItemCard,
   type FooterTab,
 } from "@/components";
 
@@ -54,8 +60,54 @@ export default function Page() {
         <h1 className="mt-2 text-[26px] font-semibold text-[#616161]">
           1:1 from Figma V2 — raw values
         </h1>
-        <p className="mt-2 text-[14px] text-[#999999]">Batch R1 + R2 + R3 + R4 + R5 (profile/home/misc)</p>
+        <p className="mt-2 text-[14px] text-[#999999]">Batch R1–R6 · 31 components, all 1:1 from Figma V2</p>
       </header>
+
+      <Section title="Content / Analysis — R6 (nodes 1:5045 / 1:4811 / 1:27678 / 1:16812 / 1:22623 / 1:17305)">
+        <div className="flex flex-wrap items-start gap-6">
+          <div className="grid grid-cols-2 gap-[10px]">
+            <AnalysisBlockCard icon={<CircleCheck size={24} />} label="Correct" value="12" accent="#00ba00" />
+            <AnalysisBlockCard icon={<CircleDashed size={24} />} label="Skipped" value="1" accent="#25b7d3" />
+            <AnalysisBlockCard icon={<CircleX size={24} />} label="Incorrect" value="3" accent="#f95959" />
+            <AnalysisBlockCard icon={<CircleMinus size={24} />} label="Neg. Mark" value="0.75" accent="#f59e0b" />
+          </div>
+          <AnalysisSolutionCard
+            questionNo={1}
+            verdict="Correct"
+            question="মৌলিক একক হলো- [RU'18-19]"
+            optionLines={["(i) কি.গ্রা., মিটার ও সেকেন্ড", "(ii) সেকেন্ড ও ভোল্ট", "(iii) কেলভিন, ক্যান্ডেলা ও নিউটন"]}
+            choices={[
+              { key: "A", text: "i, iii", state: "correct" },
+              { key: "B", text: "ii", state: "wrong" },
+              { key: "C", text: "i, ii, iii" },
+              { key: "D", text: "i" },
+            ]}
+            solution="ত্বরণ ধ্রুব বলে, s = ut+1/2 at^2 সমীকরণটি y = ax + bx^2 সমীকরণের অনুরূপ।"
+            distribution={[
+              { key: "A", percent: "48%" },
+              { key: "B", percent: "24%" },
+              { key: "C", percent: "14%" },
+              { key: "D", percent: "20%" },
+            ]}
+          />
+          <QnACard
+            question="কোন দেশের সংবিধান অলিখিত? কোন দেশের সংবিধান অলিখিত?"
+            hasAttachment
+          />
+          <div className="flex w-[360px] flex-col gap-3">
+            <AddCourseCard title="UDVASH Varsity Math Course 2025 [Offline]" onToggle={() => {}} />
+            <AddCourseCard title="UDVASH Varsity Physics Course 2025 [Online]" checked onToggle={() => {}} />
+            <CommunityRowCard
+              groupName="উদ্ভাস ইঞ্জিনিয়ারিং ব্যাচ'২৫ (Boys)"
+              lastMessage="Miraz (Muhammad Miraz) : তুখোড় ব্..."
+              time="10:05 AM"
+              unread="100+"
+              onClick={() => {}}
+            />
+            <DownloadItemCard title="HSC Final Revision Class Biology-08" dateTime="Jan 17, 2025, 2:30 PM to 5:00 PM" onLanguageChange={() => {}} />
+          </div>
+        </div>
+      </Section>
 
       <Section title="Profile / Home / Misc — R5 (nodes 1:9714 / 1:11095 / 1:6664 / 1:4642 / 1:12549)">
         <div className="flex flex-wrap items-start gap-6">

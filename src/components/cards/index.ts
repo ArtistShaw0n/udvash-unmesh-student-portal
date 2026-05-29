@@ -39,3 +39,21 @@ export type { AddRollCardProps, AddRollField } from "./AddRollCard";
 
 export { SubjectWiseSummaryCard } from "./SubjectWiseSummaryCard";
 export type { SubjectWiseSummaryCardProps } from "./SubjectWiseSummaryCard";
+
+export { AnalysisBlockCard } from "./AnalysisBlockCard";
+export type { AnalysisBlockCardProps } from "./AnalysisBlockCard";
+
+export { AnalysisSolutionCard } from "./AnalysisSolutionCard";
+export type { AnalysisSolutionCardProps, SolutionChoice, SolutionDist } from "./AnalysisSolutionCard";
+
+export { QnACard } from "./QnACard";
+export type { QnACardProps } from "./QnACard";
+
+export { AddCourseCard } from "./AddCourseCard";
+export type { AddCourseCardProps } from "./AddCourseCard";
+
+export { CommunityRowCard } from "./CommunityRowCard";
+export type { CommunityRowCardProps } from "./CommunityRowCard";
+
+export { DownloadItemCard } from "./DownloadItemCard";
+export type { DownloadItemCardProps } from "./DownloadItemCard";
