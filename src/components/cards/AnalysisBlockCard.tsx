@@ -4,31 +4,29 @@ import { cn } from "@/lib/cn";
  * 1:1 from Figma V2 — node 1:5045 (Analysis Report stat tile)
  * Raw values, no semantic tokens:
  *   tile:  bg #ffffff · rounded-[5px] · shadow 0 0 5px rgba(0,0,0,0.1)
- *   icon:  46px box · bg <accent> at 10% (node 1:5053, opacity-10) · rounded-[10px]
- *   label: Inter Regular 14px #616161
- *   value: Inter Medium 24px #616161
- *   accents (Figma variants): Correct #00ba00 · Skipped #25b7d3 · Incorrect #f95959 · Neg. Mark #f59e0b
+ *   icon:  46px box · bg <accent> at 10% · rounded-[10px] · 24px glyph (Figma asset)
+ *   label: Inter Regular 14px #616161 · value: Inter Medium 24px #616161
+ *   variants (Figma nodes 1:5051/5063/5075/5086):
+ *     Correct #00ba00 · Skipped #25b7d3 · Incorrect #f95959 · Neg. Mark #f59e0b
  */
 
 export type AnalysisBlockType = "correct" | "skipped" | "incorrect" | "negMark";
 
-const ICON_BOX: Record<AnalysisBlockType, string> = {
-  correct: "bg-[#00ba001a] text-[#00ba00]",
-  skipped: "bg-[#25b7d31a] text-[#25b7d3]",
-  incorrect: "bg-[#f959591a] text-[#f95959]",
-  negMark: "bg-[#f59e0b1a] text-[#f59e0b]",
+const VARIANT: Record<AnalysisBlockType, { box: string; icon: string }> = {
+  correct: { box: "bg-[#00ba001a]", icon: "/components/icons/analysis-correct.svg" },
+  skipped: { box: "bg-[#25b7d31a]", icon: "/components/icons/analysis-skipped.svg" },
+  incorrect: { box: "bg-[#f959591a]", icon: "/components/icons/analysis-incorrect.svg" },
+  negMark: { box: "bg-[#f59e0b1a]", icon: "/components/icons/analysis-negmark.svg" },
 };
 
 export type AnalysisBlockCardProps = {
-  /** Icon glyph is a Figma asset — optional; box renders without it in Phase 1. */
-  icon?: React.ReactNode;
   label: string;
   value: React.ReactNode;
   type?: AnalysisBlockType;
   className?: string;
 };
 
-export function AnalysisBlockCard({ icon, label, value, type = "correct", className }: AnalysisBlockCardProps) {
+export function AnalysisBlockCard({ label, value, type = "correct", className }: AnalysisBlockCardProps) {
   return (
     <div
       className={cn(
@@ -37,10 +35,11 @@ export function AnalysisBlockCard({ icon, label, value, type = "correct", classN
       )}
     >
       <span
-        className={cn("flex size-[46px] shrink-0 items-center justify-center rounded-[10px]", ICON_BOX[type])}
+        className={cn("flex size-[46px] shrink-0 items-center justify-center rounded-[10px]", VARIANT[type].box)}
         aria-hidden="true"
       >
-        {icon}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={VARIANT[type].icon} alt="" className="size-[24px]" />
       </span>
       <span className="min-w-0">
         <span className="block font-['Inter',sans-serif] text-[14px] text-[#616161]">{label}</span>
