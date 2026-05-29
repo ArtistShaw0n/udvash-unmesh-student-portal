@@ -1,6 +1,5 @@
 "use client";
 
-import { CardButton } from "./parts";
 import { cn } from "@/lib/cn";
 
 /*
@@ -78,7 +77,13 @@ export function SubjectWiseSummaryCard({
       </div>
 
       <div className="flex justify-center">
-        <CardButton onClick={onCta} className="w-[150px]">View Result</CardButton>
+        <button
+          type="button"
+          onClick={onCta}
+          className="flex h-[36px] w-[150px] items-center justify-center whitespace-nowrap rounded-[5px] bg-[#55347b] px-[20px] font-['Inter',sans-serif] text-[14px] leading-[12px] text-white"
+        >
+          View Result
+        </button>
       </div>
     </article>
   );

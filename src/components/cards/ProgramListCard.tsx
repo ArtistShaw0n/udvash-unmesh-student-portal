@@ -1,6 +1,5 @@
 "use client";
 
-import { cardShellClass, CardButton } from "./parts";
 import { cn } from "@/lib/cn";
 
 /*
@@ -27,7 +26,12 @@ export function ProgramListCard({
   className,
 }: ProgramListCardProps) {
   return (
-    <article className={cn(cardShellClass, className)}>
+    <article
+      className={cn(
+        "w-[328px] overflow-hidden rounded-[10px] bg-white shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1)]",
+        className,
+      )}
+    >
       {/* hero image is a Figma asset — skipped in Phase 1 when no src given */}
       {heroSrc && (
         // eslint-disable-next-line @next/next/no-img-element
@@ -37,7 +41,13 @@ export function ProgramListCard({
         <p className="text-center font-['Inter',sans-serif] text-[18px] font-semibold leading-[22px] text-[#616161]">
           {title}
         </p>
-        <CardButton onClick={onCta} className="w-[150px]">{ctaLabel}</CardButton>
+        <button
+          type="button"
+          onClick={onCta}
+          className="flex h-[36px] w-[150px] items-center justify-center whitespace-nowrap rounded-[5px] bg-[#55347b] px-[20px] font-['Inter',sans-serif] text-[14px] leading-[12px] text-white"
+        >
+          {ctaLabel}
+        </button>
       </div>
     </article>
   );
