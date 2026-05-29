@@ -2,12 +2,10 @@ import { forwardRef } from "react";
 import { cn } from "@/lib/cn";
 
 /*
- * 1:1 from Figma V2 — node 1:4433 ("Button")
- * Raw values, no semantic tokens:
- *   bg:        #55347b
- *   padding:   px-[20px]  (frame height 36px → h-[36px], content centered)
- *   radius:    rounded-[5px]
- *   text:      Inter, 14px, leading-[12px], #ffffff, centered
+ * 1:1 import from Figma V2 — node 1:4433 ("Button") via get_design_context.
+ * Verbatim Figma values (nothing added):
+ *   box:   bg-[#55347b] · rounded-[5px] · px-[20px] py-[4px] · flex items-center justify-center
+ *   label: node 1:4434 — Inter Regular 14px · leading-[12px] · text-white · text-center · whitespace-nowrap
  */
 
 export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
@@ -21,8 +19,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
       ref={ref}
       type={type}
       className={cn(
-        "inline-flex h-[36px] items-center justify-center rounded-[5px] bg-[#55347b] px-[20px]",
-        "font-['Inter',sans-serif] text-[14px] leading-[12px] text-white",
+        "inline-flex items-center justify-center rounded-[5px] bg-[#55347b] px-[20px] py-[4px]",
+        "whitespace-nowrap text-center font-['Inter',sans-serif] text-[14px] font-normal leading-[12px] text-white",
         className,
       )}
       {...props}
