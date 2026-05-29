@@ -54,25 +54,12 @@ export function AnalysisSolutionCard({
         ))}
 
         <div className="mt-[10px] flex flex-col gap-[10px]">
+          {/* radio glyphs are Figma SVG assets — skipped in Phase 1; choice state
+              is still conveyed by the letter colour (wrong = #e8e8e8) per Figma */}
           {choices.map((c) => {
-            const correct = c.state === "correct";
             const wrong = c.state === "wrong";
             return (
               <div key={c.key} className="flex items-center gap-[8px] border-t border-[#e5e7eb] pt-[10px]">
-                <span
-                  className="flex size-[20px] shrink-0 items-center justify-center rounded-full border"
-                  style={{
-                    borderColor: correct ? "#00ba00" : wrong ? "#e8e8e8" : "#b9b9b9",
-                    backgroundColor: correct ? "#00ba00" : "transparent",
-                  }}
-                  aria-hidden="true"
-                >
-                  {correct && (
-                    <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
-                      <path d="M3.5 8.5 6.5 11.5 12.5 4.5" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  )}
-                </span>
                 <span className="font-['Inter',sans-serif] text-[14px]" style={{ color: wrong ? "#e8e8e8" : "#616161" }}>{c.key}</span>
                 <span className="font-['Inter',sans-serif] text-[14px] text-[#616161]">{c.text}</span>
               </div>
@@ -92,9 +79,7 @@ export function AnalysisSolutionCard({
         <div className="flex bg-[#616161]">
           {distribution.map((d) => (
             <div key={d.key} className="flex flex-1 items-center justify-center gap-[8px] py-[8px]">
-              <span className="flex size-[20px] items-center justify-center rounded-full border border-white font-['Inter',sans-serif] text-[12px] text-white">
-                {d.key}
-              </span>
+              <span className="font-['Inter',sans-serif] text-[14px] text-white">{d.key}</span>
               <span className="font-['Inter',sans-serif] text-[14px] text-white">{d.percent}</span>
             </div>
           ))}

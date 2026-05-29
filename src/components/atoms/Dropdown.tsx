@@ -70,12 +70,10 @@ export function Dropdown({
           onClick={() => setOpen((o) => !o)}
           aria-haspopup="listbox"
           aria-expanded={open}
-          className="flex h-[40px] w-[320px] items-center justify-between rounded-[5px] border border-[#b9b9b9] bg-white px-[10px] font-['Inter',sans-serif] text-[14px] text-[#616161] outline-none focus:border-[#55347b]"
+          className="flex h-[40px] w-[320px] items-center rounded-[5px] border border-[#b9b9b9] bg-white px-[10px] font-['Inter',sans-serif] text-[14px] text-[#616161] outline-none focus:border-[#55347b]"
         >
+          {/* chevron glyph is a Figma SVG asset — skipped in Phase 1 */}
           <span className="truncate">{selected?.label ?? placeholder}</span>
-          <svg width="12" height="6" viewBox="0 0 12 6" fill="none" aria-hidden="true" className="shrink-0">
-            <path d="M1 1 6 5 11 1" stroke="#616161" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
         </button>
         {open && (
           <ul

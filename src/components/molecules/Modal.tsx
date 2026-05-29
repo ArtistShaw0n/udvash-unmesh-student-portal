@@ -54,21 +54,12 @@ export function Modal({ open, onClose, title, className, children }: ModalProps)
           className,
         )}
       >
+        {/* cross glyph is a Figma SVG asset — skipped in Phase 1 (close via Esc / backdrop) */}
         {title != null && (
-          <div className="relative mb-[12px] flex items-center justify-center">
+          <div className="mb-[12px] flex items-center justify-center">
             <h2 className="font-['Inter',sans-serif] text-[20px] font-semibold text-[#616161]">
               {title}
             </h2>
-            <button
-              type="button"
-              onClick={onClose}
-              aria-label="Close"
-              className="absolute right-0 top-0 text-[#616161]"
-            >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M6 6 18 18 M18 6 6 18" stroke="#616161" strokeWidth="2" strokeLinecap="round" />
-              </svg>
-            </button>
           </div>
         )}
         {children}

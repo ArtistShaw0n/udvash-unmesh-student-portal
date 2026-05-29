@@ -28,11 +28,10 @@ export function ProgramListCard({
 }: ProgramListCardProps) {
   return (
     <article className={cn(cardShellClass, className)}>
-      {heroSrc ? (
+      {/* hero image is a Figma asset — skipped in Phase 1 when no src given */}
+      {heroSrc && (
         // eslint-disable-next-line @next/next/no-img-element
         <img src={heroSrc} alt="" className="h-[178px] w-full rounded-tl-[10px] rounded-tr-[10px] object-cover" />
-      ) : (
-        <div className="h-[178px] w-full rounded-tl-[10px] rounded-tr-[10px] bg-[#e4eaf4]" />
       )}
       <div className="flex flex-col items-center gap-[16px] px-[20px] py-[16px]">
         <p className="text-center font-['Inter',sans-serif] text-[18px] font-semibold leading-[22px] text-[#616161]">

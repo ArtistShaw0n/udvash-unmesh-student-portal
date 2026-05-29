@@ -9,7 +9,8 @@
  */
 
 export type AnalysisBlockCardProps = {
-  icon: React.ReactNode;
+  /** Icon glyph is a Figma asset — optional; box renders without it in Phase 1. */
+  icon?: React.ReactNode;
   label: string;
   value: React.ReactNode;
   accent?: string;

@@ -18,8 +18,6 @@ export type CommunityRowCardProps = {
   lastMessage: string;
   time: string;
   unread?: string;
-  avatarColor?: string;
-  initials?: string;
   onClick?: () => void;
   className?: string;
 };
@@ -29,8 +27,6 @@ export function CommunityRowCard({
   lastMessage,
   time,
   unread,
-  avatarColor = "#55347b",
-  initials = "AB",
   onClick,
   className,
 }: CommunityRowCardProps) {
@@ -44,13 +40,7 @@ export function CommunityRowCard({
         className,
       )}
     >
-      <span
-        className="flex size-[50px] shrink-0 items-center justify-center rounded-full font-['Inter',sans-serif] text-[20px] text-white"
-        style={{ backgroundColor: avatarColor }}
-        aria-hidden="true"
-      >
-        {initials}
-      </span>
+      {/* avatar (Oval) is a Figma asset — skipped in Phase 1 */}
       <span className="min-w-0 flex-1">
         <span className="block truncate font-['Inter',sans-serif] text-[14px] font-semibold leading-[22px] text-[#616161]">
           {groupName}

@@ -33,12 +33,11 @@ export function ProfileCard({
       className={`w-[360px] rounded-[10px] bg-white p-[16px] shadow-[0px_0px_4px_0px_rgba(255,255,255,0.25)] ${className ?? ""}`}
     >
       <div className="flex flex-col items-center">
-        <span className="size-[96px] overflow-hidden rounded-full bg-[#e4eaf4]">
-          {avatarSrc && (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img src={avatarSrc} alt={name} className="size-full object-cover" />
-          )}
-        </span>
+        {/* avatar image is a Figma asset — skipped in Phase 1 */}
+        {avatarSrc && (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={avatarSrc} alt={name} className="size-[96px] overflow-hidden rounded-full object-cover" />
+        )}
         <p className="mt-[12px] text-center font-['Inter',sans-serif] text-[16px] font-semibold text-[#616161]">
           {name}
         </p>

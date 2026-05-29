@@ -15,7 +15,8 @@ import { cn } from "@/lib/cn";
 export type FooterTab = {
   id: string;
   label: string;
-  icon: React.ReactNode;
+  /** Icon glyph is a Figma asset — optional; the active box renders without it in Phase 1. */
+  icon?: React.ReactNode;
 };
 
 export type FooterMenuProps = {

@@ -1,6 +1,5 @@
 "use client";
 
-import { ListChecks, SquarePen, CircleMinus, ChartColumnBig, Trophy, Calendar } from "lucide-react";
 import { CardButton } from "./parts";
 import { cn } from "@/lib/cn";
 
@@ -9,11 +8,11 @@ import { cn } from "@/lib/cn";
  * Raw values, no semantic tokens (verified against screenshot):
  *   card:  bg #ffffff · rounded-[10px] · shadow 0 0 5px rgba(0,0,0,0.1) · w-[328px]
  *   chip:  "In Branch" cyan #25b7d3 outline pill
- *   title: Inter SemiBold 14px #616161 · date #999 12px + calendar
- *   2×2 stat grid: bordered #e5e7eb boxes · icon + label 14px + value 16px bold #616161
- *     MCQ #55347b · Written #f59e0b · Deduction #ff3a3a · Total #2496c1
- *   Merit Rankings box (bordered) · Trophy #f59e0b
- *   cta:   "View Result" #55347b w-[150px]
+ *   title: Inter SemiBold 14px #616161 · date #999
+ *   2×2 stat grid: bordered #e5e7eb boxes · label 14px + value 16px bold #616161
+ *   Merit Rankings box (bordered) · "View Result" #55347b w-[150px]
+ * NOTE: the stat icons (MCQ/Written/Deduction/Total) + trophy + calendar are
+ *       Figma SVG assets — skipped in Phase 1.
  */
 
 export type SubjectWiseSummaryCardProps = {
@@ -59,23 +58,17 @@ export function SubjectWiseSummaryCard({
         </span>
       </div>
 
-      <div className="mb-[12px] flex items-center gap-[6px] font-['Inter',sans-serif] text-[12px] text-[#999999]">
-        <Calendar size={14} color="#999999" />
-        {date}
-      </div>
+      <p className="mb-[12px] font-['Inter',sans-serif] text-[12px] text-[#999999]">{date}</p>
 
       <div className="mb-[12px] grid grid-cols-2 gap-[10px]">
-        <StatBox icon={<ListChecks size={20} color="#55347b" />} label="MCQ" value={mcq} />
-        <StatBox icon={<SquarePen size={20} color="#f59e0b" />} label="Written" value={written} />
-        <StatBox icon={<CircleMinus size={20} color="#ff3a3a" />} label="Deduction" value={deduction} />
-        <StatBox icon={<ChartColumnBig size={20} color="#2496c1" />} label="Total" value={total} />
+        <StatBox label="MCQ" value={mcq} />
+        <StatBox label="Written" value={written} />
+        <StatBox label="Deduction" value={deduction} />
+        <StatBox label="Total" value={total} />
       </div>
 
       <div className="mb-[16px] rounded-[8px] border border-[#e5e7eb] p-[12px]">
-        <div className="mb-[8px] flex items-center gap-[6px]">
-          <Trophy size={18} color="#f59e0b" />
-          <span className="font-['Inter',sans-serif] text-[14px] font-semibold text-[#616161]">Merit Rankings</span>
-        </div>
+        <p className="mb-[8px] font-['Inter',sans-serif] text-[14px] font-semibold text-[#616161]">Merit Rankings</p>
         <div className="flex items-center justify-between font-['Inter',sans-serif] text-[14px] text-[#616161]">
           <span>Highest - {highest}</span>
           <span>Branch Merit - {branchMerit}</span>
@@ -91,13 +84,10 @@ export function SubjectWiseSummaryCard({
   );
 }
 
-function StatBox({ icon, label, value }: { icon: React.ReactNode; label: string; value: string }) {
+function StatBox({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex items-center justify-between rounded-[8px] border border-[#e5e7eb] px-[12px] py-[10px]">
-      <span className="flex items-center gap-[6px] font-['Inter',sans-serif] text-[14px] text-[#616161]">
-        {icon}
-        {label}
-      </span>
+      <span className="font-['Inter',sans-serif] text-[14px] text-[#616161]">{label}</span>
       <span className="font-['Inter',sans-serif] text-[16px] font-bold text-[#616161]">{value}</span>
     </div>
   );

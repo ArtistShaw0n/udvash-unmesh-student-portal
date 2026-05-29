@@ -23,11 +23,11 @@ export function CardType({ children }: { children: React.ReactNode }) {
   );
 }
 
-// "Live Now" chip: red dot 12px + Inter Medium 12px #ff0000
+// "Live Now" chip: Inter Medium 12px #ff0000
+// NOTE: the live-dot glyph is a Figma SVG asset (not yet extracted) → skipped in Phase 1.
 export function LiveChip() {
   return (
     <span className="inline-flex items-center gap-[4px] rounded-[10px] px-[10px] py-[4px]">
-      <span className="size-[12px] rounded-full bg-[#ff0000]" aria-hidden="true" />
       <span className="font-['Inter',sans-serif] text-[12px] font-medium text-[#ff0000]">Live Now</span>
     </span>
   );

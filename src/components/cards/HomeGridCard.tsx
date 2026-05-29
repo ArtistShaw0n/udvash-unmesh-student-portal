@@ -12,7 +12,8 @@ import { cn } from "@/lib/cn";
  */
 
 export type HomeGridCardProps = {
-  icon: React.ReactNode;
+  /** Icon glyph is a Figma asset — optional; tinted box renders without it in Phase 1. */
+  icon?: React.ReactNode;
   title: string;
   meta?: string;
   /** Accent hex used for the icon tint + meta text. Default Figma #fc5a5a. */

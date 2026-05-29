@@ -13,8 +13,5 @@ export type { DropdownProps, DropdownOption } from "./Dropdown";
 export { ProgressBar } from "./ProgressBar";
 export type { ProgressBarProps } from "./ProgressBar";
 
-export { Spinner } from "./Spinner";
-export type { SpinnerProps } from "./Spinner";
-
 export { Tag } from "./Tag";
 export type { TagProps } from "./Tag";
