@@ -10,8 +10,8 @@ import { cn } from "@/lib/cn";
  *   title: Inter SemiBold 14px #616161 · date #999
  *   2×2 stat grid: bordered #e5e7eb boxes · label 14px + value 16px bold #616161
  *   Merit Rankings box (bordered) · "View Result" #55347b w-[150px]
- * NOTE: the stat icons (MCQ/Written/Deduction/Total) + trophy + calendar are
- *       Figma SVG assets — skipped in Phase 1.
+ *   stat icons + merit heading + header calendar = Figma SVGs
+ *   → public/components/icons/subjectwise-*.svg
  */
 
 export type SubjectWiseSummaryCardProps = {
@@ -57,17 +57,25 @@ export function SubjectWiseSummaryCard({
         </span>
       </div>
 
-      <p className="mb-[12px] font-['Inter',sans-serif] text-[12px] text-[#999999]">{date}</p>
+      <p className="mb-[12px] flex items-center gap-[6px] font-['Inter',sans-serif] text-[12px] text-[#999999]">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/components/icons/subjectwise-calendar.svg" alt="" aria-hidden="true" className="h-[14px] w-[16px] shrink-0" />
+        {date}
+      </p>
 
       <div className="mb-[12px] grid grid-cols-2 gap-[10px]">
-        <StatBox label="MCQ" value={mcq} />
-        <StatBox label="Written" value={written} />
-        <StatBox label="Deduction" value={deduction} />
-        <StatBox label="Total" value={total} />
+        <StatBox icon="/components/icons/subjectwise-mcq.svg" label="MCQ" value={mcq} />
+        <StatBox icon="/components/icons/subjectwise-written.svg" label="Written" value={written} />
+        <StatBox icon="/components/icons/subjectwise-deduction.svg" label="Deduction" value={deduction} />
+        <StatBox icon="/components/icons/subjectwise-total.svg" label="Total" value={total} />
       </div>
 
       <div className="mb-[16px] rounded-[8px] border border-[#e5e7eb] p-[12px]">
-        <p className="mb-[8px] font-['Inter',sans-serif] text-[14px] font-semibold text-[#616161]">Merit Rankings</p>
+        <p className="mb-[8px] flex items-center gap-[6px] font-['Inter',sans-serif] text-[14px] font-semibold text-[#616161]">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/components/icons/subjectwise-merit.svg" alt="" aria-hidden="true" className="h-[14px] w-[16px] shrink-0" />
+          Merit Rankings
+        </p>
         <div className="flex items-center justify-between font-['Inter',sans-serif] text-[14px] text-[#616161]">
           <span>Highest - {highest}</span>
           <span>Branch Merit - {branchMerit}</span>
@@ -89,10 +97,14 @@ export function SubjectWiseSummaryCard({
   );
 }
 
-function StatBox({ label, value }: { label: string; value: string }) {
+function StatBox({ icon, label, value }: { icon: string; label: string; value: string }) {
   return (
     <div className="flex items-center justify-between rounded-[8px] border border-[#e5e7eb] px-[12px] py-[10px]">
-      <span className="font-['Inter',sans-serif] text-[14px] text-[#616161]">{label}</span>
+      <span className="flex items-center gap-[8px]">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={icon} alt="" aria-hidden="true" className="size-[16px] shrink-0" />
+        <span className="font-['Inter',sans-serif] text-[14px] text-[#616161]">{label}</span>
+      </span>
       <span className="font-['Inter',sans-serif] text-[16px] font-bold text-[#616161]">{value}</span>
     </div>
   );
