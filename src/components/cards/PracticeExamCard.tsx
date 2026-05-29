@@ -9,7 +9,6 @@ import { cn } from "@/lib/cn";
  */
 
 export type PracticeExamCardProps = {
-  type?: string;
   title: string;
   badge?: string;
   dateTime: string;
@@ -23,7 +22,6 @@ export type PracticeExamCardProps = {
 };
 
 export function PracticeExamCard({
-  type = "Practice Exam",
   title,
   badge = "Practice",
   dateTime,
@@ -43,15 +41,14 @@ export function PracticeExamCard({
       )}
     >
       <div className="bg-[#e4eaf4] px-[20px] pb-[10px] pt-[12px]">
-        <div className="mb-[8px] flex items-center justify-between">
-          <span className="font-['Inter',sans-serif] text-[14px] text-[#616161]">{type}</span>
+        <div className="flex items-start justify-between gap-[8px]">
+          <p className="font-['Inter',sans-serif] text-[16px] font-semibold leading-[22px] text-[#616161]">{title}</p>
           {badge && (
-            <span className="inline-flex h-[20px] items-center rounded-[10px] border border-[#24c182] px-[10px] font-['Inter',sans-serif] text-[12px] font-medium text-[#24c182]">
+            <span className="inline-flex h-[20px] shrink-0 items-center rounded-[10px] border border-[#24c182] px-[10px] font-['Inter',sans-serif] text-[12px] font-medium text-[#24c182]">
               {badge}
             </span>
           )}
         </div>
-        <p className="font-['Inter',sans-serif] text-[16px] font-semibold leading-[22px] text-[#616161]">{title}</p>
       </div>
 
       <div className="flex flex-col gap-[8px] px-[20px] py-[12px]">
