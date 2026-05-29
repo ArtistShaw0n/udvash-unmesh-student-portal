@@ -1,7 +1,3 @@
-// Component library — Phase 2 (in progress).
-// Tokens shipped in Phase 1 (see tokens/tokens.json + src/app/globals.css).
-// Previous (v1) component set preserved on branch `backup/v1-design-system`.
+// Raw-value component library — 1:1 from Figma V2 (no semantic tokens).
+// Previous semantic-token version: branch backup/phase2-semantic-tokens
 export * from "./atoms";
-export * from "./molecules";
-export * from "./organisms";
-export * from "./cards";

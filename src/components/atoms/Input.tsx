@@ -1,97 +1,45 @@
-"use client";
-
-import { forwardRef } from "react";
+import { forwardRef, useId } from "react";
 import { cn } from "@/lib/cn";
 
-export type InputSize = "sm" | "md" | "lg";
-
-export type InputProps = Omit<React.InputHTMLAttributes<HTMLInputElement>, "size"> & {
-  size?: InputSize;
-  invalid?: boolean;
-  iconLeft?: React.ReactNode;
-  iconRight?: React.ReactNode;
-};
-
 /*
- * Figma source: V2 Input Field (node 1:4360)
- *   bg #FFFFFF (grey-0 → bg-surface)
- *   border 1px #B9B9B9 (grey-500 → border-input)
- *   rounded 5px (sm)
- *   default size 320×40
- *   placeholder #DCDCDC (grey-200 → text-placeholder)
- *   text Inter Regular 14px
+ * 1:1 from Figma V2 — node 1:4360 / 1:4358 ("Input Field")
+ * Raw values, no semantic tokens:
+ *   field:       bg #ffffff, border 1px #b9b9b9, h-[40px], rounded-[5px], w-[320px]
+ *   text:        Inter 14px #616161
+ *   placeholder: #dcdcdc
+ *   label:       Inter 14px #616161, required asterisk #ff0000 (red)
  */
 
-const sizeClass: Record<InputSize, string> = {
-  sm: "h-8  px-2.5 text-sm  rounded-sm",
-  md: "h-10 px-3   text-base rounded-sm", // Figma source
-  lg: "h-12 px-3.5 text-md  rounded-md",
-};
-
-const iconPad: Record<InputSize, { left: string; right: string; pos: string }> = {
-  sm: { left: "pl-8",  right: "pr-8",  pos: "left-2.5 right-2.5" },
-  md: { left: "pl-10", right: "pr-10", pos: "left-3 right-3" },
-  lg: { left: "pl-11", right: "pr-11", pos: "left-3.5 right-3.5" },
+export type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
+  label?: React.ReactNode;
+  required?: boolean;
 };
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
-  { size = "md", invalid, iconLeft, iconRight, className, disabled, ...rest },
+  { label, required, className, id, ...props },
   ref,
 ) {
-  const baseInput = cn(
-    "block w-full border border-border-input bg-surface text-primary placeholder:text-placeholder font-sans",
-    "focus:outline-none focus-visible:border-brand focus-visible:ring-2 focus-visible:ring-brand/20",
-    "disabled:cursor-not-allowed disabled:bg-subtle",
-    "aria-[invalid=true]:border-danger aria-[invalid=true]:focus-visible:ring-danger/20",
-    sizeClass[size],
-    iconLeft ? iconPad[size].left : undefined,
-    iconRight ? iconPad[size].right : undefined,
-    className,
-  );
-
-  if (!iconLeft && !iconRight) {
-    return (
-      <input
-        ref={ref}
-        disabled={disabled}
-        aria-invalid={invalid || undefined}
-        className={baseInput}
-        {...rest}
-      />
-    );
-  }
-
+  const autoId = useId();
+  const inputId = id ?? autoId;
   return (
-    <div className="relative inline-flex w-full">
-      {iconLeft && (
-        <span
-          aria-hidden="true"
-          className={cn(
-            "pointer-events-none absolute inset-y-0 flex items-center text-muted",
-            iconPad[size].pos.split(" ")[0],
-          )}
-        >
-          {iconLeft}
-        </span>
+    <div className="flex w-[320px] flex-col gap-[8px]">
+      {label && (
+        <label htmlFor={inputId} className="font-['Inter',sans-serif] text-[14px] text-[#616161]">
+          {label}
+          {required && <span className="text-[red]"> *</span>}
+        </label>
       )}
       <input
         ref={ref}
-        disabled={disabled}
-        aria-invalid={invalid || undefined}
-        className={baseInput}
-        {...rest}
+        id={inputId}
+        className={cn(
+          "h-[40px] w-[320px] rounded-[5px] border border-[#b9b9b9] bg-white px-[10px]",
+          "font-['Inter',sans-serif] text-[14px] text-[#616161] placeholder:text-[#dcdcdc]",
+          "outline-none focus:border-[#55347b]",
+          className,
+        )}
+        {...props}
       />
-      {iconRight && (
-        <span
-          aria-hidden="true"
-          className={cn(
-            "pointer-events-none absolute inset-y-0 flex items-center text-muted",
-            iconPad[size].pos.split(" ")[1],
-          )}
-        >
-          {iconRight}
-        </span>
-      )}
     </div>
   );
 });

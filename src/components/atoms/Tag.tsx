@@ -1,56 +1,31 @@
 import { cn } from "@/lib/cn";
 
-export type TagVariant = "neutral" | "brand" | "info" | "success" | "warning" | "danger";
-export type TagSize = "sm" | "md";
-
-export type TagProps = {
-  variant?: TagVariant;
-  size?: TagSize;
-  iconLeft?: React.ReactNode;
-  className?: string;
-  children?: React.ReactNode;
-};
-
 /*
- * Tag — small display-only pill. Maps to the "Language Tag" / "Subject Tag"
- * usage in V2 (53×26 chip with rounded corners). Uses our subtle status
- * background + matching text colour so it reads in both light + dark themes.
- *
- * For interactive selectable pills, use the future Chip component instead.
+ * 1:1 from Figma V2 — node 1:17311 ("Language Tag")
+ * Raw values, no semantic tokens:
+ *   bg #4fa621 (green), rounded-[17px]   (Figma rendered size 53×26)
+ *   text: Inter 14px #ffffff
+ * `color` prop overrides the background hex for other tag colours seen in V2.
  */
 
-const variantClass: Record<TagVariant, string> = {
-  neutral: "bg-subtle text-primary border border-border",
-  brand:   "bg-brand-subtle text-brand",
-  info:    "bg-success-bg text-success",   // V2 commonly tags subjects in green
-  success: "bg-success-bg text-success",
-  warning: "bg-warning-bg text-warning",
-  danger:  "bg-danger-bg text-onbrand",
+export type TagProps = {
+  children: React.ReactNode;
+  /** Background hex — defaults to the Figma language-tag green. */
+  color?: string;
+  className?: string;
 };
 
-const sizeClass: Record<TagSize, string> = {
-  sm: "h-5 px-1.5 text-xs gap-1",
-  md: "h-6 px-2 text-sm gap-1.5",
-};
-
-export function Tag({
-  variant = "neutral",
-  size = "sm",
-  iconLeft,
-  className,
-  children,
-}: TagProps) {
+export function Tag({ children, color = "#4fa621", className }: TagProps) {
   return (
     <span
       className={cn(
-        "inline-flex shrink-0 items-center justify-center whitespace-nowrap rounded-sm font-sans font-medium leading-tight",
-        variantClass[variant],
-        sizeClass[size],
+        "inline-flex h-[26px] items-center justify-center rounded-[17px] px-[12px]",
+        "font-['Inter',sans-serif] text-[14px] text-white",
         className,
       )}
+      style={{ backgroundColor: color }}
     >
-      {iconLeft}
-      <span>{children}</span>
+      {children}
     </span>
   );
 }

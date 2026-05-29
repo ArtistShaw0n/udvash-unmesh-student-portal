@@ -1,96 +1,54 @@
-"use client";
-
 import { forwardRef } from "react";
 import { cn } from "@/lib/cn";
 
-export type CheckboxSize = "sm" | "md" | "lg";
-
-export type CheckboxProps = Omit<React.InputHTMLAttributes<HTMLInputElement>, "size" | "type"> & {
-  size?: CheckboxSize;
-  label?: React.ReactNode;
-  indeterminate?: boolean;
-};
-
 /*
- * Figma source: V2 <Checkbox> (node 1:5011) — MUI-derived, primary brand
- * colour (#55347B). Outer 42×42 hit-target with 9px padding, inner 24×24
- * check icon. Our `md` size matches that proportion.
+ * 1:1 from Figma V2 — node 1:5011 ("<Checkbox>", MUI primary)
+ * Raw values, no semantic tokens:
+ *   box:      24px, rounded-[4px]
+ *   unchecked: border 2px #b9b9b9, bg #ffffff
+ *   checked:  bg #1976d2 (MUI primary/main), white check
+ *   (42px tap target via p-[9px] wrapper per Figma)
  */
 
-const boxSize: Record<CheckboxSize, string> = {
-  sm: "size-4",  // 16px
-  md: "size-6",  // 24px Figma source
-  lg: "size-7",  // 28px
-};
-
-const checkSize: Record<CheckboxSize, string> = {
-  sm: "size-3",
-  md: "size-4",
-  lg: "size-5",
-};
-
-const labelSize: Record<CheckboxSize, string> = {
-  sm: "text-sm",
-  md: "text-base",
-  lg: "text-md",
+export type CheckboxProps = Omit<React.InputHTMLAttributes<HTMLInputElement>, "type"> & {
+  label?: React.ReactNode;
 };
 
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(function Checkbox(
-  { size = "md", label, indeterminate, className, disabled, ...rest },
+  { label, className, ...props },
   ref,
 ) {
   return (
-    <label
-      className={cn(
-        "inline-flex cursor-pointer items-center gap-2",
-        disabled && "cursor-not-allowed opacity-50",
-        className,
-      )}
-    >
-      <span className="relative inline-flex">
+    <label className="inline-flex cursor-pointer items-center gap-[8px]">
+      <span className="relative inline-flex size-[24px] items-center justify-center">
         <input
-          ref={(node) => {
-            if (typeof ref === "function") ref(node);
-            else if (ref) ref.current = node;
-            if (node) node.indeterminate = !!indeterminate;
-          }}
+          ref={ref}
           type="checkbox"
-          disabled={disabled}
           className={cn(
-            "peer appearance-none rounded-xs border border-border-input bg-surface transition-colors",
-            "checked:border-brand checked:bg-brand",
-            "indeterminate:border-brand indeterminate:bg-brand",
-            "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-link",
-            "disabled:cursor-not-allowed",
-            boxSize[size],
+            "peer size-[24px] cursor-pointer appearance-none rounded-[4px] border-2 border-[#b9b9b9] bg-white",
+            "checked:border-[#1976d2] checked:bg-[#1976d2]",
+            className,
           )}
-          {...rest}
+          {...props}
         />
         <svg
-          aria-hidden="true"
+          className="pointer-events-none absolute size-[16px] opacity-0 peer-checked:opacity-100"
           viewBox="0 0 16 16"
           fill="none"
-          className={cn(
-            "pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-onbrand",
-            "opacity-0 peer-checked:opacity-100",
-            indeterminate && "!opacity-100",
-            checkSize[size],
-          )}
+          aria-hidden="true"
         >
-          {indeterminate ? (
-            <path d="M3 8 L13 8" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-          ) : (
-            <path
-              d="M3.5 8.5 L6.5 11.5 L12.5 4.5"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          )}
+          <path
+            d="M3.5 8.5 6.5 11.5 12.5 4.5"
+            stroke="#ffffff"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
         </svg>
       </span>
-      {label && <span className={cn("text-primary", labelSize[size])}>{label}</span>}
+      {label && (
+        <span className="font-['Inter',sans-serif] text-[14px] text-[#616161]">{label}</span>
+      )}
     </label>
   );
 });
