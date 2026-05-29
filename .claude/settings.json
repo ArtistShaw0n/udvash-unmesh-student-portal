@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '{\"hookSpecificOutput\":{\"hookEventName\":\"PreToolUse\",\"additionalContext\":\"⛔ ZERO-EXTRA RULE (AGENTS.md): build ONLY what the user asked + ONLY what is in the Figma file — not 1px more. No invented states (hover/focus/disabled), behavior, variants, configurable props, placeholders, or abstractions. Raw values only (literal hex/px, never tokens). If NOT directly in Figma -> SKIP and note for a later phase; if it IS in Figma -> include it. When unsure, leave it out.\"}}'",
+            "statusMessage": "ZERO-EXTRA rule reminder"
+          }
+        ]
+      }
+    ]
+  }
+}
