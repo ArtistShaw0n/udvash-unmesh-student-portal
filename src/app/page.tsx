@@ -8,6 +8,7 @@ import {
   Dropdown,
   ProgressBar,
   Tag,
+  FilterPill,
   Logo,
   Modal,
   Header,
@@ -108,6 +109,13 @@ export default function Page() {
           <Tag>বাং</Tag>
           <Tag>EN</Tag>
           <Tag>Live</Tag>
+        </div>
+      </Section>
+
+      <Section title="FilterPill — node 1:7745">
+        <div className="flex items-center gap-3">
+          <FilterPill>All Course</FilterPill>
+          <FilterPill>All Subject</FilterPill>
         </div>
       </Section>
 

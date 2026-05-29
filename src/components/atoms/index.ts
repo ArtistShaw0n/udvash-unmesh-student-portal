@@ -18,3 +18,6 @@ export type { TagProps } from "./Tag";
 
 export { Logo } from "./Logo";
 export type { LogoProps } from "./Logo";
+
+export { FilterPill } from "./FilterPill";
+export type { FilterPillProps } from "./FilterPill";
