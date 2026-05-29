@@ -9,7 +9,6 @@ import {
   ProgressBar,
   Tag,
   Logo,
-  Card,
   Modal,
   Header,
   FooterMenu,
@@ -110,15 +109,6 @@ export default function Page() {
           <Tag>EN</Tag>
           <Tag>Live</Tag>
         </div>
-      </Section>
-
-      <Section title="Card — node 1:9722">
-        <Card className="w-[328px] p-[16px]">
-          <p className="font-['Inter',sans-serif] text-[16px] font-semibold text-[#616161]">Card title</p>
-          <p className="mt-1 font-['Inter',sans-serif] text-[14px] text-[#999999]">
-            bg #ffffff · rounded-[10px] · shadow 0 0 5px rgba(0,0,0,0.1)
-          </p>
-        </Card>
       </Section>
 
       <Section title="Logo — Figma node 1:11908 (public/components/logo/logo.svg)">
