@@ -128,8 +128,9 @@ export default function Page() {
         <Logo height={30} />
       </Section>
 
-      <Section title="Header — node 1:12014 (right-side icons = Figma assets, skipped)">
-        <Header logo={<Logo height={28} />} />
+      <Section title="Header — node 1:12014">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <Header logo={<Logo height={28} />} right={<img src="/components/icons/header-notification.svg" alt="" className="size-[28px]" />} />
       </Section>
 
       <Section title="FooterMenu — node 1:4435 (icons = Figma assets, skipped)">

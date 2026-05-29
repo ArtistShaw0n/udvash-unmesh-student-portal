@@ -23,12 +23,13 @@ export function CourseContentCard({ title, onClick, className }: CourseContentCa
       type={onClick ? "button" : undefined}
       onClick={onClick}
       className={cn(
-        "flex h-[60px] w-[336px] items-center rounded-[10px] bg-white px-[12px] text-left shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1)]",
+        "flex h-[60px] w-[336px] items-center justify-between rounded-[10px] bg-white px-[12px] text-left shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1)]",
         className,
       )}
     >
-      {/* chevron glyph is a Figma SVG asset — skipped in Phase 1 */}
       <span className="font-['Inter',sans-serif] text-[14px] font-medium text-[#616161]">{title}</span>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src="/components/icons/course-chevron.svg" alt="" aria-hidden="true" className="ml-[8px] h-[14px] w-[7px] shrink-0" />
     </Tag>
   );
 }
