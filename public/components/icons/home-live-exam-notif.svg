@@ -1,0 +1,6 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Notification">
+<path id="Ellipse 40" d="M6.5 13C10.0899 13 13 10.0899 13 6.5C13 2.91015 10.0899 0 6.5 0C2.91015 0 0 2.91015 0 6.5C0 10.0899 2.91015 13 6.5 13Z" fill="var(--fill-0, #FFB2B2)"/>
+<path id="Ellipse 39" d="M6.5 10.8333C8.89323 10.8333 10.8333 8.89323 10.8333 6.5C10.8333 4.10677 8.89323 2.16667 6.5 2.16667C4.10677 2.16667 2.16667 4.10677 2.16667 6.5C2.16667 8.89323 4.10677 10.8333 6.5 10.8333Z" fill="var(--fill-0, #F30000)"/>
+</g>
+</svg>
