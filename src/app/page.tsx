@@ -171,11 +171,13 @@ export default function Page() {
       <Section title="Class cards — nodes 1:9602 / 1:8574 / 1:7819 / 1:8518">
         <div className="flex flex-wrap gap-6">
           <LiveClassCard
-            type="Phy"
+            subject="Phy"
             title="Marathon Live Class Physics-03"
-            dateTime="21 Sep, 2025 07:30 PM to 11:00 PM"
-            chapter="১ম পত্র অধ্যায়-০৫: কাজ, শক্তি ও ক্ষমতা"
+            status={{ kind: "live" }}
+            dateTimeValue="21 Sep, 2025 07:30 PM to 11:00 PM"
+            syllabus="১ম পত্র অধ্যায়-০৫: কাজ, শক্তি ও ক্ষমতা"
             courseLines={["Varsity 'KA' Online Class Service", "Varsity 'KA' Admission Program 2025"]}
+            joinEnabled
           />
           <LiveExamCard
             title="Varsity KA Weekly MCQ and Written Live Exam W-02"
