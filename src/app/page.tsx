@@ -180,11 +180,15 @@ export default function Page() {
             joinEnabled
           />
           <LiveExamCard
+            subject="Live Exam"
             title="Varsity KA Weekly MCQ and Written Live Exam W-02"
-            dateTime="20 Sep, 2025 11:00 PM to 21 Sep, 2025 11:00 PM"
+            title2Lines
+            status={{ kind: "live" }}
+            dateTimeValue="20 Sep, 2025 11:00 PM to 21 Sep, 2025 11:00 PM"
             duration="1h 45 min"
             courseLines={["Varsity 'KA' Online Exam Service", "Varsity 'KA' Admission Program 2025"]}
-            statusNote="You haven't taken the exam yet"
+            statusMessage="You haven't taken the exam yet"
+            takeEnabled
           />
           <PastClassCard
             title="Engineering Daily MCQ Practice Exam"
