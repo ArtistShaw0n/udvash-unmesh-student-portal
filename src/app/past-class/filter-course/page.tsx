@@ -1,13 +1,9 @@
 import { AppHeader } from "@/components/screens/AppHeader";
 import { AppFooter } from "@/components/screens/AppFooter";
-import { PastClassList } from "@/components/screens/PastClassList";
+import { PastClassList, PastClassFilterDropdown } from "@/components/screens/PastClassList";
 
-/*
- * Figma V2 — Past Class screen (list state). light node 1:7816 · dark 1:8084.
- * header + Past Class list (title, underline, 3 filter pills, 2 cards) + footer.
- * frame 376×1123. (Filter-dropdown-open states are the /past-class/filter-* routes.)
- */
-export default function PastClassPage() {
+/* Figma V2 — Past Class with "All Course" filter dropdown open. light 1:8016 · dark 1:8281. */
+export default function PastClassFilterCoursePage() {
   return (
     <main className="relative mx-auto min-h-[1123px] w-[376px] bg-white dark:bg-[#111111]">
       <div
@@ -16,6 +12,18 @@ export default function PastClassPage() {
       />
       <AppHeader />
       <PastClassList />
+      <PastClassFilterDropdown
+        notchLeft={75.5}
+        highlightedIndex={1}
+        options={[
+          "All Course",
+          "All Course All Course All Course All Course All Course All Course All Course",
+          "All Course",
+          "All Course",
+          "All Su",
+          "All Subject",
+        ]}
+      />
       <div className="absolute bottom-0 left-0">
         <AppFooter />
       </div>
