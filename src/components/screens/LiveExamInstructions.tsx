@@ -11,7 +11,7 @@ import { AppFooter } from "@/components/screens/AppFooter";
  *   Bangla bullet list (y307) + #cacaca divider (y822) + English bullet list (y868)
  *   · "Select Version" card y1496 (h128) + Bangla/English version buttons (y1555)
  *   · Star MCQ (y1644) + Star Written (y1692). footer y1758.
- * `selected` (C) → Bangla version button highlighted (#55347b border + #f4eefb fill)
+ * `selected` (C) → Bangla version button filled #3b88f5 (white text, both themes)
  *   and the two Star buttons enabled (#55347b → dark #9061c8).
  */
 const BANGLA: string[] = [
@@ -95,11 +95,11 @@ export function LiveExamInstructions({ selected }: { selected?: boolean }) {
       <div
         className={
           selected
-            ? "absolute left-[38px] top-[1555px] flex h-[49px] w-[140px] items-center justify-center rounded-[5px] border border-[#55347b] bg-[#f4eefb] drop-shadow-[0px_0px_2.5px_rgba(0,0,0,0.1)] dark:border-[#9061c8] dark:bg-[#2c2c2c]"
+            ? "absolute left-[38px] top-[1555px] flex h-[49px] w-[140px] items-center justify-center rounded-[5px] bg-[#3b88f5] drop-shadow-[0px_0px_2.5px_rgba(59,136,245,0.1)]"
             : "absolute left-[38px] top-[1555px] flex h-[49px] w-[140px] items-center justify-center rounded-[5px] bg-white drop-shadow-[0px_0px_2.5px_rgba(0,0,0,0.1)] dark:bg-[#2c2c2c]"
         }
       >
-        <span className={`font-['Inter',sans-serif] text-[14px] font-medium ${TXT}`}>Bangla Version</span>
+        <span className={`font-['Inter',sans-serif] text-[14px] font-medium ${selected ? "text-white" : TXT}`}>Bangla Version</span>
       </div>
       <div className="absolute left-[198px] top-[1555px] flex h-[49px] w-[140px] items-center justify-center rounded-[5px] bg-white drop-shadow-[0px_0px_2.5px_rgba(0,0,0,0.1)] dark:bg-[#2c2c2c]">
         <span className={`font-['Inter',sans-serif] text-[14px] font-medium ${TXT}`}>English Version</span>
@@ -107,10 +107,10 @@ export function LiveExamInstructions({ selected }: { selected?: boolean }) {
 
       {/* star buttons */}
       <div className={`absolute left-[8px] top-[1644px] flex h-[36px] w-[360px] items-center justify-center rounded-[5px] ${selected ? "bg-[#55347b] dark:bg-[#9061c8]" : "bg-[#c6c6c6] dark:bg-[#2c2c2c]"}`}>
-        <span className="font-['Inter',sans-serif] text-[14px] leading-[12px] text-white dark:text-[#e8e8e8]">Star MCQ Exam</span>
+        <span className={`font-['Inter',sans-serif] text-[14px] leading-[12px] text-white ${selected ? "" : "dark:text-[#e8e8e8]"}`}>Star MCQ Exam</span>
       </div>
       <div className={`absolute left-[8px] top-[1692px] flex h-[36px] w-[360px] items-center justify-center rounded-[5px] ${selected ? "bg-[#55347b] dark:bg-[#9061c8]" : "bg-[#c6c6c6] dark:bg-[#2c2c2c]"}`}>
-        <span className="font-['Inter',sans-serif] text-[14px] leading-[12px] text-white dark:text-[#e8e8e8]">Star Written Exam</span>
+        <span className={`font-['Inter',sans-serif] text-[14px] leading-[12px] text-white ${selected ? "" : "dark:text-[#e8e8e8]"}`}>Star Written Exam</span>
       </div>
 
       <div className="absolute bottom-0 left-0">
