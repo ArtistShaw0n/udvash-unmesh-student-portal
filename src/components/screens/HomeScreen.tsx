@@ -43,7 +43,7 @@ const RIGHT: Tile[] = [
   { label: "Feedback", icon: "home-feedback", kind: "tinted", tint: "#f27c57" },
 ];
 
-function HomeTile({ t }: { t: Tile }) {
+function HomeTile({ t, loadingTile }: { t: Tile; loadingTile?: boolean }) {
   return (
     <div className="relative h-[60px] w-[176px] rounded-[10px] bg-white shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1)] dark:bg-[#1a1a1a] dark:shadow-[0px_0px_4px_0px_rgba(255,255,255,0.25)]">
       {t.notif && (
@@ -72,11 +72,18 @@ function HomeTile({ t }: { t: Tile }) {
           <span className="font-['Inter',sans-serif] text-[10px] font-medium text-[#fc5a5a]">{t.subtitle}</span>
         )}
       </div>
+
+      {loadingTile && (
+        <div className="absolute inset-0 flex items-center justify-center rounded-[10px] bg-white dark:bg-[#1a1a1a]">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/components/images/spinner.png" alt="" aria-hidden="true" className="size-[24px] animate-spin" />
+        </div>
+      )}
     </div>
   );
 }
 
-export function HomeScreen({ overlay }: { overlay?: React.ReactNode }) {
+export function HomeScreen({ overlay, loading }: { overlay?: React.ReactNode; loading?: boolean }) {
   return (
     <main className="relative mx-auto w-[376px] bg-white dark:bg-[#111111]">
       <div
@@ -88,8 +95,8 @@ export function HomeScreen({ overlay }: { overlay?: React.ReactNode }) {
 
       <div className="relative flex justify-center gap-[8px] px-[8px] pt-[20px] pb-[20px]">
         <div className="flex flex-col gap-[12px]">
-          {LEFT.map((t) => (
-            <HomeTile key={t.label} t={t} />
+          {LEFT.map((t, i) => (
+            <HomeTile key={t.label} t={t} loadingTile={loading && i === 0} />
           ))}
         </div>
         <div className="flex flex-col gap-[12px]">
