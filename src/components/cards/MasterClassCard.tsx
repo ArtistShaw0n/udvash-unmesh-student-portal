@@ -1,83 +1,55 @@
-"use client";
-
 import { cn } from "@/lib/cn";
 
 /*
- * 1:1 from Figma V2 — node 1:8518 ("Master Class" card)
- * Same shell, no status chip. Title is a lecture name (Bangla). Body is a
- * list of topic lines (14px semibold). Three buttons: Videos + Notes (row),
- * Quiz (below).
+ * 1:1 from Figma V2 — Master Class card (light node 1:8518 · dark 1:8546). light + dark.
+ *   header band (#e4eaf4 / #2c2c2c): subject (e.g. "Phy-1") + lecture title.
+ *   body: 3 topic lines (14px semibold) + buttons all #55347b → dark #9061c8 (white):
+ *   2 buttons (Videos + Notes, one row) or 3 (Videos + Notes row, then Quiz centred).
+ *   band 70 (1-line title) / 92 (2-line); card height = band + (3 buttons ? 245 : 189).
  */
-
 export type MasterClassCardProps = {
-  type: string;
+  subject: string;
   title: string;
-  topics?: string[];
-  videosLabel?: string;
-  notesLabel?: string;
-  quizLabel?: string;
-  onVideos?: () => void;
-  onNotes?: () => void;
-  onQuiz?: () => void;
+  title2Lines?: boolean;
+  topics: string[];
+  buttons: string[];
   className?: string;
 };
 
-export function MasterClassCard({
-  type,
-  title,
-  topics = [],
-  videosLabel = "Videos",
-  notesLabel = "Notes",
-  quizLabel = "Quiz",
-  onVideos,
-  onNotes,
-  onQuiz,
-  className,
-}: MasterClassCardProps) {
+export function MasterClassCard({ subject, title, title2Lines, topics, buttons, className }: MasterClassCardProps) {
+  const band = title2Lines ? 92 : 70;
+  const has3 = buttons.length >= 3;
+  const txt = "font-['Inter',sans-serif] text-[14px] leading-[normal] text-[#616161] dark:text-[#e8e8e8]";
+  const btn = "absolute flex h-[36px] w-[130px] -translate-x-1/2 items-center justify-center rounded-[5px] bg-[#55347b] dark:bg-[#9061c8]";
+  const btnTxt = "font-['Inter',sans-serif] text-[14px] leading-[12px] text-white";
   return (
-    <article
+    <div
       className={cn(
-        "w-[328px] overflow-hidden rounded-[10px] bg-white shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1)]",
+        "relative w-[328px] rounded-[10px] bg-white shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1)] dark:border dark:border-[#1c1c1c] dark:bg-[#1a1a1a] dark:shadow-[0px_0px_20px_0px_#000000]",
         className,
       )}
+      style={{ height: band + (has3 ? 245 : 189) }}
     >
-      <div className="bg-[#e4eaf4] px-[20px] pb-[10px] pt-[12px]">
-        <span className="font-['Inter',sans-serif] text-[14px] text-[#616161]">{type}</span>
-        <div className="mt-[8px]">
-          <p className="font-['Inter',sans-serif] text-[16px] font-semibold leading-[22px] text-[#616161]">{title}</p>
-        </div>
-      </div>
+      <div className="absolute inset-x-0 top-0 rounded-tl-[10px] rounded-tr-[10px] bg-[#e4eaf4] dark:bg-[#2c2c2c]" style={{ height: band }} />
 
-      <div className="flex flex-col gap-[8px] px-[20px] py-[12px]">
-        {topics.map((t, i) => (
-          <p key={i} className="font-['Inter',sans-serif] text-[14px] font-semibold text-[#616161]">{t}</p>
-        ))}
-        <div className="mt-[8px] flex flex-col items-center gap-[8px] pb-[8px]">
-          <div className="flex gap-[16px]">
-            <button
-              type="button"
-              onClick={onVideos}
-              className="flex h-[36px] w-[130px] items-center justify-center whitespace-nowrap rounded-[5px] bg-[#55347b] px-[34px] font-['Inter',sans-serif] text-[14px] leading-[12px] text-white"
-            >
-              {videosLabel}
-            </button>
-            <button
-              type="button"
-              onClick={onNotes}
-              className="flex h-[36px] w-[130px] items-center justify-center whitespace-nowrap rounded-[5px] bg-[#55347b] px-[34px] font-['Inter',sans-serif] text-[14px] leading-[12px] text-white"
-            >
-              {notesLabel}
-            </button>
-          </div>
-          <button
-            type="button"
-            onClick={onQuiz}
-            className="flex h-[36px] w-[130px] items-center justify-center whitespace-nowrap rounded-[5px] bg-[#55347b] px-[34px] font-['Inter',sans-serif] text-[14px] leading-[12px] text-white"
-          >
-            {quizLabel}
-          </button>
-        </div>
+      <span className={cn("absolute left-[20px] top-[7px]", txt)}>{subject}</span>
+      <p className="absolute left-[20px] top-[36px] w-[288px] font-['Inter',sans-serif] text-[16px] font-semibold leading-[22px] text-[#616161] dark:text-[#e8e8e8]">{title}</p>
+
+      {topics.map((t, i) => (
+        <p key={i} className={cn("absolute left-[20px] w-[288px] font-semibold", txt)} style={{ top: band + 20 + i * 23 }}>{t}</p>
+      ))}
+
+      <div className={cn(btn, "left-[calc(50%-75px)]")} style={{ top: band + 123 }}>
+        <span className={btnTxt}>{buttons[0]}</span>
       </div>
-    </article>
+      <div className={cn(btn, "left-[calc(50%+75px)]")} style={{ top: band + 123 }}>
+        <span className={btnTxt}>{buttons[1]}</span>
+      </div>
+      {has3 && (
+        <div className={cn(btn, "left-1/2")} style={{ top: band + 179 }}>
+          <span className={btnTxt}>{buttons[2]}</span>
+        </div>
+      )}
+    </div>
   );
 }

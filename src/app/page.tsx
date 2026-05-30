@@ -200,13 +200,14 @@ export default function Page() {
             buttons={["Video", "Notes"]}
           />
           <MasterClassCard
-            type="Phy-1"
+            subject="Phy-1"
             title="লেকচার - ১"
             topics={[
               "মাত্রা সমীকরণ দ্বারা সমীকরণের শুদ্ধতা যাচাই।",
               "পরিমাপের ত্রুটি",
               "স্ক্রু গজ, ভার্নিয়ার স্কেল, স্ফেরোমিটার ও নিক্তি",
             ]}
+            buttons={["Videos", "Notes", "Quiz"]}
           />
         </div>
       </Section>
