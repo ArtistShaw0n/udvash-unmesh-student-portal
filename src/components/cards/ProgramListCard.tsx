@@ -1,54 +1,31 @@
-"use client";
-
 import { cn } from "@/lib/cn";
 
 /*
- * 1:1 from Figma V2 — node 1:7406 ("Program List" card)
- * Same hero-image shell as Performance.
- *   hero:  328×178 image, rounded top corners
- *   title: Inter SemiBold 18px #616161 leading-[22px], centered
- *   cta:   "Add More Course" #55347b w-[150px]
+ * 1:1 from Figma V2 — Program List card (light node 1:7406 · dark 1:7444). light + dark.
+ *   hero banner image (328×178, rounded top) + centred 18px semibold title (2-line) +
+ *   one button (w150, #55347b → dark #9061c8). fixed card height 348.
  */
-
 export type ProgramListCardProps = {
   title: string;
-  heroSrc?: string;
-  ctaLabel?: string;
-  onCta?: () => void;
+  heroSrc: string;
+  ctaLabel: string;
   className?: string;
 };
 
-export function ProgramListCard({
-  title,
-  heroSrc,
-  ctaLabel = "Add More Course",
-  onCta,
-  className,
-}: ProgramListCardProps) {
+export function ProgramListCard({ title, heroSrc, ctaLabel, className }: ProgramListCardProps) {
   return (
-    <article
+    <div
       className={cn(
-        "w-[328px] overflow-hidden rounded-[10px] bg-white shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1)]",
+        "relative h-[348px] w-[328px] rounded-[10px] bg-white shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1)] dark:border dark:border-[#1c1c1c] dark:bg-[#1a1a1a] dark:shadow-[0px_0px_20px_0px_#000000]",
         className,
       )}
     >
-      {/* hero image is a Figma asset — skipped in Phase 1 when no src given */}
-      {heroSrc && (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img src={heroSrc} alt="" className="h-[178px] w-full rounded-tl-[10px] rounded-tr-[10px] object-cover" />
-      )}
-      <div className="flex flex-col items-center gap-[16px] px-[20px] py-[16px]">
-        <p className="text-center font-['Inter',sans-serif] text-[18px] font-semibold leading-[22px] text-[#616161]">
-          {title}
-        </p>
-        <button
-          type="button"
-          onClick={onCta}
-          className="flex h-[36px] w-[150px] items-center justify-center whitespace-nowrap rounded-[5px] bg-[#55347b] px-[20px] font-['Inter',sans-serif] text-[14px] leading-[12px] text-white"
-        >
-          {ctaLabel}
-        </button>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={heroSrc} alt="" className="absolute left-0 top-0 h-[178px] w-[328px] rounded-tl-[10px] rounded-tr-[10px] object-cover" />
+      <p className="absolute left-[20px] top-[198px] w-[288px] text-center font-['Inter',sans-serif] text-[18px] font-semibold leading-[22px] text-[#616161] dark:text-[#e8e8e8]">{title}</p>
+      <div className="absolute left-1/2 top-[282px] flex h-[36px] w-[150px] -translate-x-1/2 items-center justify-center rounded-[5px] bg-[#55347b] dark:bg-[#9061c8]">
+        <span className="font-['Inter',sans-serif] text-[14px] leading-[12px] text-white">{ctaLabel}</span>
       </div>
-    </article>
+    </div>
   );
 }

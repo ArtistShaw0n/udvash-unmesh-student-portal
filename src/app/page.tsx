@@ -230,7 +230,7 @@ export default function Page() {
             statusNote="Exam not started yet"
           />
           <PerformanceCard title="Employee Training Program 2021 (Online)" heroSrc="/components/images/performance-hero.png" />
-          <ProgramListCard title="Engineering Admission Program (Online) 2025" heroSrc="/components/images/programlist-hero.png" />
+          <ProgramListCard title="Engineering Admission Program (Online) 2025" heroSrc="/components/images/program-engineering.png" ctaLabel="Add More Course" />
         </div>
       </Section>
 
