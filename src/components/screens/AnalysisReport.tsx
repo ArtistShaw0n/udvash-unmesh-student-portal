@@ -262,8 +262,66 @@ const QUESTIONS: QData[] = [
   },
 ];
 
+/* ---------- Subject Wise Details (Figma 1:28941; collapsed 1:28942 / expanded 1:29859) ---------- */
+const SUBJECTS = [
+  { subject: "Bangla", mcq: "13.25/25", written: "A", total: "13.25/50" },
+  { subject: "English", mcq: "13.25/25", written: "A", total: "18/50" },
+  { subject: "Physics", mcq: "20/25", written: "A", total: "20/50" },
+  { subject: "Bangla", mcq: "13.25/25", written: "A", total: "54/100" },
+  { subject: "Bangla", mcq: "13/25", written: "A", total: "54/100" },
+  { subject: "Bangla", mcq: "13.25/25", written: "A", total: "54/100" },
+  { subject: "Bangla", mcq: "13.25/25", written: "A", total: "54/100" },
+  { subject: "Bangla", mcq: "13.25/25", written: "A", total: "54/100" },
+];
+const SW_COLS = [24, 107, 203, 272];
+
+function SwChevron({ up, className }: { up: boolean; className?: string }) {
+  return (
+    <svg width="11" height="21" viewBox="0 0 11.0887 21.3379" fill="none" aria-hidden="true" className={cn(up ? "-rotate-90" : "rotate-90", className)}>
+      <path d="M0.743294 0.668965L9.74329 10.669L0.743294 20.669" stroke="currentColor" strokeWidth="2" />
+    </svg>
+  );
+}
+
+function SwRow({ top, cells, head }: { top: number; cells: string[]; head?: boolean }) {
+  return (
+    <>
+      {cells.map((c, i) => (
+        <span
+          key={i}
+          className={cn("absolute font-['Inter',sans-serif] text-[14px] leading-[normal]", TXT, (head || i === 3) && "font-semibold")}
+          style={{ left: SW_COLS[i], top }}
+        >
+          {c}
+        </span>
+      ))}
+    </>
+  );
+}
+
+function SubjectWiseCard({ expanded, className }: { expanded: boolean; className?: string }) {
+  const titleCls = expanded ? "text-[#616161] dark:text-[#e8e8e8]" : "text-[#00ba00]";
+  return (
+    <div className={cn("relative w-[360px]", BIG_CARD, className)} style={{ height: expanded ? 363 : 64 }}>
+      <div className="absolute left-1/2 top-[20px] flex -translate-x-1/2 items-center gap-[20px]">
+        <span className={cn("whitespace-nowrap font-['Inter',sans-serif] text-[20px] font-bold leading-[normal]", titleCls)}>Subject Wise Details</span>
+        <SwChevron up={expanded} className={titleCls} />
+      </div>
+      {expanded && (
+        <>
+          <SwRow top={64} cells={["Subject", "MCQ", "Written", "Total"]} head />
+          <div className="absolute left-[20px] top-[95px] h-px w-[320px] bg-[#cacaca]" />
+          {SUBJECTS.map((s, i) => (
+            <SwRow key={i} top={106 + i * 31} cells={[s.subject, s.mcq, s.written, s.total]} />
+          ))}
+        </>
+      )}
+    </div>
+  );
+}
+
 /* ---------- Screen ---------- */
-export function AnalysisReport({ published, showAccuracy, minHeight }: { published?: boolean; showAccuracy?: boolean; minHeight: number }) {
+export function AnalysisReport({ published, showAccuracy, subjectWise, minHeight }: { published?: boolean; showAccuracy?: boolean; subjectWise?: "collapsed" | "expanded"; minHeight: number }) {
   return (
     <main className="relative mx-auto w-[376px] overflow-hidden bg-white dark:bg-[#111111]" style={{ minHeight }}>
       <div
@@ -283,13 +341,25 @@ export function AnalysisReport({ published, showAccuracy, minHeight }: { publish
       <div className="absolute left-1/2 top-[165px] flex w-[360px] -translate-x-1/2 flex-col items-center">
         <MarksCard published={!!published} />
         <StatPanel showAccuracy={showAccuracy} className="mt-[8px]" />
+        {subjectWise && <SubjectWiseCard expanded={subjectWise === "expanded"} className="mt-[8px]" />}
         <FilterRow className="mt-[8px]" />
         {QUESTIONS.map((q) => (
           <QuestionCard key={q.n} {...q} className="mt-[8px]" />
         ))}
-        <div className="mt-[40px] flex h-[36px] w-[150px] items-center justify-center rounded-[5px] bg-[#55347b] dark:bg-[#9061c8]">
-          <span className="font-['Inter',sans-serif] text-[14px] text-white">Past Exam</span>
-        </div>
+        {subjectWise ? (
+          <div className="mt-[40px] flex gap-[20px]">
+            <div className="flex h-[36px] w-[150px] items-center justify-center rounded-[5px] bg-[#55347b] dark:bg-[#9061c8]">
+              <span className="font-['Inter',sans-serif] text-[14px] text-white">Past Exam</span>
+            </div>
+            <div className="flex h-[36px] w-[146px] items-center justify-center rounded-[5px] bg-[#0a84ff]">
+              <span className="font-['Inter',sans-serif] text-[14px] text-white">Star Written Exam</span>
+            </div>
+          </div>
+        ) : (
+          <div className="mt-[40px] flex h-[36px] w-[150px] items-center justify-center rounded-[5px] bg-[#55347b] dark:bg-[#9061c8]">
+            <span className="font-['Inter',sans-serif] text-[14px] text-white">Past Exam</span>
+          </div>
+        )}
       </div>
 
       <div className="absolute bottom-0 left-0">
