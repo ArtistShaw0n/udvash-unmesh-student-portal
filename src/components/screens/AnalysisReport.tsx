@@ -142,7 +142,7 @@ function FilterRow({ className }: { className?: string }) {
 
 /* ---------- Question-analysis card ---------- */
 type Opt = { letter: string; text: string; faded?: boolean; tick?: boolean };
-type QData = {
+export type QData = {
   n: number;
   status: "Correct" | "Incorrect" | "Skipped";
   stem: string;
@@ -158,7 +158,7 @@ const STATUS_COLOR: Record<QData["status"], string> = {
 };
 const DIST_X = [52, 119, 186, 251];
 
-function QuestionCard({ n, status, stem, subpoints, options, dist, solution, className }: QData & { className?: string }) {
+export function QuestionCard({ n, status, stem, subpoints, options, dist, solution, className }: QData & { className?: string }) {
   const optY = subpoints && subpoints.length ? 161 : 123;
   const height = optY + 311;
   return (
@@ -218,7 +218,7 @@ function QuestionCard({ n, status, stem, subpoints, options, dist, solution, cla
   );
 }
 
-const QUESTIONS: QData[] = [
+export const QUESTIONS: QData[] = [
   {
     n: 1,
     status: "Correct",
