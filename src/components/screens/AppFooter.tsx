@@ -5,13 +5,16 @@
  *   dark:  bg #1a1a1a · border #1c1c1c · rounded-t-[8px] · shadow 0 0 20px #000
  *   active box: #684b8a (light) / #55347b (dark) · labels #616161 / #e8e8e8
  */
-function FooterIcon({ light, dark }: { light: string; dark: string }) {
+// Footer icon SVGs carry inconsistent viewBoxes (footer-downloads 36×36 padded vs
+// -dark 21×20 tight; footer-qa 25; footer-community 36), so each is rendered at its
+// exact Figma container size — light/dark separately — rather than one uniform size.
+function FooterIcon({ light, dark, lw, lh, dw, dh }: { light: string; dark: string; lw: number; lh: number; dw: number; dh: number }) {
   return (
     <span className="flex size-[36px] items-center justify-center">
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={light} alt="" aria-hidden="true" className="size-[28px] object-contain dark:hidden" />
+      <img src={light} alt="" aria-hidden="true" className="object-contain dark:hidden" style={{ width: lw, height: lh }} />
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={dark} alt="" aria-hidden="true" className="hidden size-[28px] object-contain dark:block" />
+      <img src={dark} alt="" aria-hidden="true" className="hidden object-contain dark:block" style={{ width: dw, height: dh }} />
     </span>
   );
 }
@@ -39,19 +42,19 @@ export function AppFooter() {
 
       {/* Downloads */}
       <div className="flex flex-col items-center gap-[4px]">
-        <FooterIcon light="/components/icons/footer-downloads.svg" dark="/components/icons/footer-downloads-dark.svg" />
+        <FooterIcon light="/components/icons/footer-downloads.svg" dark="/components/icons/footer-downloads-dark.svg" lw={36} lh={36} dw={24} dh={23} />
         <span className="font-['Inter',sans-serif] text-[12px] text-[#616161] dark:text-[#e8e8e8]">Downloads</span>
       </div>
 
       {/* Q&A */}
       <div className="flex flex-col items-center gap-[4px]">
-        <FooterIcon light="/components/icons/footer-qa.svg" dark="/components/icons/footer-qa-dark.svg" />
+        <FooterIcon light="/components/icons/footer-qa.svg" dark="/components/icons/footer-qa-dark.svg" lw={25} lh={25} dw={25} dh={25} />
         <span className="font-['Inter',sans-serif] text-[12px] text-[#616161] dark:text-[#e8e8e8]">Q&amp;A</span>
       </div>
 
       {/* Community */}
       <div className="flex flex-col items-center gap-[4px]">
-        <FooterIcon light="/components/icons/footer-community.svg" dark="/components/icons/footer-community-dark.svg" />
+        <FooterIcon light="/components/icons/footer-community.svg" dark="/components/icons/footer-community-dark.svg" lw={30} lh={30} dw={30} dh={30} />
         <span className="font-['Inter',sans-serif] text-[12px] text-[#616161] dark:text-[#e8e8e8]">Community</span>
       </div>
     </nav>
