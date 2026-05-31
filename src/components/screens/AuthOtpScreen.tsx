@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { AuthHeader } from "@/components/screens/AuthHeader";
 
 /*
@@ -5,7 +6,7 @@ import { AuthHeader } from "@/components/screens/AuthHeader";
  *   Registration Number 1:14110 (each light + dark). frame 376×812, card 360×372 @ (8,150).
  *   title + pink OTP-sent chip + OTP field + wait-timer + Resend OTP + Next.
  */
-export function AuthOtpScreen({ title }: { title: string }) {
+export function AuthOtpScreen({ title, nextHref }: { title: string; nextHref: string }) {
   return (
     <main className="relative mx-auto min-h-[812px] w-[376px] bg-white dark:bg-[#111111]">
       <div className="pointer-events-none absolute inset-x-0 bottom-0 top-[50px] opacity-40 dark:hidden" style={{ backgroundImage: "linear-gradient(64.6975deg, #e2eefd 13.822%, #e6f3f1 52.905%, #e9dfee 93.259%)" }} />
@@ -31,9 +32,9 @@ export function AuthOtpScreen({ title }: { title: string }) {
           Didn&rsquo;t get OTP yet?&nbsp; <span className="font-bold text-[#3b88f5]">Resend OTP</span>
         </p>
 
-        <div className="absolute left-1/2 top-[296px] flex h-[36px] w-[150px] -translate-x-1/2 items-center justify-center rounded-[5px] bg-[#c6c6c6] px-[30px] py-[8px] dark:bg-[#2c2c2c]">
+        <Link href={nextHref} className="absolute left-1/2 top-[296px] flex h-[36px] w-[150px] -translate-x-1/2 items-center justify-center rounded-[5px] bg-[#c6c6c6] px-[30px] py-[8px] dark:bg-[#2c2c2c]">
           <span className="font-['Inter',sans-serif] text-[14px] text-white">Next</span>
-        </div>
+        </Link>
       </div>
     </main>
   );

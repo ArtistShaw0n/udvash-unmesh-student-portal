@@ -2,5 +2,5 @@ import { AuthSetPasswordScreen } from "@/components/screens/AuthSetPasswordScree
 
 /* Figma V2 — Registration · Set New Password. light 1:15496 · dark 1:15582. frame 376×812. */
 export default function RegisterSetPasswordPage() {
-  return <AuthSetPasswordScreen />;
+  return <AuthSetPasswordScreen nextHref="/register/done" />;
 }

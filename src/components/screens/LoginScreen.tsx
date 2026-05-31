@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { AuthHeader } from "@/components/screens/AuthHeader";
 
 /*
@@ -16,6 +17,8 @@ export function LoginScreen({ state }: { state: LoginState }) {
   const cardH = isPw ? 333 : 507;
   const value = state === "enter" ? null : isPw ? (state === "invalid-password" ? "1An#/d2@" : "1An#/d2@45d") : "1234567";
   const purpleBtn = state === "password";
+  const primaryHref = isPw ? "/home" : "/login/password";
+  const forgotHref = isPw ? "/forgot-password" : "/forgot-registration-number";
 
   return (
     <main className="relative mx-auto min-h-[812px] w-[376px] bg-white dark:bg-[#111111]">
@@ -37,17 +40,17 @@ export function LoginScreen({ state }: { state: LoginState }) {
           <span className={`font-['Inter',sans-serif] text-[14px] ${value ? "text-[#616161] dark:text-[#e8e8e8]" : "text-[#dcdcdc]"}`}>{value ?? "Enter Your Registration Number"}</span>
           {isInvalid && <span className="font-['Inter',sans-serif] text-[16px] leading-none text-[#f95959]">✕</span>}
         </div>
-        <p className="absolute left-[20px] top-[202px] font-['Inter',sans-serif] text-[12px] leading-[normal] text-[#f95959]">{isPw ? "Forgot Password?" : "Forgot Registration Number?"}</p>
+        <Link href={forgotHref} className="absolute left-[20px] top-[202px] font-['Inter',sans-serif] text-[12px] leading-[normal] text-[#f95959]">{isPw ? "Forgot Password?" : "Forgot Registration Number?"}</Link>
 
-        <div className={`absolute left-1/2 top-[257px] flex h-[36px] w-[150px] -translate-x-1/2 items-center justify-center rounded-[5px] px-[30px] py-[8px] ${purpleBtn ? "bg-[#55347b] dark:bg-[#9061c8]" : "bg-[#c6c6c6] dark:bg-[#2c2c2c]"}`}>
+        <Link href={primaryHref} className={`absolute left-1/2 top-[257px] flex h-[36px] w-[150px] -translate-x-1/2 items-center justify-center rounded-[5px] px-[30px] py-[8px] ${purpleBtn ? "bg-[#55347b] dark:bg-[#9061c8]" : "bg-[#c6c6c6] dark:bg-[#2c2c2c]"}`}>
           <span className="font-['Inter',sans-serif] text-[14px] text-white">{isPw ? "Login" : "Next"}</span>
-        </div>
+        </Link>
 
         {!isPw && (
           <>
             <div className="absolute inset-x-0 top-[333px] text-center leading-[24px]">
               <p className="font-['Inter',sans-serif] text-[14px] text-[#616161] dark:text-[#e8e8e8]">Don&apos;t have a Registration Number?</p>
-              <p className="font-['Inter',sans-serif] text-[14px] font-bold text-[#3b88f5]">Register Now</p>
+              <Link href="/register" className="block font-['Inter',sans-serif] text-[14px] font-bold text-[#3b88f5]">Register Now</Link>
             </div>
             <p className="absolute inset-x-0 top-[401px] text-center font-['Inter',sans-serif] leading-[normal]">
               <span className="text-[14px] text-[#616161] dark:text-[#e8e8e8]">Visit:&nbsp;&nbsp;</span>

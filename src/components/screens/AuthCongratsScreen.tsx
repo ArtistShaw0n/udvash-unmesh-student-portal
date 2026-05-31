@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { AuthHeader } from "@/components/screens/AuthHeader";
 
 /*
@@ -13,6 +14,7 @@ export function AuthCongratsScreen({ variant }: { variant: "password" | "reg-num
   const cardH = variant === "password" ? 247 : variant === "reg-number" ? 260 : 280;
   const btnTop = variant === "password" ? 171 : variant === "reg-number" ? 184 : 204;
   const btnLabel = variant === "registered" ? "Add Course" : "Login";
+  const btnHref = variant === "registered" ? "/add-course" : "/login";
   const num = (
     <>
       <span className="font-bold text-[16px] text-[#55347b] dark:text-[#9061c8]">1819361</span>
@@ -49,9 +51,9 @@ export function AuthCongratsScreen({ variant }: { variant: "password" | "reg-num
           </div>
         )}
 
-        <div className="absolute left-1/2 flex h-[36px] w-[150px] -translate-x-1/2 items-center justify-center rounded-[5px] bg-[#55347b] px-[30px] py-[8px] dark:bg-[#9061c8]" style={{ top: btnTop }}>
+        <Link href={btnHref} className="absolute left-1/2 flex h-[36px] w-[150px] -translate-x-1/2 items-center justify-center rounded-[5px] bg-[#55347b] px-[30px] py-[8px] dark:bg-[#9061c8]" style={{ top: btnTop }}>
           <span className="font-['Inter',sans-serif] text-[14px] text-white">{btnLabel}</span>
-        </div>
+        </Link>
       </div>
     </main>
   );

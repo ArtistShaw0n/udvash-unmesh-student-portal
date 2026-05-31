@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { AuthHeader } from "@/components/screens/AuthHeader";
 
 /*
@@ -38,9 +39,9 @@ export default function AlreadyRegisteredPage() {
           </p>
         </div>
 
-        <div className="absolute left-1/2 top-[201px] flex h-[36px] w-[150px] -translate-x-1/2 items-center justify-center rounded-[5px] bg-[#55347b] px-[30px] py-[8px] dark:bg-[#9061c8]">
+        <Link href="/login" className="absolute left-1/2 top-[201px] flex h-[36px] w-[150px] -translate-x-1/2 items-center justify-center rounded-[5px] bg-[#55347b] px-[30px] py-[8px] dark:bg-[#9061c8]">
           <span className="font-['Inter',sans-serif] text-[14px] text-white">Login</span>
-        </div>
+        </Link>
       </div>
     </main>
   );
