@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { AppHeader } from "@/components/screens/AppHeader";
 import { AppFooter } from "@/components/screens/AppFooter";
 
@@ -33,6 +34,7 @@ function DownloadRow({ top, n, chapter, date, quality }: { top: number; n: strin
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={`${I}/menu.svg`} alt="" aria-hidden="true" className="absolute right-[12px] h-[16px] w-[4px] dark:invert" style={{ top: top + 70 }} />
       <div className="absolute left-1/2 h-px w-[352px] -translate-x-1/2 bg-[#cacaca]" style={{ top: top + 107 }} />
+      <Link href="/downloads/video" aria-label="Open video" className="absolute left-0 w-full" style={{ top, height: 107 }} />
     </>
   );
 }
@@ -49,13 +51,17 @@ export default function DownloadsPage() {
       <p className={`absolute left-[12px] top-[71px] font-['Inter',sans-serif] text-[16px] font-bold leading-[normal] ${TXT}`}>Downloads</p>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={`${I}/search.svg`} alt="" aria-hidden="true" className="absolute left-[324px] top-[73px] size-[16px] dark:invert" />
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={`${I}/gear.svg`} alt="" aria-hidden="true" className="absolute left-[347px] top-[73px] size-[16px] dark:invert" />
+      <Link href="/downloads/settings" className="absolute left-[347px] top-[73px] block size-[16px]">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={`${I}/gear.svg`} alt="" aria-hidden="true" className="size-full dark:invert" />
+      </Link>
 
       {/* Video player */}
       <div className="absolute left-1/2 top-[122px] h-[202px] w-[360px] -translate-x-1/2 bg-[#b5b5b5]" />
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={`${I}/dl-play.svg`} alt="" aria-hidden="true" className="absolute left-1/2 top-[189px] size-[68px] -translate-x-1/2" />
+      <Link href="/downloads/video" className="absolute left-1/2 top-[189px] block size-[68px] -translate-x-1/2">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={`${I}/dl-play.svg`} alt="" aria-hidden="true" className="size-full" />
+      </Link>
       {/* controls bar */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={`${I}/controls-bar.png`} alt="" aria-hidden="true" className="absolute left-1/2 top-[294px] h-[30px] w-[360px] -translate-x-1/2 object-cover" />

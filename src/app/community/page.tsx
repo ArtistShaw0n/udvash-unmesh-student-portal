@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { AppHeader } from "@/components/screens/AppHeader";
 import { AppFooter } from "@/components/screens/AppFooter";
 
@@ -41,6 +42,7 @@ function GroupRow({ top, c, ini, name, prev, time, badge, pin }: Row) {
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={`${CM}/menu.svg`} alt="" aria-hidden="true" className="absolute right-[12px] h-[16px] w-[4px] dark:invert" style={{ top: top + 29 }} />
       <div className="absolute left-1/2 h-px w-[352px] -translate-x-1/2 bg-[#cacaca]" style={{ top: top + 74 }} />
+      <Link href="/community/chat" aria-label={name} className="absolute left-0 h-[74px] w-full" style={{ top }} />
     </>
   );
 }
