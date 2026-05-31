@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { AppHeader } from "@/components/screens/AppHeader";
 import { AppFooter } from "@/components/screens/AppFooter";
 
@@ -92,7 +93,8 @@ export function LiveExamInstructions({ selected }: { selected?: boolean }) {
       {/* select version card */}
       <div className={`absolute left-1/2 top-[1496px] h-[128px] w-[360px] -translate-x-1/2 ${CARD}`} />
       <p className={`absolute left-1/2 top-[1516px] w-[336px] -translate-x-1/2 text-center font-['Inter',sans-serif] text-[16px] font-semibold leading-[normal] ${TXT}`}>Select Version</p>
-      <div
+      <Link
+        href="/live-exam/instructions/bangla"
         className={
           selected
             ? "absolute left-[38px] top-[1555px] flex h-[49px] w-[140px] items-center justify-center rounded-[5px] bg-[#3b88f5] drop-shadow-[0px_0px_2.5px_rgba(59,136,245,0.1)]"
@@ -100,18 +102,30 @@ export function LiveExamInstructions({ selected }: { selected?: boolean }) {
         }
       >
         <span className={`font-['Inter',sans-serif] text-[14px] font-medium ${selected ? "text-white" : TXT}`}>Bangla Version</span>
-      </div>
+      </Link>
       <div className="absolute left-[198px] top-[1555px] flex h-[49px] w-[140px] items-center justify-center rounded-[5px] bg-white drop-shadow-[0px_0px_2.5px_rgba(0,0,0,0.1)] dark:bg-[#2c2c2c]">
         <span className={`font-['Inter',sans-serif] text-[14px] font-medium ${TXT}`}>English Version</span>
       </div>
 
       {/* star buttons */}
-      <div className={`absolute left-[8px] top-[1644px] flex h-[36px] w-[360px] items-center justify-center rounded-[5px] ${selected ? "bg-[#55347b] dark:bg-[#9061c8]" : "bg-[#c6c6c6] dark:bg-[#2c2c2c]"}`}>
-        <span className={`font-['Inter',sans-serif] text-[14px] leading-[12px] text-white ${selected ? "" : "dark:text-[#e8e8e8]"}`}>Star MCQ Exam</span>
-      </div>
-      <div className={`absolute left-[8px] top-[1692px] flex h-[36px] w-[360px] items-center justify-center rounded-[5px] ${selected ? "bg-[#55347b] dark:bg-[#9061c8]" : "bg-[#c6c6c6] dark:bg-[#2c2c2c]"}`}>
-        <span className={`font-['Inter',sans-serif] text-[14px] leading-[12px] text-white ${selected ? "" : "dark:text-[#e8e8e8]"}`}>Star Written Exam</span>
-      </div>
+      {selected ? (
+        <Link href="/live-exam/quiz" className="absolute left-[8px] top-[1644px] flex h-[36px] w-[360px] items-center justify-center rounded-[5px] bg-[#55347b] dark:bg-[#9061c8]">
+          <span className="font-['Inter',sans-serif] text-[14px] leading-[12px] text-white">Star MCQ Exam</span>
+        </Link>
+      ) : (
+        <div className="absolute left-[8px] top-[1644px] flex h-[36px] w-[360px] items-center justify-center rounded-[5px] bg-[#c6c6c6] dark:bg-[#2c2c2c]">
+          <span className="font-['Inter',sans-serif] text-[14px] leading-[12px] text-white dark:text-[#e8e8e8]">Star MCQ Exam</span>
+        </div>
+      )}
+      {selected ? (
+        <Link href="/live-exam/quiz" className="absolute left-[8px] top-[1692px] flex h-[36px] w-[360px] items-center justify-center rounded-[5px] bg-[#55347b] dark:bg-[#9061c8]">
+          <span className="font-['Inter',sans-serif] text-[14px] leading-[12px] text-white">Star Written Exam</span>
+        </Link>
+      ) : (
+        <div className="absolute left-[8px] top-[1692px] flex h-[36px] w-[360px] items-center justify-center rounded-[5px] bg-[#c6c6c6] dark:bg-[#2c2c2c]">
+          <span className="font-['Inter',sans-serif] text-[14px] leading-[12px] text-white dark:text-[#e8e8e8]">Star Written Exam</span>
+        </div>
+      )}
 
       <div className="absolute bottom-0 left-0">
         <AppFooter />

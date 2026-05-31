@@ -39,6 +39,7 @@ export default function LiveExamPage() {
           courseLines={COURSE}
           statusMessage="You haven't taken the exam yet"
           takeEnabled
+          takeHref="/live-exam/instructions"
         />
         <LiveExamCard
           subject="Live Exam"

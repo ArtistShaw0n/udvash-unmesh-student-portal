@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 /*
  * Figma V2 — Live Exam quiz body (shared by the quiz screen 1:8657 and the
  * submit-confirm screen 1:8859, where it sits dimmed behind the modal).
@@ -107,9 +109,9 @@ export function QuizBody() {
         <QuestionCard key={q.num} q={q} />
       ))}
 
-      <div className="absolute left-1/2 top-[1919px] flex h-[36px] w-[150px] -translate-x-1/2 items-center justify-center rounded-[5px] bg-[#55347b] dark:bg-[#9061c8]">
+      <Link href="/live-exam/quiz/confirm" className="absolute left-1/2 top-[1919px] flex h-[36px] w-[150px] -translate-x-1/2 items-center justify-center rounded-[5px] bg-[#55347b] dark:bg-[#9061c8]">
         <span className="font-['Inter',sans-serif] text-[14px] leading-[normal] text-white">Submit</span>
-      </div>
+      </Link>
     </>
   );
 }

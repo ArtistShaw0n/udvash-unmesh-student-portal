@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { cn } from "@/lib/cn";
 
 /*
@@ -19,6 +20,7 @@ export type LiveExamCardProps = {
   courseLines: [string, string];
   statusMessage?: string;
   takeEnabled?: boolean;
+  takeHref?: string;
   className?: string;
 };
 
@@ -32,6 +34,7 @@ export function LiveExamCard({
   courseLines,
   statusMessage,
   takeEnabled,
+  takeHref,
   className,
 }: LiveExamCardProps) {
   const band = title2Lines ? 92 : 70;
@@ -70,15 +73,28 @@ export function LiveExamCard({
         <p className="absolute inset-x-0 text-center font-['Inter',sans-serif] text-[14px] font-medium leading-[normal] text-[#f95959]" style={{ top: band + 240 }}>{statusMessage}</p>
       )}
 
-      <div
-        className={cn(
-          "absolute left-1/2 flex h-[36px] w-[130px] -translate-x-1/2 items-center justify-center rounded-[5px]",
-          takeEnabled ? "bg-[#55347b] dark:bg-[#9061c8]" : "bg-[#c6c6c6] dark:bg-[#2c2c2c]",
-        )}
-        style={{ top: band + 297 }}
-      >
-        <span className="font-['Inter',sans-serif] text-[14px] leading-[12px] text-white">Take Exam</span>
-      </div>
+      {takeHref ? (
+        <Link
+          href={takeHref}
+          className={cn(
+            "absolute left-1/2 flex h-[36px] w-[130px] -translate-x-1/2 items-center justify-center rounded-[5px]",
+            takeEnabled ? "bg-[#55347b] dark:bg-[#9061c8]" : "bg-[#c6c6c6] dark:bg-[#2c2c2c]",
+          )}
+          style={{ top: band + 297 }}
+        >
+          <span className="font-['Inter',sans-serif] text-[14px] leading-[12px] text-white">Take Exam</span>
+        </Link>
+      ) : (
+        <div
+          className={cn(
+            "absolute left-1/2 flex h-[36px] w-[130px] -translate-x-1/2 items-center justify-center rounded-[5px]",
+            takeEnabled ? "bg-[#55347b] dark:bg-[#9061c8]" : "bg-[#c6c6c6] dark:bg-[#2c2c2c]",
+          )}
+          style={{ top: band + 297 }}
+        >
+          <span className="font-['Inter',sans-serif] text-[14px] leading-[12px] text-white">Take Exam</span>
+        </div>
+      )}
     </div>
   );
 }
