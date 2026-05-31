@@ -43,7 +43,7 @@ export default function CourseSubjectsPage() {
 
       <div className="absolute left-1/2 top-[168px] flex -translate-x-1/2 flex-col gap-[12px]">
         {SUBJECTS.map((s) => (
-          <CourseContentRow key={s.title} course={s} />
+          <CourseContentRow key={s.title} course={s} href="/course-content/chapters" />
         ))}
       </div>
 

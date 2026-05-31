@@ -27,7 +27,7 @@ export default function CourseContentsPage() {
       </p>
 
       <div className="absolute left-1/2 top-[168px] flex -translate-x-1/2 flex-col gap-[12px]">
-        <CourseChapterRow title="ওয়ান শট ক্লাস" count={2} />
+        <CourseChapterRow title="ওয়ান শট ক্লাস" count={2} href="/course-content/lectures" />
       </div>
 
       <div className="absolute bottom-0 left-0">

@@ -39,7 +39,7 @@ export default function CourseChaptersPage() {
 
       <div className="absolute left-1/2 top-[146px] flex -translate-x-1/2 flex-col gap-[12px]">
         {CHAPTERS.map((ch) => (
-          <CourseChapterRow key={ch} title={ch} />
+          <CourseChapterRow key={ch} title={ch} href="/course-content/contents" />
         ))}
       </div>
 

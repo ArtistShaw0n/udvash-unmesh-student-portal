@@ -7,6 +7,8 @@
  *     grey chevron. Used for the chapter / content lists (states C, D).
  *   The icon is the same udvash glyph recoloured per accent, so it is keyed by colour.
  */
+import Link from "next/link";
+
 const ICON_BY_COLOR: Record<string, string> = {
   "#00ceb6": "hsc",
   "#1489af": "medical-25",
@@ -36,9 +38,9 @@ export const COURSES: Record<string, Course> = {
   vkha26: { color: "#6262d9", title: "Varsity KHA Admission Program 2026" },
 };
 
-export function CourseContentRow({ course }: { course: Course }) {
+export function CourseContentRow({ course, href }: { course: Course; href?: string }) {
   const icon = `/components/icons/course/${ICON_BY_COLOR[course.color] ?? "vkha-26"}.svg`;
-  return (
+  const row = (
     <div className="relative h-[68px] w-[336px] rounded-[10px] bg-white shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1)] dark:border dark:border-[#1c1c1c] dark:bg-[#1a1a1a] dark:shadow-[0px_0px_20px_0px_#000000]">
       <span className="absolute left-[12px] top-[16px] size-[36px] rounded-[8px] opacity-15" style={{ backgroundColor: course.color }} />
       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -49,10 +51,17 @@ export function CourseContentRow({ course }: { course: Course }) {
       </svg>
     </div>
   );
+  return href ? (
+    <Link href={href} className="block">
+      {row}
+    </Link>
+  ) : (
+    row
+  );
 }
 
-export function CourseChapterRow({ title, count }: { title: string; count?: number }) {
-  return (
+export function CourseChapterRow({ title, count, href }: { title: string; count?: number; href?: string }) {
+  const row = (
     <div className="relative h-[60px] w-[336px] rounded-[10px] bg-white shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1)] dark:border dark:border-[#1c1c1c] dark:bg-[#1a1a1a] dark:shadow-[0px_0px_20px_0px_#000000]">
       <p className="absolute left-[20px] top-1/2 w-[280px] -translate-y-1/2 font-['Inter',sans-serif] text-[14px] leading-[20px] text-[#616161] dark:text-[#e8e8e8]">
         {title}
@@ -62,5 +71,12 @@ export function CourseChapterRow({ title, count }: { title: string; count?: numb
         <path d="M1 1L6 6L1 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     </div>
+  );
+  return href ? (
+    <Link href={href} className="block">
+      {row}
+    </Link>
+  ) : (
+    row
   );
 }

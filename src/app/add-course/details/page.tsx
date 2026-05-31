@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { cn } from "@/lib/cn";
 import { AppHeader } from "@/components/screens/AppHeader";
 import { AppFooter } from "@/components/screens/AppFooter";
@@ -92,12 +93,12 @@ export default function AddCourseDetailsPage() {
         </p>
       </div>
 
-      <div className="absolute left-[calc(50%-75px)] top-[942px] flex h-[36px] w-[130px] -translate-x-1/2 items-center justify-center rounded-[5px] bg-[#c6c6c6] dark:bg-[#2c2c2c]">
+      <Link href="/add-course" className="absolute left-[calc(50%-75px)] top-[942px] flex h-[36px] w-[130px] -translate-x-1/2 items-center justify-center rounded-[5px] bg-[#c6c6c6] dark:bg-[#2c2c2c]">
         <span className="font-['Inter',sans-serif] text-[14px] leading-[12px] text-white">Back</span>
-      </div>
-      <div className="absolute left-[calc(50%+75px)] top-[942px] flex h-[36px] w-[130px] -translate-x-1/2 items-center justify-center rounded-[5px] bg-[#55347b] dark:bg-[#9061c8]">
+      </Link>
+      <Link href="/add-course/payment" className="absolute left-[calc(50%+75px)] top-[942px] flex h-[36px] w-[130px] -translate-x-1/2 items-center justify-center rounded-[5px] bg-[#55347b] dark:bg-[#9061c8]">
         <span className="font-['Inter',sans-serif] text-[14px] leading-[12px] text-white">Next</span>
-      </div>
+      </Link>
 
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2">
         <AppFooter />
