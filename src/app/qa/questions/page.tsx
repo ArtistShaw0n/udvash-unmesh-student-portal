@@ -1,0 +1,141 @@
+import { cn } from "@/lib/cn";
+import { AppHeader } from "@/components/screens/AppHeader";
+import { AppFooter } from "@/components/screens/AppFooter";
+
+/*
+ * Figma V2 — Q&A "Question and Answers" thread. light 1:27673 · dark 1:27960. frame 376×2369.
+ *   header + title + Search field + Filter button + 3 white cards of Q&A messages (Me
+ *   questions right + #e8e8e8 image card + "Question Accepted"; AI Teacher / Shawon answers
+ *   left + ★ rating + Satisfied/Not Yet pills) + a red AI-Teacher warning notice + footer.
+ *   (No dropdowns — that is the taller variant 1:28244.) Raw Figma values.
+ */
+const I = "/components/icons/qa";
+const TXT = "text-[#616161] dark:text-[#e8e8e8]";
+const ONE = "কোন দেশের সংবিধান অলিখিত? ";
+const T7 = ONE.repeat(7);
+const T5 = ONE.repeat(5);
+
+type Msg = { sender: string; t1: string; t2: string; right?: boolean; text: string; imageW?: number; accepted?: boolean; feedback?: boolean };
+
+function MsgHeader({ sender, t1, t2, right, dim }: { sender: string; t1: string; t2: string; right?: boolean; dim?: boolean }) {
+  const c = dim ? "text-[rgba(97,97,97,0.5)] dark:text-[rgba(232,232,232,0.5)]" : TXT;
+  return (
+    <p className={cn("font-['Inter',sans-serif] text-[12px] leading-[normal]", c, right ? "text-right" : "text-left")}>
+      <span className="font-semibold">{sender}</span> · <span className="italic">{t1}</span> · <span className="italic">{t2}</span>
+    </p>
+  );
+}
+
+function Stars() {
+  return (
+    <div className="flex gap-[2px]">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={`${I}/star-filled.svg`} alt="" aria-hidden="true" className="size-[20px]" />
+      {[0, 1, 2, 3].map((i) => (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img key={i} src={`${I}/star-empty.svg`} alt="" aria-hidden="true" className="size-[20px]" />
+      ))}
+    </div>
+  );
+}
+
+function Pills() {
+  return (
+    <div className="flex gap-[10px]">
+      <div className="flex h-[27px] w-[99px] items-center justify-center gap-[6px] rounded-[5px] bg-[#f9f9f9] dark:bg-[#2c2c2c]">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={`${I}/pill-satisfied.svg`} alt="" aria-hidden="true" className="size-[16px]" />
+        <span className={`font-['Inter',sans-serif] text-[13px] leading-[normal] ${TXT}`}>Satisfied</span>
+      </div>
+      <div className="flex h-[27px] w-[99px] items-center justify-center gap-[6px] rounded-[5px] bg-[#f9f9f9] dark:bg-[#2c2c2c]">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={`${I}/pill-notyet.svg`} alt="" aria-hidden="true" className="size-[16px]" />
+        <span className={`font-['Inter',sans-serif] text-[13px] leading-[normal] ${TXT}`}>Not Yet</span>
+      </div>
+    </div>
+  );
+}
+
+function Message({ m, dim }: { m: Msg; dim?: boolean }) {
+  return (
+    <div className={cn("flex flex-col gap-[6px]", m.right ? "items-end" : "items-start")}>
+      <MsgHeader sender={m.sender} t1={m.t1} t2={m.t2} right={m.right} dim={dim} />
+      <p className={cn("w-[244px] font-['Inter',sans-serif] text-[13px] leading-[20px]", TXT, m.right && "text-right")}>{m.text}</p>
+      {m.imageW && <div className="rounded-[5px] bg-[#e8e8e8] shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1)] dark:bg-[#2c2c2c]" style={{ width: m.imageW, height: 138 }} />}
+      {m.accepted && <p className="font-['Inter',sans-serif] text-[10px] leading-[normal] text-[#2496c1]">Question Accepted</p>}
+      {m.feedback && (
+        <>
+          <Stars />
+          <Pills />
+        </>
+      )}
+    </div>
+  );
+}
+
+function Card({ top, msgs, dim }: { top: number; msgs: Msg[]; dim?: boolean }) {
+  return (
+    <div className="absolute left-[12px] flex w-[352px] flex-col gap-[16px] rounded-[5px] bg-white px-[8px] py-[12px] shadow-[0px_0px_2.5px_0px_rgba(0,0,0,0.03)] dark:border dark:border-[#1c1c1c] dark:bg-[#1a1a1a] dark:shadow-[0px_0px_20px_0px_#000000]" style={{ top }}>
+      {msgs.map((m, i) => (
+        <Message key={i} m={m} dim={dim} />
+      ))}
+    </div>
+  );
+}
+
+const CARD1: Msg[] = [{ sender: "Me", t1: "Today", t2: "11:01 PM", right: true, text: T7, imageW: 98, accepted: true }];
+const CARD2: Msg[] = [
+  { sender: "Me", t1: "Today", t2: "11:01 PM", right: true, text: T7, imageW: 244 },
+  { sender: "AI Teacher", t1: "Today", t2: "06:11 PM", text: T7, feedback: true },
+  { sender: "Me", t1: "Yesterday", t2: "06:11 PM", right: true, text: T5 },
+  { sender: "AI Teacher", t1: "Yesterday", t2: "06:11 PM", text: T5, feedback: true },
+  { sender: "Me", t1: "Yesterday", t2: "06:11 PM", right: true, text: T5 },
+  { sender: "Shawon", t1: "Yesterday", t2: "06:11 PM", text: T5, feedback: true },
+];
+const CARD3: Msg[] = [
+  { sender: "Me", t1: "Today", t2: "11:01 PM", right: true, text: T7, imageW: 244 },
+  { sender: "Shawon", t1: "Yesterday", t2: "06:11 PM", text: T5, feedback: true },
+];
+
+export default function QAQuestionsPage() {
+  return (
+    <main className="relative mx-auto h-[2369px] w-[376px] overflow-hidden bg-white dark:bg-[#111111]">
+      <div className="pointer-events-none absolute inset-0 opacity-40 dark:hidden" style={{ backgroundImage: "linear-gradient(81.3537deg, #e2eefd 13.822%, #e6f3f1 52.905%, #e9dfee 93.259%)" }} />
+
+      <AppHeader />
+
+      <p className={`absolute left-1/2 top-[74px] -translate-x-1/2 whitespace-nowrap font-['Inter',sans-serif] text-[20px] font-semibold leading-[normal] ${TXT}`}>Question and Answers</p>
+      <div className="absolute left-1/2 top-[100px] h-px w-[230px] -translate-x-1/2 bg-[linear-gradient(90deg,transparent,#000000,transparent)] opacity-[0.32] dark:bg-[linear-gradient(90deg,transparent,#ffffff,transparent)]" />
+
+      {/* Search + Filter */}
+      <div className="absolute left-1/2 top-[121px] h-[50px] w-[368px] -translate-x-1/2 rounded-[5px] bg-white shadow-[0px_0px_4px_0px_rgba(255,255,255,0.25)] dark:bg-[#1a1a1a]" />
+      <div className="absolute left-[12px] top-[131px] flex h-[30px] w-[253px] items-center gap-[6px] rounded-[15px] border border-[#cdcdcd] bg-white px-[10px] dark:border-[#444444] dark:bg-[#1a1a1a]">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={`${I}/qa-search.svg`} alt="" aria-hidden="true" className="size-[18px] dark:invert" />
+        <span className="font-['Inter',sans-serif] text-[14px] leading-[normal] text-[#999999]">Search</span>
+      </div>
+      <div className="absolute left-[281px] top-[131px] flex h-[30px] w-[83px] items-center justify-center gap-[12px] rounded-[5px] border border-[#cdcdcd] bg-white dark:border-[#444444] dark:bg-[#1a1a1a]">
+        <span className={`font-['Inter',sans-serif] text-[14px] leading-[normal] ${TXT}`}>Filter</span>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={`${I}/qa-filter.svg`} alt="" aria-hidden="true" className="h-[16px] w-[21px] dark:invert" />
+      </div>
+
+      <Card top={187} msgs={CARD1} />
+      <Card top={510} msgs={CARD2} dim />
+      <Card top={1750} msgs={CARD3} dim />
+
+      {/* AI-Teacher warning notice */}
+      <div className="absolute left-[38px] top-[851px] w-[189px]">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={`${I}/warn-union.svg`} alt="" aria-hidden="true" className="block h-[200px] w-[189px] dark:invert" />
+        <p className="absolute left-[12px] top-[30px] w-[165px] whitespace-pre-wrap font-['Inter',sans-serif] text-[11px] leading-[16px] text-[#f95959]">সর্বাধিক নির্ভুল উত্তর পেতে হাতের লেখা, বাঁকা, ঝাপসা ছবি এবং বাংলিশ লেখা এড়িয়ে চলো  তবে AI TEACHER  এর উত্তর যেহেতু ১০০% সঠিক নাও হতে পারে; তাই কোনো উত্তরে সন্তুষ্ট না হলে &quot; NOT YET &quot;  এ ক্লিক করে HUMAN TEACHER  ভাইয়া / আপু কে প্রশ্ন করলে কিছু সময় পর উত্তর পেয়ে যাবে ইন শা আল্লাহ</p>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={`${I}/warn-cross.svg`} alt="" aria-hidden="true" className="absolute right-[10px] top-[8px] size-[12px]" />
+      </div>
+
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2">
+        <AppFooter />
+      </div>
+    </main>
+  );
+}
