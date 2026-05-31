@@ -43,7 +43,7 @@ export default function PerformanceReportPage() {
 
       <AppHeader />
 
-      <p className="absolute left-1/2 top-[74px] -translate-x-1/2 font-['Inter',sans-serif] text-[20px] font-semibold leading-[normal] text-[#616161] dark:text-[#e8e8e8]">Performance Report</p>
+      <p className="absolute left-1/2 top-[74px] -translate-x-1/2 whitespace-nowrap font-['Inter',sans-serif] text-[20px] font-semibold leading-[normal] text-[#616161] dark:text-[#e8e8e8]">Performance Report</p>
       <div className="absolute left-1/2 top-[100px] h-px w-[183px] -translate-x-1/2 bg-[linear-gradient(90deg,transparent,#000000,transparent)] opacity-[0.32] dark:bg-[linear-gradient(90deg,transparent,#ffffff,transparent)]" />
       <p className="absolute left-1/2 top-[111px] -translate-x-1/2 text-center font-['Inter',sans-serif] text-[12px] leading-[normal] text-[#616161] dark:text-[#e8e8e8]">Employee Training Program 2021</p>
 
