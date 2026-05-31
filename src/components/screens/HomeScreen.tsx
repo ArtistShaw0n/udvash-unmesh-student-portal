@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { AppHeader } from "./AppHeader";
 import { AppFooter } from "./AppFooter";
 
@@ -10,6 +11,7 @@ import { AppFooter } from "./AppFooter";
  */
 type Tile = {
   label: string;
+  route?: string;
   icon: string;
   kind: "plain" | "tinted" | "tinted-full";
   tint?: string;
@@ -19,32 +21,32 @@ type Tile = {
 };
 
 const LEFT: Tile[] = [
-  { label: "Live Class", icon: "home-live-class", kind: "tinted", tint: "#fc5a5a", subtitle: "1 Live, 2 Upcoming" },
-  { label: "Past Classe", icon: "home-past-class", kind: "plain" },
-  { label: "Practice Exam", icon: "home-practice-exam", kind: "plain" },
-  { label: "Course & Content", icon: "home-course-content", kind: "tinted", tint: "#fc5a5a", tight: true },
-  { label: "Q&A Service", icon: "home-qa-service", kind: "tinted", tint: "#25b7d3" },
-  { label: "Performance", icon: "home-performance", kind: "plain" },
-  { label: "Add Course", icon: "home-add-course", kind: "tinted-full", tint: "#8a5ba4" },
+  { label: "Live Class", route: "/live-class", icon: "home-live-class", kind: "tinted", tint: "#fc5a5a", subtitle: "1 Live, 2 Upcoming" },
+  { label: "Past Classe", route: "/past-class", icon: "home-past-class", kind: "plain" },
+  { label: "Practice Exam", route: "/practice-exam", icon: "home-practice-exam", kind: "plain" },
+  { label: "Course & Content", route: "/course-content", icon: "home-course-content", kind: "tinted", tint: "#fc5a5a", tight: true },
+  { label: "Q&A Service", route: "/qa", icon: "home-qa-service", kind: "tinted", tint: "#25b7d3" },
+  { label: "Performance", route: "/performance", icon: "home-performance", kind: "plain" },
+  { label: "Add Course", route: "/add-course", icon: "home-add-course", kind: "tinted-full", tint: "#8a5ba4" },
   { label: "OMR Scan", icon: "home-omr-scan", kind: "plain" },
   { label: "Monthly Affairs", icon: "home-monthly-affairs", kind: "tinted", tint: "#6262d9" },
 ];
 
 const RIGHT: Tile[] = [
-  { label: "Live Exam", icon: "home-live-exam", kind: "tinted-full", tint: "#24c182", subtitle: "1 Live, 2 Upcoming", notif: true },
-  { label: "Past Exam", icon: "home-past-exam", kind: "tinted", tint: "#c1b124" },
-  { label: "Solve Sheet", icon: "home-solve-sheet", kind: "plain" },
-  { label: "Master Class", icon: "home-master-class", kind: "tinted-full", tint: "#2496c1" },
-  { label: "Community", icon: "home-community", kind: "tinted", tint: "#2496c1" },
-  { label: "Discussion Group", icon: "home-discussion-group", kind: "tinted-full", tint: "#82c124", tight: true },
+  { label: "Live Exam", route: "/live-exam", icon: "home-live-exam", kind: "tinted-full", tint: "#24c182", subtitle: "1 Live, 2 Upcoming", notif: true },
+  { label: "Past Exam", route: "/past-exam", icon: "home-past-exam", kind: "tinted", tint: "#c1b124" },
+  { label: "Solve Sheet", route: "/solve-sheet", icon: "home-solve-sheet", kind: "plain" },
+  { label: "Master Class", route: "/master-class", icon: "home-master-class", kind: "tinted-full", tint: "#2496c1" },
+  { label: "Community", route: "/community", icon: "home-community", kind: "tinted", tint: "#2496c1" },
+  { label: "Discussion Group", route: "/discussion-group", icon: "home-discussion-group", kind: "tinted-full", tint: "#82c124", tight: true },
   { label: "Due Payment", icon: "home-due-payment", kind: "plain" },
-  { label: "Downloads", icon: "home-downloads", kind: "plain" },
+  { label: "Downloads", route: "/downloads", icon: "home-downloads", kind: "plain" },
   { label: "Exam Center", icon: "home-exam-center", kind: "tinted", tint: "#d9000d" },
   { label: "Feedback", icon: "home-feedback", kind: "tinted", tint: "#f27c57" },
 ];
 
 function HomeTile({ t, loadingTile }: { t: Tile; loadingTile?: boolean }) {
-  return (
+  const card = (
     <div className="relative h-[60px] w-[176px] rounded-[10px] bg-white shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1)] dark:bg-[#1a1a1a] dark:shadow-[0px_0px_4px_0px_rgba(255,255,255,0.25)]">
       {t.notif && (
         // eslint-disable-next-line @next/next/no-img-element
@@ -80,6 +82,13 @@ function HomeTile({ t, loadingTile }: { t: Tile; loadingTile?: boolean }) {
         </div>
       )}
     </div>
+  );
+  return t.route ? (
+    <Link href={t.route} className="block">
+      {card}
+    </Link>
+  ) : (
+    card
   );
 }
 

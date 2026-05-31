@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { BrandLogo } from "./BrandLogo";
 import { ThemeToggle } from "./ThemeToggle";
 
@@ -10,7 +11,9 @@ import { ThemeToggle } from "./ThemeToggle";
 export function AuthHeader() {
   return (
     <header className="relative h-[50px] w-[376px] bg-white shadow-[0px_1px_4px_0px_rgba(0,0,0,0.06)] dark:bg-[#1a1a1a] dark:shadow-[0px_0px_20px_0px_#000000]">
-      <BrandLogo height={30} className="absolute left-[12px] top-[10px]" />
+      <Link href="/login" className="absolute left-[12px] top-[10px]">
+        <BrandLogo height={30} />
+      </Link>
       <ThemeToggle className="absolute left-[336px] top-[11px]" />
     </header>
   );
