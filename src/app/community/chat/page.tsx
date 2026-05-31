@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { AppHeader } from "@/components/screens/AppHeader";
 import { AppFooter } from "@/components/screens/AppFooter";
 
@@ -51,8 +52,10 @@ export default function CommunityChatPage() {
 
       {/* Chat header */}
       <div className="absolute left-1/2 top-[60px] flex h-[30px] w-[368px] -translate-x-1/2 items-center rounded-[5px] bg-[rgba(85,52,123,0.1)] dark:bg-[#2c2c2c]" />
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={`${CM}/chat-back.svg`} alt="" aria-hidden="true" className="absolute left-[12px] top-[66px] h-[18px] w-[10px] dark:invert" />
+      <Link href="/community" aria-label="Back to groups" className="absolute left-[12px] top-[66px] block h-[18px] w-[10px]">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={`${CM}/chat-back.svg`} alt="" aria-hidden="true" className="size-full dark:invert" />
+      </Link>
       <div className="absolute left-[27px] top-[60px] flex size-[30px] items-center justify-center rounded-full bg-[#25b7d3]">
         <span className="font-['Inter',sans-serif] text-[14px] leading-[normal] text-white">AB</span>
       </div>

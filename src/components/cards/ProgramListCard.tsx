@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { cn } from "@/lib/cn";
 
 /*
@@ -9,10 +10,11 @@ export type ProgramListCardProps = {
   title: string;
   heroSrc: string;
   ctaLabel: string;
+  ctaHref?: string;
   className?: string;
 };
 
-export function ProgramListCard({ title, heroSrc, ctaLabel, className }: ProgramListCardProps) {
+export function ProgramListCard({ title, heroSrc, ctaLabel, ctaHref, className }: ProgramListCardProps) {
   return (
     <div
       className={cn(
@@ -23,9 +25,15 @@ export function ProgramListCard({ title, heroSrc, ctaLabel, className }: Program
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={heroSrc} alt="" className="absolute left-0 top-0 h-[178px] w-[328px] rounded-tl-[10px] rounded-tr-[10px] object-cover" />
       <p className="absolute left-[20px] top-[198px] w-[288px] text-center font-['Inter',sans-serif] text-[18px] font-semibold leading-[22px] text-[#616161] dark:text-[#e8e8e8]">{title}</p>
-      <div className="absolute left-1/2 top-[282px] flex h-[36px] w-[150px] -translate-x-1/2 items-center justify-center rounded-[5px] bg-[#55347b] dark:bg-[#9061c8]">
-        <span className="font-['Inter',sans-serif] text-[14px] leading-[12px] text-white">{ctaLabel}</span>
-      </div>
+      {ctaHref ? (
+        <Link href={ctaHref} className="absolute left-1/2 top-[282px] flex h-[36px] w-[150px] -translate-x-1/2 items-center justify-center rounded-[5px] bg-[#55347b] dark:bg-[#9061c8]">
+          <span className="font-['Inter',sans-serif] text-[14px] leading-[12px] text-white">{ctaLabel}</span>
+        </Link>
+      ) : (
+        <div className="absolute left-1/2 top-[282px] flex h-[36px] w-[150px] -translate-x-1/2 items-center justify-center rounded-[5px] bg-[#55347b] dark:bg-[#9061c8]">
+          <span className="font-['Inter',sans-serif] text-[14px] leading-[12px] text-white">{ctaLabel}</span>
+        </div>
+      )}
     </div>
   );
 }

@@ -37,8 +37,8 @@ export default function PerformancePage() {
       <PerfFilterPill label="All Program" left={193} />
 
       <div className="absolute left-[24px] top-[203px] flex flex-col gap-[20px]">
-        <ProgramListCard heroSrc="/components/images/performance-employee.png" title="Employee Training Program 2021 (Online)" ctaLabel="View Report" />
-        <ProgramListCard heroSrc="/components/images/performance-class12.png" title="Class 12 Academic Program Online 2025" ctaLabel="View Report" />
+        <ProgramListCard heroSrc="/components/images/performance-employee.png" title="Employee Training Program 2021 (Online)" ctaLabel="View Report" ctaHref="/performance/report" />
+        <ProgramListCard heroSrc="/components/images/performance-class12.png" title="Class 12 Academic Program Online 2025" ctaLabel="View Report" ctaHref="/performance/report" />
       </div>
 
       <div className="absolute bottom-0 left-0">
