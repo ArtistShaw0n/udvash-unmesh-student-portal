@@ -25,11 +25,11 @@ function DownloadRow({ top, n, chapter, date, quality }: { top: number; n: strin
     <>
       <p className={`absolute left-[12px] right-[79px] truncate font-['Inter',sans-serif] text-[12px] font-medium leading-[normal] ${TXT}`} style={{ top }}>{`Regular Offline Class Physics-${n} Regular Offline...`}</p>
       <p className={`absolute right-[12px] whitespace-nowrap text-right font-['Inter',sans-serif] text-[8px] leading-[normal] ${TXT}`} style={{ top: top + 2 }}>{date}</p>
-      <div className="absolute left-[8px] h-[56px] w-[99px] overflow-hidden rounded-[10px] bg-white shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1)]" style={{ top: top + 27 }}>
+      <div className="absolute left-[12px] h-[56px] w-[90px] overflow-hidden rounded-[10px] bg-white shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1)]" style={{ top: top + 27 }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={`${I}/cover.png`} alt="" aria-hidden="true" className="size-full object-cover" />
       </div>
-      <p className={`absolute left-[8px] w-[99px] text-center font-['Inter',sans-serif] text-[10px] leading-[normal] ${TXT}`} style={{ top: top + 87 }}>{quality}</p>
+      <p className={`absolute left-[12px] w-[90px] text-center font-['Inter',sans-serif] text-[10px] leading-[normal] ${TXT}`} style={{ top: top + 87 }}>{quality}</p>
       <p className={`absolute left-[116px] right-[12px] font-['Inter',sans-serif] text-[12px] leading-[16px] ${TXT}`} style={{ top: top + 27 }}>{chapter}</p>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={`${I}/menu.svg`} alt="" aria-hidden="true" className="absolute right-[12px] h-[16px] w-[4px] dark:invert" style={{ top: top + 70 }} />
@@ -50,7 +50,7 @@ export default function DownloadsPage() {
       <div className="absolute left-1/2 top-[60px] h-[42px] w-[368px] -translate-x-1/2 rounded-[5px] bg-[rgba(85,52,123,0.1)] dark:bg-[#2c2c2c]" />
       <p className={`absolute left-[12px] top-[71px] font-['Inter',sans-serif] text-[16px] font-bold leading-[normal] ${TXT}`}>Downloads</p>
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={`${I}/search.svg`} alt="" aria-hidden="true" className="absolute left-[324px] top-[73px] size-[16px] dark:invert" />
+      <img src={`${I}/search.svg`} alt="" aria-hidden="true" className="absolute left-[324px] top-[73px] size-[15px] dark:invert" />
       <Link href="/downloads/settings" className="absolute left-[347px] top-[73px] block size-[16px]">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={`${I}/gear.svg`} alt="" aria-hidden="true" className="size-full dark:invert" />
@@ -58,7 +58,7 @@ export default function DownloadsPage() {
 
       {/* Video player */}
       <div className="absolute left-1/2 top-[122px] h-[202px] w-[360px] -translate-x-1/2 bg-[#b5b5b5]" />
-      <Link href="/downloads/video" className="absolute left-1/2 top-[189px] block size-[68px] -translate-x-1/2">
+      <Link href="/downloads/video" className="absolute left-1/2 top-[203px] block size-[40px] -translate-x-1/2">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={`${I}/dl-play.svg`} alt="" aria-hidden="true" className="size-full" />
       </Link>
@@ -66,23 +66,23 @@ export default function DownloadsPage() {
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={`${I}/controls-bar.png`} alt="" aria-hidden="true" className="absolute left-1/2 top-[294px] h-[30px] w-[360px] -translate-x-1/2 object-cover" />
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={`${I}/ctrl-play.svg`} alt="" aria-hidden="true" className="absolute left-[25px] top-[302px] size-[14px]" />
+      <img src={`${I}/ctrl-play.svg`} alt="" aria-hidden="true" className="absolute left-[18px] top-[302px] h-[14px] w-[12px]" />
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={`${I}/ctrl-seek.svg`} alt="" aria-hidden="true" className="absolute left-[79px] top-[302px] size-[14px]" />
+      <img src={`${I}/ctrl-seek.svg`} alt="" aria-hidden="true" className="absolute left-[74px] top-[302px] h-[14px] w-[16px]" />
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={`${I}/ctrl-seek.svg`} alt="" aria-hidden="true" className="absolute left-[106px] top-[302px] size-[14px] -scale-x-100" />
+      <img src={`${I}/ctrl-seek.svg`} alt="" aria-hidden="true" className="absolute left-[118px] top-[302px] h-[14px] w-[16px] -scale-x-100" />
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={`${I}/ctrl-g1.svg`} alt="" aria-hidden="true" className="absolute left-[132px] top-[302px] size-[14px]" />
+      <img src={`${I}/ctrl-g1.svg`} alt="" aria-hidden="true" className="absolute left-[130px] top-[301px] h-[16px] w-[17px]" />
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={`${I}/ctrl-g2.svg`} alt="" aria-hidden="true" className="absolute left-[160px] top-[303px] h-[12px] w-[40px]" />
-      <p className="absolute left-[245px] top-[303px] whitespace-nowrap font-['Inter',sans-serif] text-[12px] leading-[normal] text-white">-2:52:48</p>
+      <img src={`${I}/ctrl-g2.svg`} alt="" aria-hidden="true" className="absolute left-[159px] top-[305px] h-[8px] w-[77px]" />
+      <p className="absolute left-[248px] top-[302px] whitespace-nowrap font-['Inter',sans-serif] text-[12px] leading-[normal] text-white">-2:52:48</p>
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={`${I}/ctrl-settings.svg`} alt="" aria-hidden="true" className="absolute left-[309px] top-[302px] size-[14px]" />
+      <img src={`${I}/ctrl-settings.svg`} alt="" aria-hidden="true" className="absolute left-[314px] top-[301px] size-[16px]" />
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={`${I}/ctrl-fullscreen.svg`} alt="" aria-hidden="true" className="absolute left-[335px] top-[302px] size-[14px]" />
+      <img src={`${I}/ctrl-fullscreen.svg`} alt="" aria-hidden="true" className="absolute left-[342px] top-[301px] size-[16px]" />
 
       {/* Your Downloads + toggle */}
-      <div className="absolute left-1/2 top-[340px] h-px w-[352px] -translate-x-1/2 bg-[#cacaca]" />
+      <div className="absolute left-1/2 top-[376px] h-px w-[352px] -translate-x-1/2 bg-[#cacaca]" />
       <p className={`absolute left-[12px] top-[346px] font-['Inter',sans-serif] text-[12px] leading-[normal] ${TXT}`}>Your Downloads</p>
       <div className="absolute left-[calc(50%+36px)] top-[340px] flex h-[26px] w-[70px] items-center justify-center rounded-l-[5px] border border-[#55347b] bg-[#55347b] dark:border-[#9061c8] dark:bg-[#9061c8]">
         <span className="font-['Inter',sans-serif] text-[12px] text-white">Videos</span>
