@@ -33,7 +33,7 @@ function DownloadRow({ top, n, chapter, date, quality }: { top: number; n: strin
       <p className={`absolute left-[116px] right-[12px] font-['Inter',sans-serif] text-[12px] leading-[16px] ${TXT}`} style={{ top: top + 27 }}>{chapter}</p>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={`${I}/menu.svg`} alt="" aria-hidden="true" className="absolute right-[12px] h-[13px] w-[11px] dark:invert" style={{ top: top + 70 }} />
-      <div className="absolute left-1/2 h-px w-[352px] -translate-x-1/2 bg-[#cacaca]" style={{ top: top + 107 }} />
+      <div className="absolute left-1/2 h-px w-[352px] -translate-x-1/2 bg-[#cacaca] dark:bg-[#565656]" style={{ top: top + 107 }} />
       <Link href="/downloads/video" aria-label="Open video" className="absolute left-0 w-full" style={{ top, height: 107 }} />
     </>
   );
@@ -82,7 +82,7 @@ export default function DownloadsPage() {
       <img src={`${I}/ctrl-fullscreen.svg`} alt="" aria-hidden="true" className="absolute left-[342px] top-[301px] size-[16px]" />
 
       {/* Your Downloads + toggle */}
-      <div className="absolute left-1/2 top-[376px] h-px w-[352px] -translate-x-1/2 bg-[#cacaca]" />
+      <div className="absolute left-1/2 top-[376px] h-px w-[352px] -translate-x-1/2 bg-[#cacaca] dark:bg-[#565656]" />
       <p className={`absolute left-[12px] top-[346px] font-['Inter',sans-serif] text-[12px] leading-[normal] ${TXT}`}>Your Downloads</p>
       <div className="absolute left-[calc(50%+36px)] top-[340px] flex h-[26px] w-[71px] items-center justify-center rounded-l-[5px] border border-[#55347b] bg-[#55347b] dark:border-[#9061c8] dark:bg-[#9061c8]">
         <span className="font-['Inter',sans-serif] text-[12px] text-white">Videos</span>
