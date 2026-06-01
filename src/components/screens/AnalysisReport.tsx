@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { cn } from "@/lib/cn";
 import { AppHeader } from "@/components/screens/AppHeader";
 import { AppFooter } from "@/components/screens/AppFooter";
@@ -303,10 +304,10 @@ function SubjectWiseCard({ expanded, className }: { expanded: boolean; className
   const titleCls = expanded ? "text-[#616161] dark:text-[#e8e8e8]" : "text-[#00ba00]";
   return (
     <div className={cn("relative w-[360px]", BIG_CARD, className)} style={{ height: expanded ? 363 : 64 }}>
-      <div className="absolute left-1/2 top-[20px] flex -translate-x-1/2 items-center gap-[20px]">
+      <Link href={expanded ? "/subject-wise-details" : "/subject-wise-details/expanded"} className="absolute left-1/2 top-[20px] flex -translate-x-1/2 items-center gap-[20px]">
         <span className={cn("whitespace-nowrap font-['Inter',sans-serif] text-[20px] font-bold leading-[normal]", titleCls)}>Subject Wise Details</span>
         <SwChevron up={expanded} className={titleCls} />
-      </div>
+      </Link>
       {expanded && (
         <>
           <SwRow top={64} cells={["Subject", "MCQ", "Written", "Total"]} head />

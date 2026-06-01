@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { cn } from "@/lib/cn";
 
 /*
@@ -10,14 +11,16 @@ import { cn } from "@/lib/cn";
 const I = "/components/icons/revision";
 const TXT = "text-[#616161] dark:text-[#e8e8e8]";
 
-function Radio({ selected, label }: { selected: boolean; label: string }) {
-  return (
-    <div className="flex items-center gap-[6px]">
+function Radio({ selected, label, href }: { selected: boolean; label: string; href?: string }) {
+  const cls = "flex items-center gap-[6px]";
+  const inner = (
+    <>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={`${I}/radio-${selected ? "on" : "off"}.svg`} alt="" aria-hidden="true" className="size-[16px]" />
       <span className={`font-['Inter',sans-serif] text-[14px] ${TXT}`}>{label}</span>
-    </div>
+    </>
   );
+  return href ? <Link href={href} className={cls}>{inner}</Link> : <div className={cls}>{inner}</div>;
 }
 
 function StatusCheck({ checked, label, left }: { checked?: boolean; label: string; left: number }) {
@@ -50,8 +53,8 @@ export function RevisionSettingsModal({ progress }: { progress?: boolean }) {
           <div>
             <p className={`font-['Inter',sans-serif] text-[16px] font-semibold ${TXT}`}>Start Mode</p>
             <div className="ml-[8px] mt-[7px] flex flex-col gap-[10px]">
-              <Radio selected={!progress} label="Start From Beginning" />
-              <Radio selected={!!progress} label="Resume From Previous" />
+              <Radio selected={!progress} label="Start From Beginning" href="/revision" />
+              <Radio selected={!!progress} label="Resume From Previous" href="/revision/resume" />
             </div>
             <p className="mt-[12px] font-['Inter',sans-serif] text-[11px] text-[#999999]">আগের session এর Subject ও Status auto-set করা হয়েছে</p>
           </div>
@@ -92,10 +95,10 @@ export function RevisionSettingsModal({ progress }: { progress?: boolean }) {
 
         {/* Buttons */}
         <div className="flex flex-col items-center gap-[14px]">
-          <div className="flex h-[36px] w-[296px] items-center justify-center rounded-[5px] bg-[#55347b] dark:bg-[#9061c8]">
+          <Link href="/revision/result" className="flex h-[36px] w-[296px] items-center justify-center rounded-[5px] bg-[#55347b] dark:bg-[#9061c8]">
             <span className="font-['Inter',sans-serif] text-[14px] leading-[12px] text-white">Start Revision</span>
-          </div>
-          <span className="font-['Inter',sans-serif] text-[14px] leading-[12px] text-[#70757a] dark:text-[#e8e8e8]">Cancel</span>
+          </Link>
+          <Link href="/performance" className="font-['Inter',sans-serif] text-[14px] leading-[12px] text-[#70757a] dark:text-[#e8e8e8]">Cancel</Link>
         </div>
       </div>
     </div>
