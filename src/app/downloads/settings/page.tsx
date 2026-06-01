@@ -56,7 +56,7 @@ export default function DownloadsSettingsPage() {
       <p className="absolute left-[42px] top-[190px] whitespace-nowrap font-['Inter',sans-serif] text-[14px] leading-[normal] text-[#444444] dark:text-[#e8e8e8]">SD card</p>
       <p className="absolute left-[42px] top-[210px] whitespace-nowrap font-['Inter',sans-serif] text-[11px] leading-[normal] text-[#444444] dark:text-[#e8e8e8]">5.28 GB available</p>
 
-      <div className="absolute left-1/2 top-[243px] h-px w-[336px] -translate-x-1/2 bg-[#cacaca]" />
+      <div className="absolute left-1/2 top-[243px] h-px w-[336px] -translate-x-1/2 bg-[#cacaca] dark:bg-[#565656]" />
 
       <p className={`absolute left-[20px] top-[263px] font-['Inter',sans-serif] text-[16px] leading-[normal] ${TXT}`}>Downloads by User</p>
 

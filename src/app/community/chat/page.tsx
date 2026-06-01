@@ -33,9 +33,9 @@ function Pill({ left, top, count }: { left: number; top: number; count: string }
 function DateSep({ top }: { top: number }) {
   return (
     <div className="absolute left-1/2 flex w-[320px] -translate-x-1/2 items-center gap-[8px]" style={{ top }}>
-      <span className="h-px flex-1 bg-[#cacaca]" />
+      <span className="h-px flex-1 bg-[#cacaca] dark:bg-[#565656]" />
       <span className="whitespace-nowrap font-['Inter',sans-serif] text-[10px] leading-[normal] text-[#999999]">10:05 AM</span>
-      <span className="h-px flex-1 bg-[#cacaca]" />
+      <span className="h-px flex-1 bg-[#cacaca] dark:bg-[#565656]" />
     </div>
   );
 }
