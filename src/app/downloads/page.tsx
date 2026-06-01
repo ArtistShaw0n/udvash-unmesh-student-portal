@@ -32,7 +32,7 @@ function DownloadRow({ top, n, chapter, date, quality }: { top: number; n: strin
       <p className={`absolute left-[12px] w-[90px] text-center font-['Inter',sans-serif] text-[10px] leading-[normal] ${TXT}`} style={{ top: top + 87 }}>{quality}</p>
       <p className={`absolute left-[116px] right-[12px] font-['Inter',sans-serif] text-[12px] leading-[16px] ${TXT}`} style={{ top: top + 27 }}>{chapter}</p>
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={`${I}/menu.svg`} alt="" aria-hidden="true" className="absolute right-[12px] h-[16px] w-[4px] dark:invert" style={{ top: top + 70 }} />
+      <img src={`${I}/menu.svg`} alt="" aria-hidden="true" className="absolute right-[12px] h-[13px] w-[11px] dark:invert" style={{ top: top + 70 }} />
       <div className="absolute left-1/2 h-px w-[352px] -translate-x-1/2 bg-[#cacaca]" style={{ top: top + 107 }} />
       <Link href="/downloads/video" aria-label="Open video" className="absolute left-0 w-full" style={{ top, height: 107 }} />
     </>
@@ -95,13 +95,13 @@ export default function DownloadsPage() {
         <DownloadRow key={r.n} {...r} />
       ))}
 
-      {/* Back Online bar */}
-      <div className="absolute left-0 top-[1098px] flex h-[30px] w-[376px] items-center justify-center bg-[#4fa621]">
-        <span className="font-['Inter',sans-serif] text-[12px] text-white">Back Online</span>
-      </div>
-
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2">
         <AppFooter />
+      </div>
+
+      {/* Back Online bar — last child in Figma, so it paints ABOVE the footer (its shadow stays behind) */}
+      <div className="absolute left-0 top-[1098px] flex h-[30px] w-[376px] items-center justify-center bg-[#4fa621]">
+        <span className="font-['Inter',sans-serif] text-[12px] text-white">Back Online</span>
       </div>
     </main>
   );
