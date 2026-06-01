@@ -24,6 +24,16 @@ Why this rule exists: the assistant repeatedly added states/behavior/props/
 abstractions that were never in Figma, forcing the user to re-explain every turn.
 That must not happen again. The user should never have to repeat this.
 
+# ⛔ VERIFY WITH EXACT PIXEL VALUES — NEVER EYEBALL SCREENSHOTS
+
+To check the build against Figma you MUST pull the node's real values
+(`get_metadata` for x/y/w/h of every element, `get_design_context` for
+colours/fonts/spacing) and diff each element's px against the code — **size AND
+position**. Do NOT look at a screenshot and judge "it matches"; that misses real
+pixel diffs and the user (a designer) catches them every time. Icon size/position
+is the usual failure (play button 68 vs 40, pin 14 vs 18, progress bar 40 vs 77,
+thumbnail 99 vs 90). Always choose the rigorous method, not the fast one.
+
 <!-- BEGIN:nextjs-agent-rules -->
 # This is NOT the Next.js you know
 

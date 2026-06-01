@@ -44,7 +44,7 @@ export function AppFooter() {
 
       {/* Downloads */}
       <Link href="/downloads" className="flex flex-col items-center gap-[4px]">
-        <FooterIcon light="/components/icons/footer-downloads.svg" dark="/components/icons/footer-downloads-dark.svg" lw={36} lh={36} dw={24} dh={23} />
+        <FooterIcon light="/components/icons/footer-downloads.svg" dark="/components/icons/footer-downloads-dark.svg" lw={36} lh={36} dw={21} dh={20} />
         <span className="font-['Inter',sans-serif] text-[12px] text-[#616161] dark:text-[#e8e8e8]">Downloads</span>
       </Link>
 
@@ -56,7 +56,7 @@ export function AppFooter() {
 
       {/* Community */}
       <Link href="/community" className="flex flex-col items-center gap-[4px]">
-        <FooterIcon light="/components/icons/footer-community.svg" dark="/components/icons/footer-community-dark.svg" lw={30} lh={30} dw={30} dh={30} />
+        <FooterIcon light="/components/icons/footer-community.svg" dark="/components/icons/footer-community-dark.svg" lw={36} lh={36} dw={36} dh={36} />
         <span className="font-['Inter',sans-serif] text-[12px] text-[#616161] dark:text-[#e8e8e8]">Community</span>
       </Link>
     </nav>
