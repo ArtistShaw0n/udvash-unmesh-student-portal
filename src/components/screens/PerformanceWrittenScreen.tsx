@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { AppHeader } from "@/components/screens/AppHeader";
 import { AppFooter } from "@/components/screens/AppFooter";
 
@@ -40,15 +41,15 @@ export function PerformanceWrittenScreen({ step }: { step: "version" | "saq" }) 
       {step === "version" ? (
         <>
           <p className={`absolute left-1/2 top-[177px] w-[336px] -translate-x-1/2 text-center font-['Inter',sans-serif] text-[16px] font-semibold leading-[normal] ${TXT}`}>Select Version</p>
-          <div className="absolute left-[38px] top-[216px] flex h-[49px] w-[140px] items-center justify-center rounded-[5px] bg-white shadow-[0px_0px_2.5px_0px_rgba(0,0,0,0.1)] dark:border dark:border-[#1c1c1c] dark:bg-[#1a1a1a] dark:shadow-[0px_0px_20px_0px_#000000]">
+          <Link href="/performance/written/sets" className="absolute left-[38px] top-[216px] flex h-[49px] w-[140px] items-center justify-center rounded-[5px] bg-white shadow-[0px_0px_2.5px_0px_rgba(0,0,0,0.1)] dark:border dark:border-[#1c1c1c] dark:bg-[#1a1a1a] dark:shadow-[0px_0px_20px_0px_#000000]">
             <span className={`font-['Inter',sans-serif] text-[14px] font-medium leading-[normal] ${TXT}`}>Bangla Version</span>
-          </div>
-          <div className="absolute left-[198px] top-[216px] flex h-[49px] w-[140px] items-center justify-center rounded-[5px] bg-white shadow-[0px_0px_2.5px_0px_rgba(0,0,0,0.1)] dark:border dark:border-[#1c1c1c] dark:bg-[#1a1a1a] dark:shadow-[0px_0px_20px_0px_#000000]">
+          </Link>
+          <Link href="/performance/written/sets" className="absolute left-[198px] top-[216px] flex h-[49px] w-[140px] items-center justify-center rounded-[5px] bg-white shadow-[0px_0px_2.5px_0px_rgba(0,0,0,0.1)] dark:border dark:border-[#1c1c1c] dark:bg-[#1a1a1a] dark:shadow-[0px_0px_20px_0px_#000000]">
             <span className={`font-['Inter',sans-serif] text-[14px] font-medium leading-[normal] ${TXT}`}>English Version</span>
-          </div>
-          <div className="absolute left-[80px] top-[295px] flex h-[36px] w-[216px] items-center justify-center rounded-[5px] bg-[#c6c6c6] dark:bg-[#2c2c2c]">
+          </Link>
+          <Link href="/past-exam" className="absolute left-[80px] top-[295px] flex h-[36px] w-[216px] items-center justify-center rounded-[5px] bg-[#c6c6c6] dark:bg-[#2c2c2c]">
             <span className="font-['Inter',sans-serif] text-[14px] leading-[normal] text-white">Back to Past Exams</span>
-          </div>
+          </Link>
         </>
       ) : (
         <>
@@ -58,9 +59,9 @@ export function PerformanceWrittenScreen({ step }: { step: "version" | "saq" }) 
           <p className={`absolute left-1/2 top-[359px] w-[336px] -translate-x-1/2 text-center font-['Inter',sans-serif] text-[16px] font-semibold leading-[20px] ${TXT}`}>SAQ Master Set: 2</p>
           <SaqRow top={389} label="Only Question" />
           <SaqRow top={461} label="Question & Solution" />
-          <div className="absolute left-[80px] top-[551px] flex h-[36px] w-[216px] items-center justify-center rounded-[5px] bg-[#c6c6c6] dark:bg-[#2c2c2c]">
+          <Link href="/past-exam" className="absolute left-[80px] top-[551px] flex h-[36px] w-[216px] items-center justify-center rounded-[5px] bg-[#c6c6c6] dark:bg-[#2c2c2c]">
             <span className="font-['Inter',sans-serif] text-[14px] leading-[normal] text-white">Back to Past Exams</span>
-          </div>
+          </Link>
         </>
       )}
 

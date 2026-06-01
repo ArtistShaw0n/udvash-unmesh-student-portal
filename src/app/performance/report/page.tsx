@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { AppHeader } from "@/components/screens/AppHeader";
 import { AppFooter } from "@/components/screens/AppFooter";
 import { ExamResultCard } from "@/components/cards/ExamResultCard";
@@ -15,11 +16,11 @@ const I = "/components/icons/perf";
 
 function FilterPill({ label, left, width }: { label: string; left: number; width: number }) {
   return (
-    <div className="absolute top-[176px] flex h-[32px] items-center justify-between rounded-[99px] bg-white px-[8px] shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1)] dark:bg-[#1a1a1a]" style={{ left, width }}>
+    <Link href="/performance/report/filtered" className="absolute top-[176px] flex h-[32px] items-center justify-between rounded-[99px] bg-white px-[8px] shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1)] dark:bg-[#1a1a1a]" style={{ left, width }}>
       <span className="font-['Inter',sans-serif] text-[14px] leading-[20px] tracking-[0.1px] text-[#616161] dark:text-[#e8e8e8]">{label}</span>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src="/components/icons/filter-chevron.svg" alt="" aria-hidden="true" className="h-[4px] w-[8px]" />
-    </div>
+    </Link>
   );
 }
 

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { AppHeader } from "@/components/screens/AppHeader";
 import { AppFooter } from "@/components/screens/AppFooter";
 
@@ -15,11 +16,13 @@ function Underline({ top }: { top: number }) {
   return <div className="absolute left-1/2 h-px w-[171px] -translate-x-1/2 bg-[linear-gradient(90deg,transparent,#000000,transparent)] opacity-[0.32] dark:bg-[linear-gradient(90deg,transparent,#ffffff,transparent)]" style={{ top }} />;
 }
 
-function Btn({ label, side }: { label: string; side: "l" | "r" }) {
-  return (
-    <div className={`absolute top-[435px] flex h-[36px] w-[130px] -translate-x-1/2 items-center justify-center rounded-[5px] bg-[#55347b] ${side === "l" ? "left-[calc(50%-75px)]" : "left-[calc(50%+75px)]"}`}>
-      <span className="font-['Inter',sans-serif] text-[14px] leading-[12px] text-[#e8e8e8]">{label}</span>
-    </div>
+function Btn({ label, side, href }: { label: string; side: "l" | "r"; href?: string }) {
+  const cls = `absolute top-[435px] flex h-[36px] w-[130px] -translate-x-1/2 items-center justify-center rounded-[5px] bg-[#55347b] ${side === "l" ? "left-[calc(50%-75px)]" : "left-[calc(50%+75px)]"}`;
+  const inner = <span className="font-['Inter',sans-serif] text-[14px] leading-[12px] text-[#e8e8e8]">{label}</span>;
+  return href ? (
+    <Link href={href} className={cls}>{inner}</Link>
+  ) : (
+    <div className={cls}>{inner}</div>
   );
 }
 
@@ -68,7 +71,7 @@ export function RescanScreen({ running }: { running?: boolean }) {
           <Row top={295}>Course</Row>
           <Row top={318} bold>Engineering Full Course 2025 [Online]</Row>
           <Row top={341}>Engineering Admission Program (Online) 2025</Row>
-          <Btn label="Start" side="l" />
+          <Btn label="Start" side="l" href="/rescan/running" />
           <Btn label="Rescan" side="r" />
         </>
       )}

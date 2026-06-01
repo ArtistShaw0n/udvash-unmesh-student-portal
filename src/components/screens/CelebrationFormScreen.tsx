@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { AppHeader } from "@/components/screens/AppHeader";
 import { AppFooter } from "@/components/screens/AppFooter";
 
@@ -162,9 +163,9 @@ export function CelebrationFormScreen() {
       <Field top={2946} placeholder="Enter HSc Board Roll" />
 
       {/* submit */}
-      <div className="absolute left-[123px] top-[3060px] flex h-[36px] w-[130px] items-center justify-center rounded-[5px] bg-[#55347b]">
+      <Link href="/grand-celebration/result" className="absolute left-[123px] top-[3060px] flex h-[36px] w-[130px] items-center justify-center rounded-[5px] bg-[#55347b]">
         <span className="font-['Inter',sans-serif] text-[14px] leading-[12px] text-white">Submit</span>
-      </div>
+      </Link>
 
       <div className="absolute bottom-0 left-0">
         <AppFooter />
