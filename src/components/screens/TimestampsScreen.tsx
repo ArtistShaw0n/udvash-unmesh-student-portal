@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { AppHeader } from "@/components/screens/AppHeader";
 import { AppFooter } from "@/components/screens/AppFooter";
 
@@ -130,11 +131,11 @@ export function TimestampsScreen({ expanded }: { expanded?: boolean }) {
 
       {/* Timestamps accordion */}
       <div className="absolute left-[8px] top-[420px] w-[360px] overflow-hidden rounded-[10px] bg-white shadow-[0px_0px_4px_0px_rgba(255,255,255,0.25)] dark:border dark:border-[#1c1c1c] dark:bg-[#1a1a1a] dark:shadow-[0px_0px_20px_0px_#000000]" style={{ height: expanded ? 277 : 82 }}>
-        <div className="absolute left-[20px] top-[20px] flex w-[319px] items-center justify-between">
+        <Link href={expanded ? "/timestamps" : "/timestamps/expanded"} className="absolute left-[20px] top-[20px] flex w-[319px] items-center justify-between">
           <span className={`font-['Inter',sans-serif] text-[14px] font-semibold leading-[normal] ${TXT}`}>Timestamps</span>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={`${C}/chevron.svg`} alt="" aria-hidden="true" className={`h-[7px] w-[14px] dark:invert ${expanded ? "" : "rotate-180"}`} />
-        </div>
+        </Link>
         <div className="absolute left-[20px] top-[47px] flex w-[320px] flex-col gap-[6px]">
           {TIMESTAMPS.map(([t, txt]) => (
             <div key={t} className="flex items-start gap-[10px]">

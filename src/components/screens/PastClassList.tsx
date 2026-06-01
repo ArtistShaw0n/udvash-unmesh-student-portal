@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { cn } from "@/lib/cn";
 import { PastClassCard } from "@/components/cards/PastClassCard";
 
@@ -12,19 +13,25 @@ const COURSE: [string, string] = ["Engineering Full Course 2025 [Online]", "Engi
 const DATETIME = "20 Sep, 2025 07:30 PM to 11:00 PM";
 const TITLE = "Engineering Daily MCQ Practice Exam Engineering Daily MCQ Practi...";
 
-export const PAST_CLASS_FILTERS: { label: string; left: number }[] = [
-  { label: "All Course", left: 24 },
-  { label: "All Subject", left: 136.5 },
-  { label: "All Platform", left: 249 },
+export const PAST_CLASS_FILTERS: { label: string; left: number; href: string }[] = [
+  { label: "All Course", left: 24, href: "/past-class/filter-course" },
+  { label: "All Subject", left: 136.5, href: "/past-class/filter-subject" },
+  { label: "All Platform", left: 249, href: "/past-class/filter-platform" },
 ];
 
-export function PastClassFilterPill({ label, left }: { label: string; left: number }) {
-  return (
-    <div className="absolute top-[141px] flex h-[32px] w-[103px] items-center justify-center gap-[8px] rounded-[99px] bg-white shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1)] dark:bg-[#1a1a1a]" style={{ left }}>
+export function PastClassFilterPill({ label, left, href }: { label: string; left: number; href?: string }) {
+  const cls = "absolute top-[141px] flex h-[32px] w-[103px] items-center justify-center gap-[8px] rounded-[99px] bg-white shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1)] dark:bg-[#1a1a1a]";
+  const inner = (
+    <>
       <span className="font-['Inter',sans-serif] text-[14px] leading-[20px] tracking-[0.1px] text-[#616161] dark:text-[#e8e8e8]">{label}</span>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src="/components/icons/filter-chevron.svg" alt="" aria-hidden="true" className="h-[4px] w-[8px]" />
-    </div>
+    </>
+  );
+  return href ? (
+    <Link href={href} className={cls} style={{ left }}>{inner}</Link>
+  ) : (
+    <div className={cls} style={{ left }}>{inner}</div>
   );
 }
 
@@ -37,7 +44,7 @@ export function PastClassList() {
       <div className="absolute left-1/2 top-[100px] h-px w-[180px] -translate-x-1/2 bg-[linear-gradient(90deg,transparent,#000000,transparent)] opacity-[0.32] dark:bg-[linear-gradient(90deg,transparent,#ffffff,transparent)]" />
 
       {PAST_CLASS_FILTERS.map((f) => (
-        <PastClassFilterPill key={f.label} label={f.label} left={f.left} />
+        <PastClassFilterPill key={f.label} label={f.label} left={f.left} href={f.href} />
       ))}
 
       <div className="absolute left-[24px] top-[203px] flex flex-col gap-[20px]">
