@@ -55,7 +55,7 @@ export default function CommunityPage() {
       <AppHeader />
 
       {/* Groups search bar */}
-      <div className="absolute left-1/2 top-[60px] h-[42px] w-[368px] -translate-x-1/2 rounded-[5px] bg-[rgba(85,52,123,0.1)] dark:bg-[#2c2c2c]" />
+      <div className="absolute left-1/2 top-[60px] h-[42px] w-[368px] -translate-x-1/2 rounded-[5px] bg-[rgba(85,52,123,0.1)] dark:border dark:border-[#1c1c1c] dark:bg-[#1a1a1a] dark:shadow-[0px_0px_20px_0px_#000000]" />
       <p className="absolute left-[12px] top-[71px] font-['Inter',sans-serif] text-[16px] font-bold leading-[normal] text-[#616161] dark:text-[#e8e8e8]">Groups</p>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={`${DL}/search.svg`} alt="" aria-hidden="true" className="absolute left-[347px] top-[73px] size-[15px] dark:invert" />
