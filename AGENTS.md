@@ -24,15 +24,27 @@ Why this rule exists: the assistant repeatedly added states/behavior/props/
 abstractions that were never in Figma, forcing the user to re-explain every turn.
 That must not happen again. The user should never have to repeat this.
 
-# ⛔ VERIFY WITH EXACT PIXEL VALUES — NEVER EYEBALL SCREENSHOTS
+# ⛔ WORKING PROTOCOL — every Figma task, every step (the user never restates this)
 
-To check the build against Figma you MUST pull the node's real values
-(`get_metadata` for x/y/w/h of every element, `get_design_context` for
-colours/fonts/spacing) and diff each element's px against the code — **size AND
-position**. Do NOT look at a screenshot and judge "it matches"; that misses real
-pixel diffs and the user (a designer) catches them every time. Icon size/position
-is the usual failure (play button 68 vs 40, pin 14 vs 18, progress bar 40 vs 77,
-thumbnail 99 vs 90). Always choose the rigorous method, not the fast one.
+The mechanism that guarantees **100% Figma values + 0% extra**. Not optional.
+
+1. **SCOPE-LOCK → 0% extra.** Before touching any file, restate the exact list of
+   what THIS prompt literally asks for, and do only that list. If something seems
+   needed but is not written in the prompt: do NOT do it — note it and ask. No
+   "while I'm here" fixes, no adjacent screens/files, no "completing", no starting
+   work that wasn't requested, no commits the user didn't ask for.
+
+2. **VALUE-SOURCING → 100% Figma.** Every value you write — size, position, colour,
+   font, weight, radius, shadow, spacing — must first be pulled from
+   `get_design_context` / `get_metadata` of that exact node and copied 1:1. NEVER
+   write a value from memory, a "reasonable default", or by looking at a screenshot.
+   No value yet? Pull the node. Cite the node-id next to the block. (Every past
+   miss was estimation: player bg `#b5b5b5` vs real `#2d2d2d`, play 68 vs 40, pin
+   14 vs 18, menu 4×16 vs 11×13, progress 40 vs 77, thumbnail 99 vs 90.)
+
+3. **VALUE-DIFF VERIFY → never eyeball.** After editing, re-read the node and diff
+   each element value-vs-value against the code; report the table. NEVER confirm
+   fidelity from a screenshot.
 
 <!-- BEGIN:nextjs-agent-rules -->
 # This is NOT the Next.js you know
