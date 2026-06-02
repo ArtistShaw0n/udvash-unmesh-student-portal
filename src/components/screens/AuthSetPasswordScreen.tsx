@@ -99,7 +99,7 @@ export function AuthSetPasswordScreen({ nextHref, variant = "forgot" }: { nextHr
               </p>
               <p className="leading-[10px]">&nbsp;</p>
               <p className="leading-[20px]">
-                Your registration number is <span className="text-[16px] font-bold text-[#55347b]">1819361</span>
+                Your registration number is <span className="text-[16px] font-bold text-[#55347b] dark:text-[#9061c8]">1819361</span>
               </p>
             </div>
             {/* eslint-disable-next-line @next/next/no-img-element */}

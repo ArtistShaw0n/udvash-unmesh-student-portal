@@ -32,12 +32,13 @@ export default function AlreadyRegisteredPage() {
           <p className="text-[14px] leading-[20px] text-[#616161] dark:text-[#e8e8e8]">
             Your registration number is{" "}
             <span className="text-[16px] font-bold text-[#55347b] dark:text-[#9061c8]">1819361</span>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/components/icons/copy.svg" alt="" aria-hidden="true" className="ml-[4px] inline-block h-[15.5px] w-[15.5px] align-middle dark:hidden" />
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/components/icons/copy-dark.svg" alt="" aria-hidden="true" className="ml-[4px] hidden h-[15.5px] w-[15.5px] align-middle dark:inline-block" />
           </p>
         </div>
+
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/components/icons/copy.svg" alt="" aria-hidden="true" className="absolute left-[310px] top-[144px] h-[15.5px] w-[15.5px] dark:hidden" />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/components/icons/copy-dark.svg" alt="" aria-hidden="true" className="absolute left-[310px] top-[144px] hidden h-[15.5px] w-[15.5px] dark:block" />
 
         <Link href="/login" className="absolute left-1/2 top-[201px] flex h-[36px] w-[150px] -translate-x-1/2 items-center justify-center rounded-[5px] bg-[#55347b] px-[30px] py-[8px] dark:bg-[#9061c8]">
           <span className="font-['Inter',sans-serif] text-[14px] text-white">Login</span>
