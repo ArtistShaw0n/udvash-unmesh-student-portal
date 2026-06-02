@@ -27,12 +27,12 @@ export default function RegisterPage() {
         </p>
 
         <p className="absolute left-[20px] top-[152px] font-['Inter',sans-serif] text-[14px] leading-[normal] text-[#616161] dark:text-[#e8e8e8]">Nick Name</p>
-        <div className="absolute left-[20px] top-[177px] flex h-[40px] w-[320px] items-center rounded-[5px] border border-[#b9b9b9] bg-white px-[10px] dark:border-[#444444] dark:bg-[#111111] dark:shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1)]">
+        <div className="absolute left-[20px] top-[177px] flex h-[40px] w-[320px] items-center rounded-[5px] border border-[#b9b9b9] bg-white px-[10px] dark:border-[0.5px] dark:border-[#444444] dark:bg-[#111111] dark:shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1)]">
           <span className="font-['Inter',sans-serif] text-[14px] text-[#dcdcdc]">Enter Your Nick Name</span>
         </div>
 
         <p className="absolute left-[20px] top-[237px] font-['Inter',sans-serif] text-[14px] leading-[normal] text-[#616161] dark:text-[#e8e8e8]">Mobile Number</p>
-        <div className="absolute left-[20px] top-[262px] flex h-[40px] w-[320px] items-center rounded-[5px] border border-[#b9b9b9] bg-white px-[10px] dark:border-[#444444] dark:bg-[#111111] dark:shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1)]">
+        <div className="absolute left-[20px] top-[262px] flex h-[40px] w-[320px] items-center rounded-[5px] border border-[#b9b9b9] bg-white px-[10px] dark:border-[0.5px] dark:border-[#444444] dark:bg-[#111111] dark:shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1)]">
           <span className="font-['Inter',sans-serif] text-[14px] text-[#dcdcdc]">Enter Your Mobile Number</span>
         </div>
 
