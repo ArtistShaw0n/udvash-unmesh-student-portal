@@ -22,7 +22,7 @@ function QaRow({ top, color, icon, title }: { top: number; color: string; icon: 
       <div className="absolute left-[12px] top-[16px] size-[36px] rounded-[8px]">
         <div className="absolute inset-0 rounded-[8px] opacity-[0.15]" style={{ backgroundColor: color }} />
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={`${I}/${icon}.svg`} alt="" aria-hidden="true" className="absolute left-1/2 top-1/2 size-[22px] -translate-x-1/2 -translate-y-1/2" />
+        <img src={`${I}/${icon}.svg`} alt="" aria-hidden="true" className="absolute left-1/2 top-1/2 size-[24px] -translate-x-1/2 -translate-y-1/2" />
       </div>
       <p className={`absolute left-[58px] right-[31px] top-1/2 -translate-y-1/2 font-['Inter',sans-serif] text-[14px] font-medium leading-[20px] ${TXT}`}>{title}</p>
       <svg width="9" height="17" viewBox="0 0 11.0887 21.3379" fill="none" aria-hidden="true" className="absolute right-[12px] top-1/2 -translate-y-1/2" style={{ color }}>
