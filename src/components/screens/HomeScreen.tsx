@@ -47,10 +47,10 @@ const RIGHT: Tile[] = [
 
 function HomeTile({ t, loadingTile }: { t: Tile; loadingTile?: boolean }) {
   const card = (
-    <div className="relative h-[60px] w-[176px] rounded-[10px] bg-white shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1)] dark:bg-[#1a1a1a] dark:shadow-[0px_0px_4px_0px_rgba(255,255,255,0.25)]">
+    <div className="relative h-[60px] w-[176px] rounded-[8px] bg-white shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1)] dark:border dark:border-[#1c1c1c] dark:bg-[#1a1a1a] dark:shadow-[0px_0px_20px_0px_#000000]">
       {t.notif && (
         // eslint-disable-next-line @next/next/no-img-element
-        <img src="/components/icons/home-live-exam-notif.svg" alt="" aria-hidden="true" className="absolute right-[4px] top-[3px] size-[13px]" />
+        <img src="/components/icons/home-live-exam-notif.svg" alt="" aria-hidden="true" className="absolute right-[3px] top-[3px] size-[13px]" />
       )}
 
       {t.kind === "plain" ? (
