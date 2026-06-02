@@ -26,7 +26,7 @@ export function LoginScreen({ state }: { state: LoginState }) {
 
       <AuthHeader />
 
-      <div className="relative mx-auto mt-[100px] w-[360px] rounded-[20px] bg-white shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1)] dark:bg-[#1a1a1a] dark:shadow-[0px_0px_20px_0px_#000000]" style={{ height: cardH }}>
+      <div className="relative mx-auto mt-[100px] w-[360px] rounded-[20px] bg-white shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1)] dark:border dark:border-[#1c1c1c] dark:bg-[#1a1a1a] dark:shadow-[0px_0px_20px_0px_#000000]" style={{ height: cardH }}>
         <p className="absolute inset-x-0 top-[40px] text-center font-['Inter',sans-serif] text-[26px] font-medium leading-[normal] text-[#616161] dark:text-[#e8e8e8]">{isPw ? "Welcome Asif!" : "Student Login"}</p>
 
         {isInvalid && (
