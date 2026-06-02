@@ -27,7 +27,7 @@ const SUBPOINTS = [
 const I = "/components/icons/analysis";
 const TXT = "text-[#616161] dark:text-[#e8e8e8]";
 const BIG_CARD =
-  "rounded-[5px] bg-white shadow-[0px_0px_4px_0px_rgba(255,255,255,0.25)] dark:border dark:border-[#1c1c1c] dark:bg-[#1a1a1a] dark:shadow-[0px_0px_20px_0px_#000000]";
+  "rounded-[5px] bg-white shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1),0px_0px_4px_0px_rgba(255,255,255,0.25)] dark:border dark:border-[#1c1c1c] dark:bg-[#1a1a1a] dark:shadow-[0px_0px_20px_0px_#000000]";
 
 /* ---------- Marks card ---------- */
 function MarksCard({ published }: { published: boolean }) {

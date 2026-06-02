@@ -109,7 +109,7 @@ export function TagScreen() {
       <div className="absolute left-1/2 top-[100px] h-px w-[230px] -translate-x-1/2 bg-[linear-gradient(90deg,transparent,#000000,transparent)] opacity-[0.32] dark:bg-[linear-gradient(90deg,transparent,#ffffff,transparent)]" />
 
       {/* Search + Filter */}
-      <div className="absolute left-1/2 top-[121px] h-[50px] w-[368px] -translate-x-1/2 rounded-[5px] bg-white shadow-[0px_0px_4px_0px_rgba(255,255,255,0.25)] dark:bg-[#1a1a1a]" />
+      <div className="absolute left-1/2 top-[121px] h-[50px] w-[368px] -translate-x-1/2 rounded-[5px] bg-white shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1),0px_0px_4px_0px_rgba(255,255,255,0.25)] dark:bg-[#1a1a1a]" />
       <div className="absolute left-[12px] top-[131px] flex h-[30px] w-[253px] items-center gap-[6px] rounded-[15px] border border-[#cdcdcd] bg-white px-[10px] dark:border-[#444444] dark:bg-[#1a1a1a]">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={`${QA}/qa-search.svg`} alt="" aria-hidden="true" className="size-[18px] dark:invert" />

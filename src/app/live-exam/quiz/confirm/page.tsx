@@ -27,7 +27,7 @@ export default function LiveExamSubmitConfirmPage() {
       <div className="absolute inset-0 bg-[rgba(0,0,0,0.8)]" />
 
       {/* confirmation modal */}
-      <div className="absolute left-1/2 top-[318px] h-[177px] w-[336px] -translate-x-1/2 rounded-[10px] bg-white shadow-[0px_0px_4px_0px_rgba(255,255,255,0.25)] dark:border dark:border-[#1c1c1c] dark:bg-[#1a1a1a] dark:shadow-[0px_0px_20px_0px_#000000]">
+      <div className="absolute left-1/2 top-[318px] h-[177px] w-[336px] -translate-x-1/2 rounded-[10px] bg-white shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1),0px_0px_4px_0px_rgba(255,255,255,0.25)] dark:border dark:border-[#1c1c1c] dark:bg-[#1a1a1a] dark:shadow-[0px_0px_20px_0px_#000000]">
         <Link href="/live-exam/quiz" className="absolute right-[7px] top-[7px] block size-[24px]">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/components/icons/quiz-modal-close.svg" alt="" aria-hidden="true" className="block size-full" />

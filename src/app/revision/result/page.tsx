@@ -29,7 +29,7 @@ export default function RevisionResultPage() {
 
       <div className="absolute left-1/2 top-[162px] flex w-[360px] -translate-x-1/2 flex-col items-center">
         {/* Exam-info card */}
-        <div className="relative h-[102px] w-[360px] rounded-[5px] bg-white shadow-[0px_0px_4px_0px_rgba(255,255,255,0.25)] dark:border dark:border-[#1c1c1c] dark:bg-[#1a1a1a] dark:shadow-[0px_0px_20px_0px_#000000]">
+        <div className="relative h-[102px] w-[360px] rounded-[5px] bg-white shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1),0px_0px_4px_0px_rgba(255,255,255,0.25)] dark:border dark:border-[#1c1c1c] dark:bg-[#1a1a1a] dark:shadow-[0px_0px_20px_0px_#000000]">
           <p className={`absolute left-1/2 top-[12px] -translate-x-1/2 whitespace-nowrap font-['Inter',sans-serif] text-[14px] font-semibold leading-[normal] ${TXT}`}>[122] Weekly Exam-07</p>
           <p className={`absolute left-1/2 top-[35px] -translate-x-1/2 whitespace-nowrap font-['Inter',sans-serif] text-[12px] leading-[normal] ${TXT}`}>09 May, 2022</p>
           <div className="absolute left-[66px] top-[66px] flex items-center gap-[5px]">

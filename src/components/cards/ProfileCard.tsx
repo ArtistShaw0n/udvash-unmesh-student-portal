@@ -35,7 +35,7 @@ export function ProfileCard({
 
   return (
     <article
-      className={`relative w-[360px] rounded-[10px] bg-white shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1),0px_0px_4px_0px_rgba(255,255,255,0.25)] dark:bg-[#1a1a1a] dark:shadow-[0px_0px_4px_0px_rgba(255,255,255,0.25)] ${className ?? ""}`}
+      className={`relative w-[360px] rounded-[10px] bg-white shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1),0px_0px_4px_0px_rgba(255,255,255,0.25)] dark:bg-[#1a1a1a] dark:shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1),0px_0px_4px_0px_rgba(255,255,255,0.25)] ${className ?? ""}`}
       style={{ height: cardHeight }}
     >
       {avatarSrc && (

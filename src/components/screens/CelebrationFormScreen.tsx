@@ -16,7 +16,7 @@ const TXT = "text-[#616161] dark:text-[#e8e8e8]";
 function Card({ top, height }: { top: number; height: number }) {
   return (
     <div
-      className="absolute left-[8px] w-[360px] rounded-[10px] bg-white shadow-[0px_0px_4px_0px_rgba(255,255,255,0.25)] dark:border dark:border-[#1c1c1c] dark:bg-[#1a1a1a] dark:shadow-[0px_0px_20px_0px_#000000]"
+      className="absolute left-[8px] w-[360px] rounded-[10px] bg-white shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1),0px_0px_4px_0px_rgba(255,255,255,0.25)] dark:border dark:border-[#1c1c1c] dark:bg-[#1a1a1a] dark:shadow-[0px_0px_20px_0px_#000000]"
       style={{ top, height }}
     />
   );

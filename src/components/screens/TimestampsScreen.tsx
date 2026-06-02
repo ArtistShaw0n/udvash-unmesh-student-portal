@@ -130,7 +130,7 @@ export function TimestampsScreen({ expanded }: { expanded?: boolean }) {
       <Tab top={371} left="calc(50% - 45px)" width={90} label="Source-2" rr />
 
       {/* Timestamps accordion */}
-      <div className="absolute left-[8px] top-[420px] w-[360px] overflow-hidden rounded-[10px] bg-white shadow-[0px_0px_4px_0px_rgba(255,255,255,0.25)] dark:border dark:border-[#1c1c1c] dark:bg-[#1a1a1a] dark:shadow-[0px_0px_20px_0px_#000000]" style={{ height: expanded ? 277 : 82 }}>
+      <div className="absolute left-[8px] top-[420px] w-[360px] overflow-hidden rounded-[10px] bg-white shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1),0px_0px_4px_0px_rgba(255,255,255,0.25)] dark:border dark:border-[#1c1c1c] dark:bg-[#1a1a1a] dark:shadow-[0px_0px_20px_0px_#000000]" style={{ height: expanded ? 277 : 82 }}>
         <Link href={expanded ? "/timestamps" : "/timestamps/expanded"} className="absolute left-[20px] top-[20px] flex w-[319px] items-center justify-between">
           <span className={`font-['Inter',sans-serif] text-[14px] font-semibold leading-[normal] ${TXT}`}>Timestamps</span>
           {/* eslint-disable-next-line @next/next/no-img-element */}

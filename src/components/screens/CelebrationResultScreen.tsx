@@ -46,14 +46,14 @@ export function CelebrationResultScreen() {
       <AppHeader />
 
       {/* Pending Verification Message */}
-      <div className="absolute left-[24px] top-[74px] h-[216px] w-[328px] rounded-[10px] bg-[#fff2cf] shadow-[0px_0px_4px_0px_rgba(255,255,255,0.25)]" />
+      <div className="absolute left-[24px] top-[74px] h-[216px] w-[328px] rounded-[10px] bg-[#fff2cf] shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1),0px_0px_4px_0px_rgba(255,255,255,0.25)]" />
       <div className="absolute left-[44px] top-[94px] w-[288px] font-['Inter',sans-serif] text-[14px] font-normal text-[#836a27]">
         <p className="leading-[22px]">প্রিয় Mahfuz,</p>
         <p className="leading-[22px]">তোমার আবেদনটি Verification এর অপেক্ষায় আছে Verification সম্পন্ন হলে তোমাকে একটি QR Code দেওয়া হবে QR Code টি মোবাইল স্ক্রিনে অথবা কাগজে প্রিন্ট করে প্রদর্শন সাপেক্ষে সেলিব্রেশন ভেন্যু থেকে অথবা নিকটস্থ শাখা থেকে সংবর্ধনা গিফট সংগ্রহ করতে পারবে একটি QR Code একবারই ব্যবহারযোগ্য।</p>
       </div>
 
       {/* Rejection Message */}
-      <div className="absolute left-[24px] top-[300px] h-[128px] w-[328px] rounded-[10px] bg-[#f7d7da] shadow-[0px_0px_4px_0px_rgba(255,255,255,0.25)]" />
+      <div className="absolute left-[24px] top-[300px] h-[128px] w-[328px] rounded-[10px] bg-[#f7d7da] shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1),0px_0px_4px_0px_rgba(255,255,255,0.25)]" />
       <div className="absolute left-[44px] top-[320px] w-[288px] font-['Inter',sans-serif] text-[14px] font-normal text-[#723036]">
         <p className="leading-[22px]">প্রিয় Mahfuz,</p>
         <p className="leading-[22px]">দুঃখিত! তথ্য সঠিক না হওয়ায় তোমার আবেদনটি Reject করা হয়েছে। </p>
