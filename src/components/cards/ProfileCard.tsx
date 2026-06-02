@@ -54,7 +54,7 @@ export function ProfileCard({
         Reg. No. {registrationNo}
       </p>
 
-      <div className="absolute left-[16px] top-[204px] h-px w-[328px] bg-[#cacaca]" />
+      <div className="absolute left-[16px] top-[204px] h-px w-[328px] bg-[#cacaca] dark:bg-[#565656]" />
 
       {personalInfo.length > 0 && (
         <>

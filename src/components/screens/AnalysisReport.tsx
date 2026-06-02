@@ -39,7 +39,7 @@ function MarksCard({ published }: { published: boolean }) {
       <p className={`absolute left-1/2 top-[55px] -translate-x-1/2 font-['Inter',sans-serif] text-[10px] leading-[normal] ${TXT}`}>
         MARKS OBTAINED
       </p>
-      <div className="absolute left-[20px] top-[87px] h-px w-[320px] bg-[#cacaca]" />
+      <div className="absolute left-[20px] top-[87px] h-px w-[320px] bg-[#cacaca] dark:bg-[#565656]" />
 
       {published ? (
         <>
@@ -311,7 +311,7 @@ function SubjectWiseCard({ expanded, className }: { expanded: boolean; className
       {expanded && (
         <>
           <SwRow top={64} cells={["Subject", "MCQ", "Written", "Total"]} head />
-          <div className="absolute left-[20px] top-[95px] h-px w-[320px] bg-[#cacaca]" />
+          <div className="absolute left-[20px] top-[95px] h-px w-[320px] bg-[#cacaca] dark:bg-[#565656]" />
           {SUBJECTS.map((s, i) => (
             <SwRow key={i} top={106 + i * 31} cells={[s.subject, s.mcq, s.written, s.total]} />
           ))}

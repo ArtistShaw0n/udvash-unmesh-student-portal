@@ -59,12 +59,12 @@ function LectureCard({ base }: { base: number }) {
           <span className="font-['Inter',sans-serif] text-[14px] leading-[20px] text-white">English</span>
         </div>
       </div>
-      <div className="absolute left-1/2 h-px w-[304px] -translate-x-1/2 bg-[#cacaca]" style={{ top: base + 156 }} />
+      <div className="absolute left-1/2 h-px w-[304px] -translate-x-1/2 bg-[#cacaca] dark:bg-[#565656]" style={{ top: base + 156 }} />
       <ActionBtn left={60} top={base + 170} color="#2496c1" icon="vp-video" label="Video" />
       <ActionBtn left={198} top={base + 170} color="#fc5a5a" icon="vp-doubt" label="Doubt" />
       <ActionBtn left={60} top={base + 214} color="#ff9900" icon="vp-notes" label="Notes" />
       <ActionBtn left={198} top={base + 214} color="#289b91" icon="vp-quiz" label="Quiz" />
-      <div className="absolute left-1/2 h-px w-[304px] -translate-x-1/2 bg-[#cacaca]" style={{ top: base + 262 }} />
+      <div className="absolute left-1/2 h-px w-[304px] -translate-x-1/2 bg-[#cacaca] dark:bg-[#565656]" style={{ top: base + 262 }} />
       <div className="absolute left-[calc(50%-77px)] flex h-[36px] w-[134px] -translate-x-1/2 items-center justify-center rounded-[5px] bg-[#c6c6c6] dark:bg-[#2c2c2c]" style={{ top: base + 288 }}>
         <span className="font-['Inter',sans-serif] text-[14px] leading-[12px] text-white">Previous Lecture</span>
       </div>
@@ -119,7 +119,7 @@ export function TimestampsScreen({ expanded }: { expanded?: boolean }) {
         <img src={`${I}/vp-download.svg`} alt="" aria-hidden="true" className="size-[16px] dark:invert" />
       </div>
 
-      <div className="absolute left-1/2 top-[318px] h-px w-[360px] -translate-x-1/2 bg-[#cacaca]" />
+      <div className="absolute left-1/2 top-[318px] h-px w-[360px] -translate-x-1/2 bg-[#cacaca] dark:bg-[#565656]" />
 
       {/* Video / Source tabs */}
       <Tab top={332} left="calc(50% - 135px)" width={90} label="Video-1" active rl />

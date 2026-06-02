@@ -86,7 +86,7 @@ export function LiveExamInstructions({ selected }: { selected?: boolean }) {
       <div className={`absolute left-1/2 top-[248px] h-[1240px] w-[360px] -translate-x-1/2 ${CARD}`} />
       <p className={`absolute left-1/2 top-[272px] w-[336px] -translate-x-1/2 text-center font-['Inter',sans-serif] text-[16px] font-semibold leading-[normal] ${TXT}`}>Varsity Kha Weekly Live Exam-04</p>
       <Bullets items={BANGLA} top={307} />
-      <div className="absolute left-[20px] top-[822px] h-px w-[336px] bg-[#cacaca]" />
+      <div className="absolute left-[20px] top-[822px] h-px w-[336px] bg-[#cacaca] dark:bg-[#565656]" />
       <p className={`absolute left-1/2 top-[837px] w-[336px] -translate-x-1/2 text-center font-['Inter',sans-serif] text-[16px] font-semibold leading-[normal] ${TXT}`}>Varsity Kha Weekly Live Exam-04</p>
       <Bullets items={ENGLISH} top={868} />
 
