@@ -65,7 +65,7 @@ export function LiveClassCard({
 
       <div
         className={cn(
-          "absolute left-1/2 flex h-[36px] w-[130px] -translate-x-1/2 items-center justify-center rounded-[5px]",
+          "absolute left-[calc(50%-30px)] flex h-[36px] w-[130px] -translate-x-1/2 items-center justify-center rounded-[5px]",
           joinEnabled ? "bg-[#55347b] dark:bg-[#9061c8]" : "bg-[#c6c6c6] dark:bg-[#2c2c2c]",
         )}
         style={{ top: band + 204 }}
