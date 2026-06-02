@@ -30,13 +30,13 @@ export function LoginScreen({ state }: { state: LoginState }) {
         <p className="absolute inset-x-0 top-[40px] text-center font-['Inter',sans-serif] text-[26px] font-medium leading-[normal] text-[#616161] dark:text-[#e8e8e8]">{isPw ? "Welcome Asif!" : "Student Login"}</p>
 
         {isInvalid && (
-          <div className="absolute left-1/2 top-[88px] flex h-[24px] -translate-x-1/2 items-center whitespace-nowrap rounded-[12px] bg-[#fdecec] px-[14px]">
+          <div className="absolute left-1/2 top-[97px] flex h-[24px] -translate-x-1/2 items-center whitespace-nowrap rounded-[12px] bg-[#faefef] px-[20px]">
             <span className="font-['Inter',sans-serif] text-[14px] leading-[normal] text-[#f95959]">{isPw ? "Invalid Password" : "Invalid Registration Number"}</span>
           </div>
         )}
 
         <p className="absolute left-[20px] top-[131px] font-['Inter',sans-serif] text-[14px] leading-[normal] text-[#616161] dark:text-[#e8e8e8]">{isPw ? "Password" : "Registration Number"}</p>
-        <div className={`absolute left-[20px] top-[156px] flex h-[40px] w-[320px] items-center justify-between rounded-[5px] border bg-white px-[10px] dark:bg-[#111111] dark:shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1)] ${isInvalid ? "border-[#f95959]" : "border-[#b9b9b9] dark:border-[#444444]"}`}>
+        <div className={`absolute left-[20px] top-[156px] flex h-[40px] w-[320px] items-center justify-between rounded-[5px] border bg-white px-[10px] dark:bg-[#111111] dark:shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1)] ${state === "password" ? "shadow-[0px_0px_4px_0px_rgba(109,109,109,0.25)] " : ""}${isInvalid ? "border-[#f95959]" : "border-[#b9b9b9] dark:border-[#444444]"}`}>
           <span className={`font-['Inter',sans-serif] text-[14px] ${value ? "text-[#616161] dark:text-[#e8e8e8]" : "text-[#dcdcdc]"}`}>{value ?? "Enter Your Registration Number"}</span>
           {isInvalid && <span className="font-['Inter',sans-serif] text-[16px] leading-none text-[#f95959]">✕</span>}
         </div>
