@@ -12,7 +12,7 @@ const TXT = "text-[#616161] dark:text-[#e8e8e8]";
 function DiscussionCard({ top, height, title, visit }: { top: number; height: number; title: string; visit?: boolean }) {
   return (
     <div
-      className="absolute left-1/2 flex w-[336px] -translate-x-1/2 items-center rounded-[10px] bg-white px-[12px] shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1)] dark:border dark:border-[#1c1c1c] dark:bg-[#1a1a1a] dark:shadow-[0px_0px_20px_0px_#000000]"
+      className="absolute left-1/2 flex w-[336px] -translate-x-1/2 items-center rounded-[10px] bg-white px-[12px] shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1)] dark:bg-[#1a1a1a] dark:shadow-[0px_0px_20px_0px_#000000]"
       style={{ top, height }}
     >
       <div className="flex w-full items-center justify-between">
