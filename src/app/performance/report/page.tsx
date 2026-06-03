@@ -12,6 +12,8 @@ import { ExamResultCard } from "@/components/cards/ExamResultCard";
  *   (y2409) + footer. frame 376×2578.
  */
 const TXT = "text-[#616161] dark:text-[#e8e8e8]";
+const PILL =
+  "rounded-[5px] bg-white shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1)] dark:border dark:border-[#1c1c1c] dark:bg-[#1a1a1a] dark:shadow-[0px_0px_20px_0px_#000000]";
 const I = "/components/icons/perf";
 
 function FilterPill({ label, left, width }: { label: string; left: number; width: number }) {
@@ -27,9 +29,9 @@ function FilterPill({ label, left, width }: { label: string; left: number; width
 function PillStat({ icon, label, value, top }: { icon: string; label: string; value: string; top: number }) {
   return (
     <div className="absolute left-[12px] flex h-[39px] w-[304px] items-center justify-between rounded-[5px] bg-white px-[12px] shadow-[0px_0px_2.5px_0px_rgba(0,0,0,0.1)] dark:bg-[#1a1a1a] dark:shadow-[0px_0px_4px_0px_rgba(0,0,0,0.5)]" style={{ top }}>
-      <span className="flex items-center gap-[6px]">
+      <span className="flex items-center gap-[4px]">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={`${I}/${icon}.svg`} alt="" aria-hidden="true" className="size-[18px]" />
+        <img src={`${I}/${icon}.svg`} alt="" aria-hidden="true" className="size-[14px]" />
         <span className={`font-['Inter',sans-serif] text-[14px] ${TXT}`}>{label}</span>
       </span>
       <span className={`font-['Inter',sans-serif] text-[16px] font-bold ${TXT}`}>{value}</span>
@@ -74,25 +76,30 @@ export default function PerformanceReportPage() {
       {/* Course Merit Summary card */}
       <div className="absolute left-[24px] top-[1970px] h-[423px] w-[328px] rounded-[10px] bg-white shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1)] dark:border dark:border-[#1c1c1c] dark:bg-[#1a1a1a] dark:shadow-[0px_0px_20px_0px_#000000]">
         <p className={`absolute left-[12px] top-[20px] w-[304px] font-['Inter',sans-serif] text-[14px] font-semibold leading-[20px] ${TXT}`}>1. Engineering Full Course (Offline)</p>
-        <p className="absolute left-[12px] top-[48px] font-['Inter',sans-serif] text-[12px] text-[#999999]">Based on In-Branch Exam</p>
+        <p className="absolute left-[12px] top-[44px] font-['Inter',sans-serif] text-[12px] text-[#999999]">Based on In-Branch Exam</p>
         <PillStat icon="mcq" label="MCQ" value="0.00/1000" top={75} />
         <PillStat icon="written" label="Written" value="0.00/1000" top={122} />
         <PillStat icon="obtained" label="Total Obtained" value="0.00/1000" top={169} />
         <PillStat icon="total" label="Highest" value="0.00/1000" top={216} />
-        <div className="absolute left-[12px] top-[271px] flex items-center gap-[8px]">
+        <span className={`absolute left-[12px] top-[271px] h-[66px] w-[304px] ${PILL}`} />
+        <div className="absolute left-[24px] top-[277px] flex items-center gap-[6px]">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={`${I}/merit.svg`} alt="" aria-hidden="true" className="h-[14px] w-[16px]" />
           <span className={`font-['Inter',sans-serif] text-[14px] font-semibold ${TXT}`}>Merit Rankings</span>
         </div>
-        <span className={`absolute left-[12px] top-[301px] font-['Inter',sans-serif] text-[12px] ${TXT}`}>Central - 49 </span>
-        <span className={`absolute right-[12px] top-[301px] font-['Inter',sans-serif] text-[12px] ${TXT}`}>Branch - 15 </span>
+        <div className="absolute left-[24px] top-[297px] flex w-[138px] flex-col items-center py-[10px]">
+          <span className={`w-[94px] font-['Inter',sans-serif] text-[12px] ${TXT}`}>Central - 49 </span>
+        </div>
+        <div className="absolute left-[162px] top-[297px] flex w-[142px] flex-col items-center py-[10px]">
+          <span className={`w-[98px] text-right font-['Inter',sans-serif] text-[12px] ${TXT}`}>Branch - 15 </span>
+        </div>
         <div className="absolute left-[89px] top-[367px] flex h-[36px] w-[150px] items-center justify-center rounded-[5px] bg-[#55347b] dark:bg-[#9061c8]">
           <span className="font-['Inter',sans-serif] text-[14px] leading-[12px] text-white">View Result</span>
         </div>
       </div>
 
       {/* Total Performance row */}
-      <div className="absolute left-[24px] top-[2409px] flex h-[73px] w-[328px] items-center justify-between rounded-[10px] bg-white px-[20px] shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1)] dark:border dark:border-[#1c1c1c] dark:bg-[#1a1a1a] dark:shadow-[0px_0px_20px_0px_#000000]">
+      <div className="absolute left-[24px] top-[2409px] flex h-[73px] w-[328px] items-start justify-between rounded-[10px] bg-white px-[20px] pt-[20px] shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1)] dark:border dark:border-[#1c1c1c] dark:bg-[#1a1a1a] dark:shadow-[0px_0px_20px_0px_#000000]">
         <span className="flex items-center gap-[8px]">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={`${I}/badge.svg`} alt="" aria-hidden="true" className="size-[20px]" />
@@ -100,7 +107,7 @@ export default function PerformanceReportPage() {
         </span>
         <span className="flex flex-col items-end">
           <span className={`font-['Inter',sans-serif] text-[16px] font-semibold leading-[22px] ${TXT}`}>0.00/1000</span>
-          <span className="font-['Inter',sans-serif] text-[12px] text-[#616161] dark:text-[#e8e8e8]">Total Marks Obtained</span>
+          <span className="mt-[6px] font-['Inter',sans-serif] text-[12px] text-[#616161] dark:text-[#e8e8e8]">Total Marks Obtained</span>
         </span>
       </div>
 
