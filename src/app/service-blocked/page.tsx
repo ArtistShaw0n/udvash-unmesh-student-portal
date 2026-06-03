@@ -41,7 +41,7 @@ export default function ServiceBlockedPage() {
         <div className="relative">
           <ProgramListCard heroSrc="/components/images/performance-employee.png" title="Employee Training Program 2021 (Online)" ctaLabel="View Report" />
           <div className="absolute inset-0 rounded-[10px] bg-[rgba(53,53,53,0.8)]" />
-          <div className="absolute left-1/2 top-1/2 flex h-[44px] w-[236px] -translate-x-1/2 -translate-y-1/2 items-center gap-[9px] rounded-[24px] border border-[#fe9a00] bg-[#fffbeb] px-[27px] shadow-[0px_25px_25px_0px_rgba(0,0,0,0.25)]">
+          <div className="absolute left-1/2 top-1/2 flex h-[44px] w-[236px] -translate-x-1/2 -translate-y-1/2 items-center gap-[9px] rounded-[24px] border border-[#fe9a00] bg-[#fffbeb] pl-[10px] pr-[11px] shadow-[0px_25px_25px_0px_rgba(0,0,0,0.25)]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={`${SB}/warning.svg`} alt="" aria-hidden="true" className="size-[16.667px] shrink-0" />
             <span className="whitespace-nowrap font-['Inter',sans-serif] text-[16px] font-semibold leading-[24px] text-[#7b3306]">Service Blocked</span>
