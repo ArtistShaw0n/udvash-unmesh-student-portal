@@ -31,7 +31,7 @@ export function LoginScreen({ state }: { state: LoginState }) {
 
         {isInvalid && (
           <div className="absolute left-1/2 top-[97px] flex h-[24px] -translate-x-1/2 items-center whitespace-nowrap rounded-[12px] bg-[#faefef] px-[20px]">
-            <span className="font-['Inter',sans-serif] text-[14px] leading-[normal] text-[#f95959]">{isPw ? "Invalid Password" : "Invalid Registration Number"}</span>
+            <span className="font-['Inter',sans-serif] text-[12px] leading-[normal] text-[#f95959]">{isPw ? "Invalid Password" : "Invalid Registration Number"}</span>
           </div>
         )}
 
