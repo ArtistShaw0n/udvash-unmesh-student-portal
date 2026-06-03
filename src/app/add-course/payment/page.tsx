@@ -34,7 +34,7 @@ export default function AddCoursePaymentPage() {
       <div className="absolute left-1/2 top-[146px] h-[557px] w-[360px] -translate-x-1/2 rounded-[10px] bg-white shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1)] dark:border dark:border-[#1c1c1c] dark:bg-[#1a1a1a] dark:shadow-[0px_0px_20px_0px_#000000]" />
 
       <p className={`absolute left-[28px] top-[176px] whitespace-nowrap font-['Inter',sans-serif] text-[14px] leading-[normal] ${TXT}`}>Total Amount</p>
-      <div className="absolute left-[28px] top-[201px] flex h-[40px] w-[320px] items-center rounded-[5px] border border-[#b9b9b9] bg-[#f5f5f5] px-[10px] dark:border-[#444444] dark:bg-[#2c2c2c]">
+      <div className="absolute left-[28px] top-[201px] flex h-[40px] w-[320px] items-center rounded-[5px] border border-[#b9b9b9] bg-[#f5f5f5] px-[10px] shadow-[0px_0px_2px_0px_rgba(109,109,109,0.25)] dark:border-[#444444] dark:bg-[#2c2c2c]">
         <span className="font-['Inter',sans-serif] text-[14px] leading-[normal] text-[#1976d2]">13000.00</span>
       </div>
 
