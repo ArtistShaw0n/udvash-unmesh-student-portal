@@ -26,10 +26,10 @@ function PastCard({ top }: { top: number }) {
       <p className={`absolute left-[20px] top-[239px] font-['Inter',sans-serif] text-[14px] font-semibold leading-[normal] ${TXT}`}>Engineering Full Course 2025 [Online]</p>
       <p className={`absolute left-[20px] top-[262px] font-['Inter',sans-serif] text-[14px] leading-[normal] ${TXT}`}>Engineering Admission Program (Online) 2025</p>
       <div className="absolute left-[calc(50%-75px)] top-[336px] flex h-[36px] w-[130px] -translate-x-1/2 items-center justify-center rounded-[5px] bg-[#55347b] dark:bg-[#9061c8]">
-        <span className="font-['Inter',sans-serif] text-[14px] leading-[12px] text-[#e8e8e8]">Video</span>
+        <span className="font-['Inter',sans-serif] text-[14px] leading-[12px] text-[#e8e8e8] dark:text-white">Video</span>
       </div>
       <div className="absolute left-[calc(50%+75px)] top-[336px] flex h-[36px] w-[130px] -translate-x-1/2 items-center justify-center rounded-[5px] bg-[#55347b] dark:bg-[#9061c8]">
-        <span className="font-['Inter',sans-serif] text-[14px] leading-[12px] text-[#e8e8e8]">Notes</span>
+        <span className="font-['Inter',sans-serif] text-[14px] leading-[12px] text-[#e8e8e8] dark:text-white">Notes</span>
       </div>
     </div>
   );
