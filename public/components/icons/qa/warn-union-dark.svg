@@ -1,0 +1,21 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 229 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Union" filter="url(#filter0_d_228_18875)">
+<mask id="path-1-inside-1_228_18875" fill="white">
+<path d="M199 20C204.523 20 209 24.4772 209 30V210C209 215.523 204.523 220 199 220H30C24.4772 220 20 215.523 20 210V30C20 24.4772 24.4772 20 30 20H199Z"/>
+</mask>
+<path d="M199 20C204.523 20 209 24.4772 209 30V210C209 215.523 204.523 220 199 220H30C24.4772 220 20 215.523 20 210V30C20 24.4772 24.4772 20 30 20H199Z" fill="var(--fill-0, #1A1A1A)"/>
+<path d="M209 30H210V30H209ZM209 210H210V210H209ZM20 210H19V210H20ZM20 30H19V30H20ZM199 20V21C203.971 21 208 25.0294 208 30H209H210C210 23.9249 205.075 19 199 19V20ZM209 30H208V210H209H210V30H209ZM209 210H208C208 214.971 203.971 219 199 219V220V221C205.075 221 210 216.075 210 210H209ZM199 220V219H30V220V221H199V220ZM30 220V219C25.0294 219 21 214.971 21 210H20H19C19 216.075 23.9249 221 30 221V220ZM20 210H21V30H20H19V210H20ZM20 30H21C21 25.0294 25.0294 21 30 21V20V19C23.9249 19 19 23.9249 19 30H20ZM30 20V21H199V20V19H30V20Z" fill="var(--stroke-0, #1C1C1C)" mask="url(#path-1-inside-1_228_18875)"/>
+</g>
+<defs>
+<filter id="filter0_d_228_18875" x="0" y="0" width="229" height="240" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset/>
+<feGaussianBlur stdDeviation="10"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_228_18875"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_228_18875" result="shape"/>
+</filter>
+</defs>
+</svg>

@@ -23,11 +23,11 @@ type Msg = { sender: string; t1: string; t2: string; right?: boolean; text: stri
 
 // Figma Ellipse 41 — 2px filled circle separator (#616161, node 1:27685).
 function Dot({ dim }: { dim?: boolean }) {
-  return <span className={cn("block size-[2px] shrink-0 rounded-full", dim ? "bg-[rgba(97,97,97,0.5)] dark:bg-[rgba(232,232,232,0.5)]" : "bg-[#616161] dark:bg-[#e8e8e8]")} />;
+  return <span className={cn("block size-[2px] shrink-0 rounded-full", dim ? "bg-[rgba(97,97,97,0.7)] dark:bg-[rgba(232,232,232,0.7)]" : "bg-[#616161] dark:bg-[#e8e8e8]")} />;
 }
 
 function MsgHeader({ sender, t1, t2, right, dim }: { sender: string; t1: string; t2: string; right?: boolean; dim?: boolean }) {
-  const c = dim ? "text-[rgba(97,97,97,0.5)] dark:text-[rgba(232,232,232,0.5)]" : TXT;
+  const c = dim ? "text-[rgba(97,97,97,0.7)] dark:text-[rgba(232,232,232,0.7)]" : TXT;
   return (
     <div className={cn("flex items-center gap-[4px] font-['Inter',sans-serif] text-[12px] leading-[normal]", c, right && "justify-end")}>
       <span className="font-semibold">{sender}</span>
@@ -91,10 +91,12 @@ function Message({ m, dim }: { m: Msg; dim?: boolean }) {
 
 function Card({ top, height, msgs, dim }: { top: number; height: number; msgs: Msg[]; dim?: boolean }) {
   return (
-    <div className="absolute left-[12px] flex w-[352px] items-start rounded-[5px] bg-white px-[8px] py-[12px] shadow-[0px_0px_2.5px_0px_rgba(0,0,0,0.03)] dark:border dark:border-[#1c1c1c] dark:bg-[#1a1a1a] dark:shadow-[0px_0px_20px_0px_#000000]" style={{ top, height }}>
-      {/* bookmark — Figma node 1:27680 (12×15 #616161) */}
+    <div className="absolute left-[12px] flex w-[352px] items-start rounded-[5px] bg-white px-[8px] py-[12px] shadow-[0px_0px_2.5px_0px_rgba(0,0,0,0.03)] dark:bg-[#2c2c2c] dark:shadow-[0px_0px_10px_0px_#000000]" style={{ top, height }}>
+      {/* bookmark — Figma 1:27680 light #616161 / dark #e8e8e8 */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={`${I}/card-bookmark.svg`} alt="" aria-hidden="true" className="h-[15px] w-[12px] shrink-0 dark:invert" />
+      <img src={`${I}/card-bookmark.svg`} alt="" aria-hidden="true" className="h-[15px] w-[12px] shrink-0 dark:hidden" />
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={`${I}/card-bookmark-dark.svg`} alt="" aria-hidden="true" className="hidden h-[15px] w-[12px] shrink-0 dark:block" />
       <div className="flex w-[312px] flex-col gap-[16px]">
         {msgs.map((m, i) => (
           <Message key={i} m={m} dim={dim} />
@@ -129,13 +131,13 @@ export default function QAQuestionsPage() {
       <div className="absolute left-1/2 top-[100px] h-px w-[230px] -translate-x-1/2 bg-[linear-gradient(90deg,transparent,#000000,transparent)] opacity-[0.32] dark:bg-[linear-gradient(90deg,transparent,#ffffff,transparent)]" />
 
       {/* Search + Filter */}
-      <div className="absolute left-1/2 top-[121px] h-[50px] w-[368px] -translate-x-1/2 rounded-[5px] bg-white shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1),0px_0px_4px_0px_rgba(255,255,255,0.25)] dark:bg-[#1a1a1a]" />
-      <div className="absolute left-[12px] top-[131px] flex h-[30px] w-[253px] items-center gap-[6px] rounded-[15px] border border-[#cdcdcd] bg-white px-[10px] dark:border-[#444444] dark:bg-[#1a1a1a]">
+      <div className="absolute left-1/2 top-[121px] h-[50px] w-[368px] -translate-x-1/2 rounded-[5px] bg-white shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1),0px_0px_4px_0px_rgba(255,255,255,0.25)] dark:bg-[#2c2c2c]" />
+      <div className="absolute left-[12px] top-[131px] flex h-[30px] w-[253px] items-center gap-[6px] rounded-[15px] border border-[#cdcdcd] bg-white px-[10px] dark:border-[#6d6d6d] dark:bg-[#2c2c2c]">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={`${I}/qa-search.svg`} alt="" aria-hidden="true" className="size-[18px] dark:invert" />
         <span className="font-['Inter',sans-serif] text-[14px] leading-[normal] text-[#999999]">Search</span>
       </div>
-      <div className="absolute left-[281px] top-[131px] flex h-[30px] w-[83px] items-center justify-center gap-[12px] rounded-[5px] border border-[#cdcdcd] bg-white dark:border-[#444444] dark:bg-[#1a1a1a]">
+      <div className="absolute left-[281px] top-[131px] flex h-[30px] w-[83px] items-center justify-center gap-[12px] rounded-[5px] border border-[#cdcdcd] bg-white dark:border-[#6d6d6d] dark:bg-[#2c2c2c]">
         <span className={`font-['Inter',sans-serif] text-[14px] leading-[normal] ${TXT}`}>Filter</span>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={`${I}/qa-filter.svg`} alt="" aria-hidden="true" className="h-[16px] w-[21px] dark:invert" />
@@ -146,12 +148,16 @@ export default function QAQuestionsPage() {
       <Card top={1750} height={523} msgs={CARD3} dim />
 
       {/* AI-Teacher warning notice — node 1:27950 @ (38,851) 189×200 */}
-      <div className="absolute left-[38px] top-[851px] w-[189px]">
+      <div className="absolute left-[38px] top-[851px] h-[200px] w-[189px]">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={`${I}/warn-union.svg`} alt="" aria-hidden="true" className="block h-[200px] w-[189px] dark:invert" />
+        <span className="absolute inset-[-4px] block dark:hidden"><img src={`${I}/warn-union.svg`} alt="" aria-hidden="true" className="block size-full max-w-none" /></span>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <span className="absolute inset-[-20px] hidden dark:block"><img src={`${I}/warn-union-dark.svg`} alt="" aria-hidden="true" className="block size-full max-w-none" /></span>
         <p className="absolute left-[12px] top-[30px] w-[165px] whitespace-pre-wrap font-['Inter',sans-serif] text-[11px] leading-[16px] text-[#f95959]">সর্বাধিক নির্ভুল উত্তর পেতে হাতের লেখা, বাঁকা, ঝাপসা ছবি এবং বাংলিশ লেখা এড়িয়ে চলো  তবে AI TEACHER  এর উত্তর যেহেতু ১০০% সঠিক নাও হতে পারে; তাই কোনো উত্তরে সন্তুষ্ট না হলে &quot; NOT YET &quot;  এ ক্লিক করে HUMAN TEACHER  ভাইয়া / আপু কে প্রশ্ন করলে কিছু সময় পর উত্তর পেয়ে যাবে ইন শা আল্লাহ</p>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={`${I}/warn-cross.svg`} alt="" aria-hidden="true" className="absolute right-[10px] top-[8px] size-[12px]" />
+        <img src={`${I}/warn-cross.svg`} alt="" aria-hidden="true" className="absolute right-[6px] top-[6px] size-[16px] dark:hidden" />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={`${I}/warn-cross-dark.svg`} alt="" aria-hidden="true" className="absolute right-[6px] top-[6px] hidden size-[16px] dark:block" />
       </div>
 
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2">
