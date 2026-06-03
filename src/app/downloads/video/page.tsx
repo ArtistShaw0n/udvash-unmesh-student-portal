@@ -25,10 +25,10 @@ function ActionBtn({ left, top, color, icon, label }: { left: number; top: numbe
 function Tab({ left, width, label, active, rl, rr, top }: { left: string; width: number; label: string; active?: boolean; rl?: boolean; rr?: boolean; top: number }) {
   return (
     <div
-      className={`absolute flex h-[29px] -translate-x-1/2 items-center justify-center border ${active ? "border-[#55347b] bg-[#55347b] dark:border-[#9061c8] dark:bg-[#9061c8]" : "border-[#55347b] bg-white dark:border-[#9061c8] dark:bg-[#1a1a1a]"} ${rl ? "rounded-l-[5px]" : ""} ${rr ? "rounded-r-[5px]" : ""}`}
+      className={`absolute flex h-[29px] -translate-x-1/2 items-center justify-center border ${active ? "border-[#55347b] bg-[#55347b] dark:border-[#9061c8] dark:bg-[#9061c8]" : "border-[#55347b] bg-white dark:border-[#9061c8] dark:bg-[#2c2c2c]"} ${rl ? "rounded-l-[5px]" : ""} ${rr ? "rounded-r-[5px]" : ""}`}
       style={{ left, width, top }}
     >
-      <span className={`font-['Inter',sans-serif] text-[14px] leading-[normal] ${active ? "text-white" : "text-[#616161] dark:text-[#9061c8]"}`}>{label}</span>
+      <span className={`font-['Inter',sans-serif] text-[14px] leading-[normal] ${active ? "text-white" : "text-[#616161] dark:text-[#e8e8e8]"}`}>{label}</span>
     </div>
   );
 }
@@ -41,42 +41,44 @@ export default function DownloadsVideoPage() {
       <AppHeader />
 
       {/* Video player */}
-      <div className="absolute left-1/2 top-[70px] h-[202px] w-[360px] -translate-x-1/2 bg-[#6e6e6e]" />
+      <div className="absolute left-1/2 top-[70px] h-[202px] w-[360px] -translate-x-1/2 bg-[#6e6e6e] dark:bg-[#2d2d2d]" />
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={`${I}/dl-play.svg`} alt="" aria-hidden="true" className="absolute left-1/2 top-[137px] size-[68px] -translate-x-1/2" />
+      <img src={`${I}/dl-play.svg`} alt="" aria-hidden="true" className="absolute left-1/2 top-[151px] size-[40px] -translate-x-1/2" />
 
       {/* controls */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={`${I}/controls-bar.png`} alt="" aria-hidden="true" className="absolute left-1/2 top-[242px] h-[30px] w-[360px] -translate-x-1/2 object-cover" />
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={`${I}/ctrl-play.svg`} alt="" aria-hidden="true" className="absolute left-[25px] top-[250px] size-[14px]" />
+      <img src={`${I}/ctrl-play.svg`} alt="" aria-hidden="true" className="absolute left-[18px] top-[250px] h-[14px] w-[12px]" />
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={`${I}/ctrl-seek.svg`} alt="" aria-hidden="true" className="absolute left-[79px] top-[250px] size-[14px]" />
+      <img src={`${I}/ctrl-seek.svg`} alt="" aria-hidden="true" className="absolute left-[74px] top-[250px] h-[14px] w-[16px]" />
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={`${I}/ctrl-seek.svg`} alt="" aria-hidden="true" className="absolute left-[106px] top-[250px] size-[14px] -scale-x-100" />
+      <img src={`${I}/ctrl-seek.svg`} alt="" aria-hidden="true" className="absolute left-[102px] top-[250px] h-[14px] w-[16px] -scale-x-100" />
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={`${I}/vp-ctrl-vol.svg`} alt="" aria-hidden="true" className="absolute left-[132px] top-[250px] size-[14px]" />
+      <img src={`${I}/vp-ctrl-vol.svg`} alt="" aria-hidden="true" className="absolute left-[130px] top-[249px] h-[16px] w-[17px]" />
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={`${I}/ctrl-g2.svg`} alt="" aria-hidden="true" className="absolute left-[160px] top-[251px] h-[12px] w-[40px]" />
-      <p className="absolute left-[245px] top-[251px] whitespace-nowrap font-['Inter',sans-serif] text-[12px] leading-[normal] text-white">-2:52:48</p>
+      <img src={`${I}/ctrl-g2.svg`} alt="" aria-hidden="true" className="absolute left-[159px] top-[253px] h-[8px] w-[77px]" />
+      <p className="absolute left-[248px] top-[250px] whitespace-nowrap font-['Inter',sans-serif] text-[12px] leading-[normal] text-white">-2:52:48</p>
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={`${I}/ctrl-settings.svg`} alt="" aria-hidden="true" className="absolute left-[309px] top-[250px] size-[14px]" />
+      <img src={`${I}/ctrl-settings.svg`} alt="" aria-hidden="true" className="absolute left-[314px] top-[249px] size-[16px]" />
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={`${I}/ctrl-fullscreen.svg`} alt="" aria-hidden="true" className="absolute left-[335px] top-[250px] size-[14px]" />
+      <img src={`${I}/ctrl-fullscreen.svg`} alt="" aria-hidden="true" className="absolute left-[342px] top-[249px] size-[16px]" />
 
       {/* Resolution dropdown */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={`${I}/vp-union.svg`} alt="" aria-hidden="true" className="absolute left-[241px] top-[163px] h-[113px] w-[117px]" />
-      <div className="absolute left-[241px] top-[178px] h-[25px] w-[117px] bg-black opacity-5" />
-      <p className="absolute left-[253px] top-[183px] whitespace-nowrap font-['Inter',sans-serif] text-[12px] leading-[normal] text-[#616161]">480p (400MB)</p>
-      <p className="absolute left-[253px] top-[212px] whitespace-nowrap font-['Inter',sans-serif] text-[12px] leading-[normal] text-[#616161]">720p (700MB)</p>
-      <p className="absolute left-[253px] top-[241px] whitespace-nowrap font-['Inter',sans-serif] text-[12px] leading-[normal] text-[#616161]">1080p (1.5GB)</p>
+      <img src={`${I}/vp-union.svg`} alt="" aria-hidden="true" className="absolute left-[241px] top-[163px] h-[113px] w-[117px] dark:hidden" />
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={`${I}/vp-union-dark.svg`} alt="" aria-hidden="true" className="absolute left-[221px] top-[143px] hidden h-[153px] w-[157px] dark:block" />
+      <div className="absolute left-[241px] top-[178px] h-[25px] w-[117px] bg-black opacity-5 dark:bg-[#2c2c2c] dark:opacity-100" />
+      <p className="absolute left-[253px] top-[183px] whitespace-nowrap font-['Inter',sans-serif] text-[12px] leading-[normal] text-[#616161] dark:text-white">480p (400MB)</p>
+      <p className="absolute left-[253px] top-[212px] whitespace-nowrap font-['Inter',sans-serif] text-[12px] leading-[normal] text-[#616161] dark:text-white">720p (700MB)</p>
+      <p className="absolute left-[253px] top-[241px] whitespace-nowrap font-['Inter',sans-serif] text-[12px] leading-[normal] text-[#616161] dark:text-white">1080p (1.5GB)</p>
 
       {/* Download pill */}
-      <div className="absolute left-[241px] top-[280px] flex h-[30px] w-[117px] items-center justify-center gap-[6px] rounded-[15px] border border-[#999999] bg-white shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1)] dark:border-[#444444] dark:bg-[#1a1a1a]">
+      <div className="absolute left-[241px] top-[280px] flex h-[30px] w-[117px] items-center justify-center gap-[6px] rounded-[15px] border border-[#999999] bg-white shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1)] dark:border-[#e8e8e8] dark:bg-transparent">
         <span className={`font-['Inter',sans-serif] text-[14px] leading-[normal] ${TXT}`}>Download</span>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={`${I}/vp-download.svg`} alt="" aria-hidden="true" className="size-[16px] dark:invert" />
+        <img src={`${I}/vp-download.svg`} alt="" aria-hidden="true" className="h-[15.3px] w-[21.6px] dark:invert" />
       </div>
 
       <div className="absolute left-1/2 top-[318px] h-px w-[360px] -translate-x-1/2 bg-[#cacaca] dark:bg-[#565656]" />
@@ -97,7 +99,7 @@ export default function DownloadsVideoPage() {
       <p className={`absolute left-[36px] top-[548px] whitespace-nowrap font-['Inter',sans-serif] text-[14px] font-bold leading-[20px] ${TXT}`}>অধ্যায়-০২ : কোষ বিভাজন (১ম পত্র) </p>
 
       {/* Language toggle */}
-      <div className="absolute left-[219px] top-[436px] flex h-[26px] w-[121px] overflow-hidden rounded-[17px] bg-[#b7bfcd] dark:bg-[#2c2c2c]">
+      <div className="absolute left-[219px] top-[436px] flex h-[26px] w-[121px] overflow-hidden rounded-[17px] bg-[#b7bfcd] dark:bg-[#696969]">
         <div className="flex h-full w-[53px] items-center justify-center rounded-[17px] bg-[#4fa621]">
           <span className="font-['Inter',sans-serif] text-[14px] leading-[20px] text-white">বাংলা</span>
         </div>

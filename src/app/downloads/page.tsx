@@ -29,7 +29,7 @@ function DownloadRow({ top, n, chapter, date, quality }: { top: number; n: strin
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={`${I}/cover.png`} alt="" aria-hidden="true" className="size-full object-cover" />
       </div>
-      <p className={`absolute left-[12px] w-[90px] text-center font-['Inter',sans-serif] text-[10px] leading-[normal] ${TXT}`} style={{ top: top + 87 }}>{quality}</p>
+      <p className="absolute left-[12px] w-[90px] text-center font-['Inter',sans-serif] text-[10px] leading-[normal] text-[#616161] dark:text-[#acacac]" style={{ top: top + 87 }}>{quality}</p>
       <p className={`absolute left-[116px] right-[12px] font-['Inter',sans-serif] text-[12px] leading-[16px] ${TXT}`} style={{ top: top + 27 }}>{chapter}</p>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={`${I}/menu.svg`} alt="" aria-hidden="true" className="absolute right-[12px] h-[13px] w-[11px] dark:invert" style={{ top: top + 70 }} />
@@ -55,6 +55,8 @@ export default function DownloadsPage() {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={`${I}/gear.svg`} alt="" aria-hidden="true" className="size-full dark:invert" />
       </Link>
+
+      <div className="absolute left-1/2 top-[112px] h-px w-[360px] -translate-x-1/2 bg-[#cacaca] dark:bg-[#565656]" />
 
       {/* Video player */}
       <div className="absolute left-1/2 top-[122px] h-[202px] w-[360px] -translate-x-1/2 bg-[#b5b5b5] dark:bg-[#2d2d2d]" />
