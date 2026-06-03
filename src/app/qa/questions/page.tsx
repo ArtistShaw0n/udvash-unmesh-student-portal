@@ -89,7 +89,7 @@ function Message({ m, dim }: { m: Msg; dim?: boolean }) {
   );
 }
 
-function Card({ top, height, msgs, dim }: { top: number; height: number; msgs: Msg[]; dim?: boolean }) {
+function Card({ top, height, msgs, dim, menu }: { top: number; height: number; msgs: Msg[]; dim?: boolean; menu?: boolean }) {
   return (
     <div className="absolute left-[12px] flex w-[352px] items-start rounded-[5px] bg-white px-[8px] py-[12px] shadow-[0px_0px_2.5px_0px_rgba(0,0,0,0.03)] dark:bg-[#2c2c2c] dark:shadow-[0px_0px_10px_0px_#000000]" style={{ top, height }}>
       {/* bookmark — Figma 1:27680 light #616161 / dark #e8e8e8 */}
@@ -102,6 +102,15 @@ function Card({ top, height, msgs, dim }: { top: number; height: number; msgs: M
           <Message key={i} m={m} dim={dim} />
         ))}
       </div>
+      {menu && (
+        <>
+          {/* ⋮ overflow menu — Figma 1:27697 (4×16 #616161 / dark #e8e8e8), top-right */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={`${I}/card-menu.svg`} alt="" aria-hidden="true" className="absolute right-[8px] top-[12px] h-[16px] w-[4px] dark:hidden" />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={`${I}/card-menu-dark.svg`} alt="" aria-hidden="true" className="absolute right-[8px] top-[12px] hidden h-[16px] w-[4px] dark:block" />
+        </>
+      )}
     </div>
   );
 }
@@ -143,7 +152,7 @@ export default function QAQuestionsPage() {
         <img src={`${I}/qa-filter.svg`} alt="" aria-hidden="true" className="h-[16px] w-[21px] dark:invert" />
       </div>
 
-      <Card top={187} height={313} msgs={CARD1} />
+      <Card top={187} height={313} msgs={CARD1} menu />
       <Card top={510} height={1230} msgs={CARD2} dim />
       <Card top={1750} height={523} msgs={CARD3} dim />
 
