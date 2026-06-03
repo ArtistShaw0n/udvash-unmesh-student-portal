@@ -10,7 +10,7 @@
  */
 function MenuRow({ icon, tint, label, top }: { icon: string; tint: string; label: string; top: number }) {
   return (
-    <div className="absolute left-[16px] flex h-[36px] items-center gap-[12px]" style={{ top }}>
+    <div className="absolute left-[16px] flex h-[36px] items-center gap-[20px]" style={{ top }}>
       <span className="relative block size-[36px] rounded-[5px]" style={{ backgroundColor: `${tint}1a` }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={`/components/icons/${icon}.svg`} alt="" aria-hidden="true" className="absolute inset-0 size-full" />
