@@ -55,7 +55,7 @@ function MarksCard({ published }: { published: boolean }) {
         </>
       ) : (
         <>
-          <span className={`absolute left-[41px] top-[105px] font-['Inter',sans-serif] text-[14px] ${TXT}`}>Your Position:</span>
+          <span className={`absolute left-[51px] top-[105px] font-['Inter',sans-serif] text-[14px] ${TXT}`}>Your Position:</span>
           <p className={`absolute left-[33px] top-[126px] w-[127px] text-center font-['Inter',sans-serif] text-[12px] leading-[16px] ${TXT}`}>
             Will be published after 11:10 PM Today.
           </p>
