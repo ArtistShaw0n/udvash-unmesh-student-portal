@@ -24,7 +24,10 @@ function StatCell({ icon, label, value, left, top }: { icon: string; label: stri
   );
 }
 
-export function ExamResultCard({ top, status, statusColor }: { top: number; status: string; statusColor: string }) {
+type CardAction = { label: string; left: number; width: number };
+const DEFAULT_ACTIONS: CardAction[] = [{ label: "View Result", left: 89, width: 150 }];
+
+export function ExamResultCard({ top, status, statusColor, actions = DEFAULT_ACTIONS }: { top: number; status: string; statusColor: string; actions?: CardAction[] }) {
   return (
     <div className="absolute left-[24px] h-[387px] w-[328px] rounded-[10px] bg-white shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1)] dark:border dark:border-[#1c1c1c] dark:bg-[#1a1a1a] dark:shadow-[0px_0px_20px_0px_#000000]" style={{ top }}>
       {/* raised pills — 2×2 stat grid + merit section */}
@@ -60,9 +63,11 @@ export function ExamResultCard({ top, status, statusColor }: { top: number; stat
       </div>
       <div className={`absolute left-[24px] top-[264px] w-[280px] border-t border-dashed border-[#c7c7c7] pt-[10px] text-center font-['Inter',sans-serif] text-[12px] dark:border-[#565656] ${TXT}`}>Central Merit - 1234</div>
 
-      <div className="absolute left-[89px] top-[331px] flex h-[36px] w-[150px] items-center justify-center rounded-[5px] bg-[#55347b] dark:bg-[#9061c8]">
-        <span className="font-['Inter',sans-serif] text-[14px] leading-[12px] text-white">View Result</span>
-      </div>
+      {actions.map((a) => (
+        <div key={a.label} className="absolute top-[331px] flex h-[36px] items-center justify-center rounded-[5px] bg-[#55347b] dark:bg-[#9061c8]" style={{ left: a.left, width: a.width }}>
+          <span className="font-['Inter',sans-serif] text-[14px] leading-[12px] text-white">{a.label}</span>
+        </div>
+      ))}
     </div>
   );
 }
