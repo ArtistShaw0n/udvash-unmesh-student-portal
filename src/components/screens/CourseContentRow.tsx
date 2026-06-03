@@ -63,7 +63,7 @@ export function CourseContentRow({ course, href }: { course: Course; href?: stri
 export function CourseChapterRow({ title, count, href }: { title: string; count?: number; href?: string }) {
   const row = (
     <div className="relative h-[60px] w-[336px] rounded-[10px] bg-white shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1)] dark:border dark:border-[#1c1c1c] dark:bg-[#1a1a1a] dark:shadow-[0px_0px_20px_0px_#000000]">
-      <p className="absolute left-[20px] top-1/2 w-[280px] -translate-y-1/2 font-['Inter',sans-serif] text-[14px] leading-[20px] text-[#616161] dark:text-[#e8e8e8]">
+      <p className="absolute left-[12px] top-1/2 w-[293px] -translate-y-1/2 font-['Inter',sans-serif] text-[14px] leading-[20px] text-[#616161] dark:text-[#e8e8e8]">
         {title}
         {count != null && <span className="text-[#3b88f5]"> ({count})</span>}
       </p>
