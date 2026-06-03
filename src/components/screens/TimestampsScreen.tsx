@@ -91,7 +91,7 @@ export function TimestampsScreen({ expanded }: { expanded?: boolean }) {
       {/* Video player */}
       <div className="absolute left-1/2 top-[70px] h-[202px] w-[360px] -translate-x-1/2 bg-[#6e6e6e]" />
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={`${I}/dl-play.svg`} alt="" aria-hidden="true" className="absolute left-1/2 top-[137px] size-[68px] -translate-x-1/2" />
+      <img src={`${I}/dl-play.svg`} alt="" aria-hidden="true" className="absolute left-1/2 top-[151px] size-[40px] -translate-x-1/2" />
 
       {/* controls */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
