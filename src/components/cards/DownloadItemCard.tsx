@@ -53,8 +53,8 @@ export function DownloadItemCard({
           ))}
         </div>
       </div>
-      <p className="font-['Inter',sans-serif] text-[16px] font-semibold text-[#616161]">{title}</p>
-      <p className="mt-[4px] font-['Inter',sans-serif] text-[12px] text-[#999999]">{dateTime}</p>
+      <p className="font-['Inter',sans-serif] text-[16px] font-bold text-[#616161]">{title}</p>
+      <p className="mt-[4px] font-['Inter',sans-serif] text-[12px] text-[#616161]">{dateTime}</p>
     </div>
   );
 }
