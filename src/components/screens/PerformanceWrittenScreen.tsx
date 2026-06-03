@@ -30,21 +30,22 @@ function SaqRow({ top, label }: { top: number; label: string }) {
 export function PerformanceWrittenScreen({ step }: { step: "version" | "saq" }) {
   return (
     <main className="relative mx-auto h-[729px] w-[376px] overflow-hidden bg-white dark:bg-[#111111]">
-      <div className="pointer-events-none absolute inset-0 opacity-40 dark:hidden" style={{ backgroundImage: "linear-gradient(66.076deg, #e2eefd 13.822%, #e6f3f1 52.905%, #e9dfee 93.259%)" }} />
+      <div className="pointer-events-none absolute inset-0 opacity-40 dark:hidden" style={{ backgroundImage: "linear-gradient(63.7036deg, #e2eefd 13.822%, #e6f3f1 52.905%, #e9dfee 93.259%)" }} />
 
       <AppHeader />
 
-      <p className={`absolute left-1/2 top-[74px] -translate-x-1/2 whitespace-nowrap text-center font-['Inter',sans-serif] text-[18px] font-semibold leading-[normal] ${TXT}`}>Employee Training Program 2021</p>
+      <p className={`absolute left-1/2 top-[74px] -translate-x-1/2 whitespace-nowrap text-center font-['Inter',sans-serif] text-[20px] font-semibold leading-[normal] ${TXT}`}>Employee Training Program 2021</p>
+      <div className="absolute left-1/2 top-[100px] h-px w-[183px] -translate-x-1/2 bg-[linear-gradient(90deg,transparent,#000000,transparent)] opacity-[0.32] dark:bg-[linear-gradient(90deg,transparent,#ffffff,transparent)]" />
       <p className={`absolute left-1/2 top-[111px] -translate-x-1/2 whitespace-nowrap text-center font-['Inter',sans-serif] text-[12px] leading-[normal] ${TXT}`}>Employee Training Course</p>
       <p className={`absolute left-1/2 top-[132px] -translate-x-1/2 whitespace-nowrap text-center font-['Inter',sans-serif] text-[12px] leading-[normal] ${TXT}`}>Templated Written Question Check-02</p>
 
       {step === "version" ? (
         <>
           <p className={`absolute left-1/2 top-[177px] w-[336px] -translate-x-1/2 text-center font-['Inter',sans-serif] text-[16px] font-semibold leading-[normal] ${TXT}`}>Select Version</p>
-          <Link href="/performance/written/sets" className="absolute left-[38px] top-[216px] flex h-[49px] w-[140px] items-center justify-center rounded-[5px] bg-white shadow-[0px_0px_2.5px_0px_rgba(0,0,0,0.1)] dark:border dark:border-[#1c1c1c] dark:bg-[#1a1a1a] dark:shadow-[0px_0px_20px_0px_#000000]">
+          <Link href="/performance/written/sets" className="absolute left-[38px] top-[216px] flex h-[49px] w-[140px] items-center justify-center rounded-[5px] bg-white shadow-[0px_0px_2.5px_0px_rgba(0,0,0,0.1)] dark:bg-[#2c2c2c]">
             <span className={`font-['Inter',sans-serif] text-[14px] font-medium leading-[normal] ${TXT}`}>Bangla Version</span>
           </Link>
-          <Link href="/performance/written/sets" className="absolute left-[198px] top-[216px] flex h-[49px] w-[140px] items-center justify-center rounded-[5px] bg-white shadow-[0px_0px_2.5px_0px_rgba(0,0,0,0.1)] dark:border dark:border-[#1c1c1c] dark:bg-[#1a1a1a] dark:shadow-[0px_0px_20px_0px_#000000]">
+          <Link href="/performance/written/sets" className="absolute left-[198px] top-[216px] flex h-[49px] w-[140px] items-center justify-center rounded-[5px] bg-white shadow-[0px_0px_2.5px_0px_rgba(0,0,0,0.1)] dark:bg-[#2c2c2c]">
             <span className={`font-['Inter',sans-serif] text-[14px] font-medium leading-[normal] ${TXT}`}>English Version</span>
           </Link>
           <Link href="/past-exam" className="absolute left-[80px] top-[295px] flex h-[36px] w-[216px] items-center justify-center rounded-[5px] bg-[#c6c6c6] dark:bg-[#2c2c2c]">
