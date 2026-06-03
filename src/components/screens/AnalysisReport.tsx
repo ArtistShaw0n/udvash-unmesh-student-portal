@@ -301,7 +301,7 @@ function SwRow({ top, cells, head }: { top: number; cells: string[]; head?: bool
 }
 
 function SubjectWiseCard({ expanded, className }: { expanded: boolean; className?: string }) {
-  const titleCls = expanded ? "text-[#616161] dark:text-[#e8e8e8]" : "text-[#00ba00]";
+  const titleCls = "text-[#616161] dark:text-[#e8e8e8]";
   return (
     <div className={cn("relative w-[360px]", BIG_CARD, className)} style={{ height: expanded ? 363 : 64 }}>
       <Link href={expanded ? "/subject-wise-details" : "/subject-wise-details/expanded"} className="absolute left-1/2 top-[20px] flex -translate-x-1/2 items-center gap-[20px]">
