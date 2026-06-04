@@ -28,7 +28,7 @@ const COURSES: Course[] = [
 
 function CourseCheck({ top, h, name, price, checked }: Course) {
   return (
-    <div className="absolute left-[8px] flex w-[360px] items-center gap-[8px] rounded-[5px] bg-white pl-[17px] pr-[12px] shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1)] dark:border dark:border-[#1c1c1c] dark:bg-[#1a1a1a] dark:shadow-[0px_0px_20px_0px_#000000]" style={{ top, height: h }}>
+    <div className="absolute left-[8px] flex w-[360px] items-center gap-[12px] rounded-[5px] bg-white pl-[12px] pr-[12px] shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1)] dark:bg-[#1a1a1a] dark:shadow-[0px_0px_20px_0px_#000000]" style={{ top, height: h }}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={`${A}/checkbox-${checked ? "checked" : "unchecked"}.svg`} alt="" aria-hidden="true" className={cn("size-[18px] shrink-0", !checked && "dark:invert")} />
       <p className={`flex-1 font-['Inter',sans-serif] text-[14px] leading-[22px] ${TXT}`}>{name}</p>
@@ -59,7 +59,7 @@ export default function AddCoursePage() {
         </p>
       </div>
 
-      <Link href="/add-course/details" className="absolute left-1/2 top-[1001px] flex h-[36px] w-[150px] -translate-x-1/2 items-center justify-center rounded-[5px] bg-[#55347b] dark:bg-[#9061c8]">
+      <Link href="/add-course/details" className="absolute left-1/2 top-[1001px] flex h-[36px] w-[150px] -translate-x-1/2 items-center justify-center rounded-[5px] bg-[#55347b]">
         <span className="font-['Inter',sans-serif] text-[14px] leading-[normal] text-white">Next</span>
       </Link>
 
