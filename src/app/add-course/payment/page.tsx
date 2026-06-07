@@ -31,7 +31,7 @@ export default function AddCoursePaymentPage() {
       <p className={`absolute left-1/2 top-[104px] -translate-x-1/2 whitespace-nowrap font-['Inter',sans-serif] text-[18px] font-semibold leading-[22px] ${TXT}`}>Medical Admission Program 2025</p>
 
       {/* form card */}
-      <div className="absolute left-1/2 top-[146px] h-[557px] w-[360px] -translate-x-1/2 rounded-[10px] bg-white shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1)] dark:border dark:border-[#1c1c1c] dark:bg-[#1a1a1a] dark:shadow-[0px_0px_20px_0px_#000000]" />
+      <div className="absolute left-1/2 top-[146px] h-[557px] w-[360px] -translate-x-1/2 rounded-[10px] bg-white shadow-[0px_0px_5px_0px_rgba(0,0,0,0.1)] dark:bg-[#1a1a1a] dark:shadow-[0px_0px_20px_0px_#000000]" />
 
       <p className={`absolute left-[28px] top-[176px] whitespace-nowrap font-['Inter',sans-serif] text-[14px] leading-[normal] ${TXT}`}>Total Amount</p>
       <div className="absolute left-[28px] top-[201px] flex h-[40px] w-[320px] items-center rounded-[5px] border border-[#b9b9b9] bg-[#f5f5f5] px-[10px] shadow-[0px_0px_2px_0px_rgba(109,109,109,0.25)] dark:border-[#444444] dark:bg-[#2c2c2c]">
@@ -39,7 +39,7 @@ export default function AddCoursePaymentPage() {
       </div>
 
       <p className={`absolute left-[28px] top-[261px] whitespace-nowrap font-['Inter',sans-serif] text-[14px] leading-[normal] ${TXT}`}>Payment Amount</p>
-      <div className="absolute left-[28px] top-[286px] flex h-[40px] w-[320px] items-center rounded-[5px] border border-[#b9b9b9] bg-white px-[10px] dark:border-[#444444] dark:bg-[#1a1a1a]">
+      <div className="absolute left-[28px] top-[286px] flex h-[40px] w-[320px] items-center rounded-[5px] border border-[#b9b9b9] bg-white px-[10px] dark:border-[#444444] dark:bg-[#111111]">
         <span className={`font-['Inter',sans-serif] text-[14px] leading-[normal] ${TXT}`}>13000.00</span>
       </div>
 
@@ -54,7 +54,7 @@ export default function AddCoursePaymentPage() {
       ))}
 
       {/* terms checkbox */}
-      <div className="absolute left-[16px] top-[553px] flex w-[332px] items-start gap-[8px]">
+      <div className="absolute left-[16px] top-[553px] flex w-[332px] items-start gap-[12px] pl-[12px]">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={`${A}/checkbox-unchecked.svg`} alt="" aria-hidden="true" className="mt-[2px] size-[18px] shrink-0 dark:invert" />
         <p className={`font-['Inter',sans-serif] text-[14px] leading-[22px] ${TXT}`}>
